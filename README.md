@@ -54,28 +54,53 @@ Any new rules will anounce or feedback their by team or project owner.
 
 ```
 project
+│
 ├─ pages // all the routes of Next.js application
+│   ├─ index.js // home page
+│   ├─ shop.js
+│   └─ music.js
 │
 ├─ public // put all image, icon... here
 │
 └─ app
-  │
-  ├─ api // contains all code we need to access the APIs
-  │
-  ├─ components
-  │   ├─ elements // the basic building blocks (button, card,...)
-  │   ├─ templates // all page templates
-  │   └─ layouts // include Footer, Header,...
-  │
-  ├─ constants // all global constants
-  │
-  ├─ context
-  │
-  ├─ hooks
-  │
-  ├─ styles // all scss files
-  │
-  └─ utils // put JS functions which can reuse
+    │
+    ├─ api // contains all code we need to access the APIs
+    │
+    ├─ components
+    │   │
+    │   ├─ elements
+    │   │   │
+    │   │   ├─ based // basic component  (Button, Card,...)
+    │   │   │   ├─ Button
+    │   │   │   ├─ Input
+    │   │   │   ├─ MixingImage
+    │   │   │   ├─ PlayingSong
+    │   │   │   ├─ RalatedSongs
+    │   │   │   ├─ SubscribeCard
+    │   │   │   └─ TourCard
+    │   │   │
+    │   │   └─ shared // component which is used by all pages
+    │   │       ├─ ChooseLanguage
+    │   │       ├─ Navigation
+    │   │       └─ Social
+    │   │
+    │   ├─ templates
+    │   │   ├─ Home.js
+    │   │   ├─ Music.js
+    │   │   └─ Shop.js
+    │   │
+    │   └─ layouts // used to wrap Templates
+    │      └─ Layout.js
+    │
+    ├─ constants // all global constants
+    │
+    ├─ context
+    │
+    ├─ hooks
+    │
+    ├─ styles // all scss files
+    │
+    └─ utils // put JS functions which can reuse
 ``` 
 
 ## Getting Started
@@ -87,4 +112,5 @@ npm run dev
 # or
 yarn dev
 ```
+
 
