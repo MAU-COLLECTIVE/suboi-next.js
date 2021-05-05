@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "baseUrl": "app",
+    "paths": {
+      "@element/*": ["components/elements/*"],
+      "@layout/*": ["components/layouts/*"],
+      "@module/*": ["components/modules/*"],
+      "@template/*": ["components/templates/*"],
+      "@constant/*": ["constants/*"],
+      "@context/*": ["context/*"],
+      "@hook/*": ["hooks/*"],
+      "@util/*": ["utils/*"]
+    }
+  }
+}

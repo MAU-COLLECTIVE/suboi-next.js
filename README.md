@@ -32,6 +32,7 @@ Handle the conflict:
 ## 2. Project specific
 - Yarn as package manager by default
 - AirBnB esLint and styleLint for style guide
+- node-sass
 
 ## 3. Task, Bonus and Minus system
 After you read this readme.md, you'all agree my term about quality in work process.
@@ -68,29 +69,34 @@ project
     │
     ├─ components
     │   │
-    │   ├─ elements
-    │   │   │
-    │   │   ├─ based // basic component  (Button, Card,...)
-    │   │   │   ├─ Button
-    │   │   │   ├─ Input
-    │   │   │   ├─ MixingImage
-    │   │   │   ├─ PlayingSong
-    │   │   │   ├─ RalatedSongs
-    │   │   │   ├─ SubscribeCard
-    │   │   │   └─ TourCard
-    │   │   │
-    │   │   └─ shared // component which is used by all pages
-    │   │       ├─ ChooseLanguage
-    │   │       ├─ Navigation
-    │   │       └─ Social
+    │   ├─ elements // component which is used by all pages
+    │   │   ├─ Button
+    │   │   ├─ Icon
+    │   │   └─ LanguageSelection
     │   │
-    │   ├─ templates
-    │   │   ├─ Home.js
-    │   │   ├─ Music.js
-    │   │   └─ Shop.js
+    │   ├─ layouts // used to wrap Templates
+    │   │   │
+    │   │   └─ Default
     │   │
-    │   └─ layouts // used to wrap Templates
-    │      └─ Layout.js
+    │   ├─ modules
+    │   │   │
+    │   │   ├─ Header
+    │   │   │  ├─ Navigation
+    │   │   │  └─ SubscibeCard
+    │   │   │
+    │   │   ├─ Home
+    │   │   │
+    │   │   ├─ Shop
+    │   │   │
+    │   │   └─ Music
+    │   │
+    │   └─ templates // used to wrap modules
+    │       │
+    │       ├─ HomePage
+    │       │
+    │       ├─ MusicPage
+    │       │
+    │       └─ ShopPage
     │
     ├─ constants // all global constants
     │
@@ -112,5 +118,6 @@ npm run dev
 # or
 yarn dev
 ```
+
 
 
