@@ -3,20 +3,44 @@ body {
   font-size: $font-base-size; 
   color: $color-white
 }
+
+.text {
+  font-size: 1.250000944882rem;
+  font-family: $font-primary;
+}
+
+.smallText {
+  font-size: 1.0000007559056rem;
+  font-family: $font-primary;
+}
+
+.bigText {
+  font-size: 2.5rem;
+  font-family: $font-primary;
+}
+
 p {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-.text {
-  font-size: 1.250000944882rem;
-  font-family: $font-primary;
+
+h1 {
+  font-family: $font-secondary;
+  font-size: 8.333339632546rem;
 }
-.smallText {
-  font-size: 1.0000007559056rem;
-  font-family: $font-primary;
+
+h2 {
+  font-family: $font-secondary;
+  font-size: 5.000003779528rem;
 }
-.bigText {
+
+h3 {
+  font-family: $font-secondary;
+  font-size: 3.3333358530187rem;
+}
+
+h4 {
+  font-family: $font-secondary;
   font-size: 2.5rem;
-  font-family: $font-primary;
 }
