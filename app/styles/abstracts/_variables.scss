@@ -1,9 +1,10 @@
-$color-primary: #faa916;
+$color-primary: #FF3434;
 $color-black: #050517;
 $color-white: #fff;
 
-$grid-columns: 12;
-$grid-gutter-width: 3rem;
+$font-base-size: 1.250000944882rem !default;
+$font-primary: 'Roboto';
+$font-secondary: 'Montserrat';
 
 $breakpoints: (
   xs: 0,
@@ -18,4 +19,6 @@ $container-max-widths: (
   md: 720px,
   lg: 960px,
   xl: 1140px,
-);
+); 
+
+

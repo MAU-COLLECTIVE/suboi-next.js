@@ -1,0 +1,22 @@
+body {
+  font-family: $font-primary;
+  font-size: $font-base-size; 
+  color: $color-white
+}
+p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.text {
+  font-size: 1.250000944882rem;
+  font-family: $font-primary;
+}
+.smallText {
+  font-size: 1.0000007559056rem;
+  font-family: $font-primary;
+}
+.bigText {
+  font-size: 2.5rem;
+  font-family: $font-primary;
+}

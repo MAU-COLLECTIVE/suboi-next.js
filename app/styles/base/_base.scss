@@ -1,30 +1,99 @@
-*,
-*:after,
-*:before {
-  box-sizing: inherit;
-  padding: 0;
-  margin: 0;
-}
-
-html {
-  // This defines what 1rem is
-  font-size: 62.5%;
+html { 
+  box-sizing: border-box;
+  font-size: 100%;
 }
 
 body {
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.6rem;
+  // optimize font rendering
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-p {
-  line-height: 2.4rem;
+*, *:after, *:before {
+  box-sizing: inherit;
+} 
 
-  &:not(:last-child) {
-    margin-bottom: 2rem;
-  }
-}
-
+// Avoid link underline
 a {
-  text-decoration: none;
+  text-decoration: none; 
+}
+
+// Reset button styling
+button,
+input[type='button'] {
+  outline: 0;
+  -webkit-appearance: none;
+  border-radius: 0;
+  cursor: default;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='search'],
+input[type='number'],
+input[type='tel'],
+input[type='url'],
+textarea {
+  @extend button;
+  // Set font size to 16px to avoid iOS zooming on focus
+  font-size: 16px;
+}
+
+// Remove default fieldset styles
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+// Allow only vertical resize of textareas
+textarea {
+  resize: vertical;
+}
+
+// Remove gap beneath elements
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+h1 {
+  font-family: $font-secondary;
+  font-size: 8.333339632546rem;
+}
+
+h2 {
+  font-family: $font-secondary;
+  font-size: 5.000003779528rem;
+}
+
+h3 {
+  font-family: $font-secondary;
+  font-size: 3.3333358530187rem;
+}
+
+h4 {
+  font-family: $font-secondary;
+  font-size: 2.5rem;
+}
+
+// A better looking default horizontal rule
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+// Reset figure spacing
+figure {
+  margin: 0;
 }
