@@ -4,43 +4,43 @@ body {
   color: $color-white
 }
 
-.text {
-  font-size: 1.250000944882rem;
-  font-family: $font-primary;
-}
-
+// 12px
 .smallText {
-  font-size: 1.0000007559056rem;
+  font-size: 0.8rem;
   font-family: $font-primary;
 }
 
+// 15px
+.text {
+  font-size: $font-base-size;
+  font-family: $font-primary;
+}
+// 25px
 .bigText {
-  font-size: 2.5rem;
+  font-size: 1.667rem;
   font-family: $font-primary;
 }
 
+//short text with triple dots "."
 p {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 
+// Title declaration
 h1 {
   font-family: $font-secondary;
-  font-size: 8.333339632546rem;
+  font-size: 6.667rem;
 }
 
 h2 {
   font-family: $font-secondary;
-  font-size: 5.000003779528rem;
+  font-size: 2.667rem;
 }
 
 h3 {
   font-family: $font-secondary;
-  font-size: 3.3333358530187rem;
+  font-size: 1.333rem;
 }
 
-h4 {
-  font-family: $font-secondary;
-  font-size: 2.5rem;
-}

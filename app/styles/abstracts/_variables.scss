@@ -2,23 +2,11 @@ $color-primary: #FF3434;
 $color-black: #050517;
 $color-white: #fff;
 
-$font-base-size: 1.250000944882rem !default;
+$font-base-size: 1rem !default;
 $font-primary: 'Roboto';
 $font-secondary: 'Montserrat';
 
-$breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-);
-
-$container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1140px,
-); 
-
-
+//Background opacity coverage
+$opacity-background: 0.15;
+//background color 
+$background-color: #000;
