@@ -7,7 +7,7 @@ function Default({ children }) {
       <Header />
       <div className={styles.content}>{children}</div>
     </div>
-  )
-} 
+  );
+};
 
 export default Default;
