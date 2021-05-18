@@ -1,0 +1,33 @@
+@import "styles/app.scss";
+
+.itemDetail {
+  width: 736px;
+  height: 377px; 
+  display: flex; 
+}
+
+.left {
+  flex: 1;
+  background-color: blue;
+
+  .itemImg {
+    cursor: pointer;
+    width: 327px;
+    height: 327px;
+
+    @include shop-breakpoint("lg") {
+      width: 280px;
+      height: 280px;
+    }
+
+    @include shop-breakpoint("sm") {
+      width: 100%;
+      height: 100vw;
+    }
+  }
+}
+
+.right {
+  flex: 1;
+  background-color: red;
+}

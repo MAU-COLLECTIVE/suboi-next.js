@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from 'components/elements/Button/Button';
+import Button from 'elements/Button/Button';
 import styles from './CheckoutBox.module.scss';
 
 function CheckoutBox() {
