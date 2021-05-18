@@ -1,0 +1,48 @@
+@import "styles/app.scss";
+
+.navigation {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.company {
+  padding: 0;
+  margin: 0;
+  font-family: $font-secondary;
+  font-weight: 900; // black
+  font-size: 40px;
+  line-height: 40px;
+  color: $color-white;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  flex: 1;
+  margin-left: 40px;
+  font-family: $font-secondary;
+  font-weight: 800; // extra bold
+
+  li {
+    margin: 0 16.5px;
+
+    &:last-of-type {
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    cursor: pointer;
+    transition: .3s;
+
+    &:active {
+      transform: scale(.95);
+    }
+
+    & a {
+      color: $color-white;
+    }
+  }
+}
