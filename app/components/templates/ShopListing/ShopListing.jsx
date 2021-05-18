@@ -1,34 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 import Cart from 'modules/Shop/Cart/Cart';
 import Items from 'modules/Shop/Items/Items';
-import ItemDetail from 'modules/Shop/ItemDetail/ItemDetail';
 import CartButton from 'modules/Shop/CartButton/CartButton';
 import styles from './ShopListing.module.scss';
 
-const items = [
-  {
-    id: '1',
-    name: 'SUBOI TOUR SHIRT',
-    price: 1,
-    image: 'https://i.ibb.co/XCQMY1W/hoodieblack.png',
-  },
-  {
-    id: '2',
-    name: 'SUBOI TOUR SHIRT',
-    price: 1,
-    image: 'https://i.ibb.co/XCQMY1W/hoodieblack.png',
-  },
-  {
-    id: '3',
-    name: 'SUBOI TOUR SHIRT',
-    price: 1,
-    image: 'https://i.ibb.co/XCQMY1W/hoodieblack.png',
-  },
-];
-
-function ShopListing() {
-  const { pathname } = useRouter();
+function ShopListing({ items }) {
   const [openCart, setOpenCart] = useState(false);
   const [appearCart, setAppearCart] = useState(false);
 
@@ -68,11 +45,7 @@ function ShopListing() {
   return <div className={styles.container}>
     <div className={styles.background}/>
     <div className={styles.items}>
-      {pathname === '/shop'
-        ? <Items
-            data={items}
-        />
-        : <ItemDetail/>}
+      <Items data={items}/>
       <CartButton
         openCart={openCart}
         appearCart={appearCart}
@@ -85,5 +58,9 @@ function ShopListing() {
     </div>
   </div>;
 }
+
+ShopListing.propTypes = {
+  items: PropTypes.array,
+};
 
 export default ShopListing;

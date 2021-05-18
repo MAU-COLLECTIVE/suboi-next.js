@@ -14,7 +14,7 @@ function Item({
     router.push(`/shop/${id}`);
   };
 
-  return <div className={styles.itemm}>
+  return <div className={styles.item}>
     <img
       className={styles.itemImg}
       src={image}

@@ -22,7 +22,7 @@
     bottom: -50px
   }
 
-  @include shop-breakpoint("sm") { 
+  @include shop-breakpoint("md") { 
     position: relative;
     width: calc(100% - 40px); 
     margin: 0 20px;
@@ -52,7 +52,7 @@
     bottom: 425px;
   }
 
-  @include shop-breakpoint("sm") {
+  @include shop-breakpoint("md") {
     position: fixed; 
     bottom: 425px; 
     width: 155px; 

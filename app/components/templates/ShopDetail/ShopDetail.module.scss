@@ -1,0 +1,30 @@
+@import "styles/app.scss";
+
+.container { 
+  height: 100vh;
+  width: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+
+  @include shop-breakpoint("md") {  
+    flex-direction: column;
+  } 
+
+  @include shop-breakpoint("sm") {
+    margin-top: calc((100vh - 350px)/2); // 411px is product item's height 
+  }
+
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url("../../../../public/images/product_bg.png");
+    background-position: top center;
+    background-size: cover;  
+    height: 100vh;
+    width: 100%;
+    overflow: scroll; 
+    z-index: -1;
+  } 
+} 
