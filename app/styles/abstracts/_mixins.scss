@@ -20,4 +20,16 @@
   @else {
     @warn "Unfortunately, no value could be retrieved from `#{$music-breakpoint}`";
   }
-}
+};
+
+@mixin home-breakpoint($home-breakpoint) {
+  @if map-has-key($home-breakpoints, $home-breakpoint) {
+    @media (min-width: #{map-get($home-breakpoints, $home-breakpoint)}) {
+      @content;
+    }
+  } 
+  
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$home-breakpoint}`"
+  }
+};
