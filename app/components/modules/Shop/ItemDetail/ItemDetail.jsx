@@ -11,8 +11,8 @@ function Item({ item }) {
         src={item.display_image}
       />
       <div className={styles.smallImages}>
-        {item.images && item.images.map((url) => <img
-          key={url}
+        {item.images && item.images.map((url, index) => <img
+          key={index}
           className={styles.smallImageItem}
           src={url}
         />)};
@@ -29,7 +29,7 @@ function Item({ item }) {
         <p className={styles.text}>Incl.taxes</p>
       </div>
       <div className={styles.sizeBox}>
-        <h4>Choose your size</h4>
+        <h4 className={styles.titleTextSmall}>Choose your size</h4>
         <div className={styles.sizes}>
           <div className={styles.sizeItem}>
             S

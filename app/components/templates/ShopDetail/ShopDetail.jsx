@@ -11,7 +11,7 @@ function ShopDetail({ item }) {
 
   useEffect(() => {
     function onScroll() {
-      if (window.innerWidth <= 1024 && window.innerWidth >= 414) {
+      if (window.innerWidth <= 1024 && window.innerWidth >= 600) {
         if (!openCart) {
           if (this.prev < window.pageYOffset) {
             setAppearCart(true);
