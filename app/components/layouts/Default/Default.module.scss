@@ -15,7 +15,11 @@
     z-index: 100;
 
     & a {
-      margin: 0 3px;
+      margin-left: 22.5px;
+
+      @include home-breakpoint('lg') {
+        margin-left: 12px;
+      }
     }
   }
 }
