@@ -1,86 +1,105 @@
 @import "styles/app.scss";
 
 .cartTotal {
-  min-width: 285px;
-  height: 100%;
-  box-shadow: -7px 0px 20px 5px rgba(90, 90, 90, .1);
+  min-width: 100%;
+  height: 144px;
+  box-shadow: 0px -3px 20px 5px rgba(90, 90, 90, .16); 
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center;  
 
-  @include shop-breakpoint("md") {
+  @include shop-breakpoint("md") { 
     min-width: 215px;
+    height: 100%;
+    box-shadow: -7px 0px 20px 5px rgba(90, 90, 90, .1); 
   }
 
-  @include shop-breakpoint("sm") {
-    min-width: 100%;
-    height: 144px;
-    box-shadow: 0px -3px 20px 5px rgba(90, 90, 90, .16);
-    // background-color: red;
-  }
+  @include shop-breakpoint("lg") { 
+    min-width: 285px;
+  } 
 }
 
 .totalBox {
-  width: 175px;
-  height: 175px; 
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-direction: column;
+  width: 100%; 
+  height: 144px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  padding: 20px; 
 
-  @include shop-breakpoint("lg") {
+  @include shop-breakpoint("md") {
+    width: 170px; 
     height: 191px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0; 
 
-    h4,
-    .text {
-      font-size: 1rem;
+    h4 {
+      width: 100%;
+      order: 0; 
     }
 
     .totalPrice {
-      font-size: 1.666rem !important;
+      display: flex; 
+      align-items: center;
+      width: 100%;
+      order: 0 !important;
+      text-align: left !important;
+      flex: 1;
+    }
+
+    .smallText {
+      width: 100%;
+      text-align: left !important;
     }
   }
 
-  @include shop-breakpoint("sm") {
-    width: 100%; 
-    height: 144px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    padding: 20px;
+  @include shop-breakpoint("lg") { 
 
-    h4 {
-      width: 50%;
-      order: -1;
+    h4,
+    .smallText {
+      font-size: .938rem !important;
     }
 
     .totalPrice {
-      width: 50%;
-      order: -1;
-      text-align: right;
+      font-size: 1.563rem !important;
     }
+  }
 
-    .text {
-      width: 100%;
-      text-align: right;
-    }
+  h4 {
+    width: 50%;
+    order: -1;
+    font-size: .75rem;
   }
 
   .totalPrice {
-    font-size: 2.083rem; 
-    font-weight: 0 !important;
+    width: 50%;
+    order: -1;
+    text-align: right;
+    font-size: 1.25rem;  
   }
 
-  .checkoutBtn {
+  .smallText {
     width: 100%;
-    height: 24px;
-
-    @include shop-breakpoint("lg") {
-      height: 40px;
-    }
-
-    @include shop-breakpoint("sm") {
-      width: 170px;
-    }
+    text-align: right;
   }
+  
+}
+
+.checkoutBtn {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+
+  @include shop-breakpoint("lg") {
+    height: 24px;  
+  }
+
+  @include shop-breakpoint("md") {
+    width: 170px; 
+    margin-top: 0px;
+  } 
 }

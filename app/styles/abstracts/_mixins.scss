@@ -1,6 +1,6 @@
 @mixin shop-breakpoint($shop-breakpoint) {
   @if map-has-key($shop-breakpoints, $shop-breakpoint) {
-    @media (max-width: #{map-get($shop-breakpoints, $shop-breakpoint)}) {
+    @media (min-width: #{map-get($shop-breakpoints, $shop-breakpoint)}) {
       @content;
     }
   } 

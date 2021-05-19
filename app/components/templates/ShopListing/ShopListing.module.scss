@@ -16,7 +16,8 @@
   }
 
   .items {
-    margin: 147px 0;
+    margin-top: calc((100vh - 100vw)/2); // 100vw is product item's height 
+    margin-bottom: 60px;
     height: max-content;
     display: flex;
     flex-direction: column;
@@ -24,7 +25,7 @@
     justify-content: space-between; 
 
     @include shop-breakpoint("sm") {
-      margin-top: calc((100vh - 350px)/2); // 411px is product item's height 
-    }
+      margin-top: 147px; 
+    } 
   }
 } 

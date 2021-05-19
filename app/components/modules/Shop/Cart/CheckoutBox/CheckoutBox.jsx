@@ -7,7 +7,7 @@ function CheckoutBox() {
     <div className={styles.cartTotal}>
       <div className={styles.totalBox}>
         <h4>TOTAL</h4>
-        <p className={styles.text}>Incl.taxes</p>
+        <p className={styles.smallText}>Incl.taxes</p>
         <p className={styles.totalPrice}>$0</p>
         <div className={styles.checkoutBtn}>
           <Button label="CHECKOUT" background="red" />

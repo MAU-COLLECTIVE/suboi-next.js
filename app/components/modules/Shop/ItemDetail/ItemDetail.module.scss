@@ -1,22 +1,32 @@
 @import "styles/app.scss";
 
 .itemDetail {
-  width: 736px;
-  height: 377px; 
   display: flex; 
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  width: 100%;
+  height: max-content;
+  margin-bottom: 50px;
 
   @include shop-breakpoint("lg") { 
-    width: 90%;
+    flex-direction: row;
+    width: 611px;
+    height: 326px;
+    justify-content: space-between;
+    align-items: flex-start; 
+    margin-bottom: 0;
   }
 
-  @include shop-breakpoint("md") {  
-    flex-direction: column;
-    width: 100%;
-    height: max-content;
-    margin-bottom: 50px;
-  } 
+  @include shop-breakpoint("xl") { 
+    flex-direction: row;
+    width: 736px;
+    height: 377px;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: flex-start; 
+    margin-bottom: 0;
+  }
 }
 
 .left { 
@@ -24,33 +34,39 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 50%; 
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  width: 100%;  
 
-  @include shop-breakpoint("md") {   
-    flex-wrap: wrap;
-    margin-bottom: 50px;
-  } 
+  @include shop-breakpoint("lg") {
+    margin: 0;
+    width: 50%; 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
   .itemImage {
-    cursor: pointer;
-    width: 327px;
-    height: 327px;
+    cursor: pointer; 
+    width: 100%;
+    height: 100vw;
     margin-bottom: 10px;
+    margin-top: calc(((100vh - 280px) / 2) - 70px);
 
-    @include shop-breakpoint("lg") {
+    @include shop-breakpoint("sm") {    
       width: 280px;
       height: 280px;
+    } 
+
+    @include shop-breakpoint("lg") {
+      margin: 0;
     }
 
-    @include shop-breakpoint("md") {   
-      width: 100%;
-      height: 60vw;
-      margin-top: calc(((100vh - 280px) / 2) - 100px);
-    } 
-
-    @include shop-breakpoint("sm") {   
-      margin-top: calc(((100vh - 280px) / 2) - 50px);
-    } 
+    @include shop-breakpoint("xl") {
+      width: 327px;
+      height: 327px;
+    }
   }
 }
 
@@ -68,43 +84,102 @@
 }
 
 .right {  
-  width: 329px;
-  height: 327px;
+  width: 100%;
+  height: max-content;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-direction: column;
+  flex-wrap: wrap; 
+  align-items: center; 
+  padding: 20px;
+  justify-content: flex-end; 
 
-  @include shop-breakpoint("lg") {
-    width: 50%;
+  @include shop-breakpoint("lg") { 
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 300px;
+    height: 100%;
+    padding: 0; 
+    align-items: flex-start;
+    justify-content: space-between;
   }
 
-  @include shop-breakpoint("md") {   
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    flex-direction: row;
-    height: 240px;
-    width: 100%;
-    padding: 20px;
+  @include shop-breakpoint("xl") { 
+    width: 329px;
+    height: 327px;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column; 
+  }
+  
+  .titleBox {
+    width: calc(100% - 70px);
+    order: 1;
+    height: 60px; 
+    margin-bottom: 10px;
 
-    .titleBox {
-      width: 80%;
-    }
-
-    .priceBox {
-      width: 20%;
-    }
-
-    .sizeBox {
-      border-bottom: 1px $color-black solid;
+    @include shop-breakpoint("lg") {  
+      font-size: 1.563rem;
       width: 100%;
-      padding-bottom: 15px;
+      height: max-content;
+      margin: 0;
+    }
+  }
+
+  .priceBox {
+    width: 70px;
+    order: 2; 
+    height: 60px; 
+    margin-bottom: 10px;
+
+    @include shop-breakpoint("lg") {  
+      font-size: 1.563rem;
+      width: 100%;
+      height: max-content;
+      margin: 0;
+    }
+  }
+
+  .descBox { 
+    order: 3;
+    width: calc(100% - 70px);
+    height: 40px;
+
+    @include shop-breakpoint("lg") {  
+      // font-size: 1.563rem;
+      width: 100%;
+      order: 2;
+      margin-top: -20px;
     } 
   } 
 
-  .titleText {
-    margin-bottom: 6px;
+  .taxText {
+    height: auto;
+    order: 4;
+    width: 70px;
+    height: 40px;
+
+    @include shop-breakpoint("lg") { 
+      width: 100%;
+      order: 2;
+      height: max-content;
+      margin-top: -30px;
+    } 
   }
+
+  .sizeBox {
+    border-bottom: 1px $color-black solid;
+    width: 100%;
+    padding-bottom: 20px;
+    margin: 20px 0;
+    order: 5;
+
+    @include shop-breakpoint("lg") { 
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+  }  
 
   .sizes {
     display: flex;
@@ -127,30 +202,13 @@
   }
 
   .addToCartBox {
-    width: 155px;
-    height: 24px;
+    width: 171px; 
+    height: 40px;
+    order: 6;
     
-    @include shop-breakpoint("lg") {
-      width: 171px; 
-      height: 40px;
+    @include shop-breakpoint("xl") {
+      width: 155px;
+      height: 24px;
     }
   }
-}
-
-.text {
-  @include shop-breakpoint("lg") {
-    font-size: .75rem;
-  }
-}
-
-.titleText {
-  @include shop-breakpoint("lg") {
-    font-size: 1.25rem;
-  }
-}
-
-.titleTextSmall {
-  @include shop-breakpoint("lg") {
-    font-size: .75rem;
-  }
-}
+} 

@@ -1,35 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'elements/Button/Button';
-import styles from './ItemDetail.module.scss';
+import styles from './SongDetail.module.scss';
 
-function Item({ item }) {
+function SongDetail({ item }) {
   return <div className={styles.itemDetail}>
     <div className={styles.left}>
       <img
         className={styles.itemImage}
-        src={item.display_image}
+        src={item.image}
       />
-      <div className={styles.smallImages}>
-        {item.images && item.images.map((url, index) => <img
-          key={index}
-          className={styles.smallImageItem}
-          src={url}
-        />)};
-      </div>
     </div>
     <div className={styles.right}>
       <div className={styles.titleBox}>
         <h3 className={styles.titleText}>{item.name}</h3>
-      </div>
-      <div className={styles.descBox}>
         <p className={styles.text}>Article description</p>
         <p className={styles.text}>In Store (1-2 delivery days)</p>
       </div>
       <div className={styles.priceBox}>
         <h3 className={styles.titleText}>$ {item.price}</h3>
+        <p className={styles.text}>Incl.taxes</p>
       </div>
-      <p className={styles.taxText}>Incl.taxes</p>
       <div className={styles.sizeBox}>
         <h4 className={styles.titleTextSmall}>Choose your size</h4>
         <div className={styles.sizes}>
@@ -57,8 +48,8 @@ function Item({ item }) {
   </div>;
 }
 
-Item.propTypes = {
+SongDetail.propTypes = {
   item: PropTypes.object,
 };
 
-export default Item;
+export default SongDetail;
