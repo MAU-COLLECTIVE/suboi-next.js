@@ -1,17 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import SectionThree from 'modules/Home/SectionThree/SectionThree';
-import SectionFive from 'modules/Home/SectionFive/SectionFive';
+import SectionOne from 'modules/Home/SectionOne/SectionOne';
 
-function HomePage({ songs, photos }) {
-  return <div style={{
-    background: '#444',
-    minHeight: '100vh',
-    paddingTop: '100px',
-  }}>
-    <SectionThree songs={songs}/>
-    <SectionFive photos={photos}/>
-  </div>;
+function HomePage() {
+  return (
+    <React.Fragment>
+      <SectionOne />
+    </React.Fragment>
+  );
 }
 
 HomePage.propTypes = {
