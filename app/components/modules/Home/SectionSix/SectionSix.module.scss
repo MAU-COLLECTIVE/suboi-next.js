@@ -79,6 +79,7 @@
       p {
         margin-top: 10px;
         font-size: 15px;
+        line-height: 15px;
       }
 
       &:last-child {
@@ -91,7 +92,7 @@
 
 .newsletter {
   display: grid;
-  gap: 15px;
+  row-gap: 15px;
   padding: 15px 0;
   margin-bottom: 50px;
   
@@ -133,6 +134,7 @@
     grid-template-areas:
       "title input button";
     align-items: center;
+    column-gap: 24px;
   }
 
   @include home-breakpoint('lg') {
@@ -141,6 +143,7 @@
       "title title title"
       "input input button";
     margin-bottom: 0;
+    row-gap: 10px;
 
     h2 {
       font-size: 25px;
