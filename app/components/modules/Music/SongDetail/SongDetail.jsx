@@ -12,36 +12,14 @@ function SongDetail({ item }) {
       />
     </div>
     <div className={styles.right}>
-      <div className={styles.titleBox}>
-        <h3 className={styles.titleText}>{item.name}</h3>
-        <p className={styles.text}>Article description</p>
-        <p className={styles.text}>In Store (1-2 delivery days)</p>
-      </div>
-      <div className={styles.priceBox}>
-        <h3 className={styles.titleText}>$ {item.price}</h3>
-        <p className={styles.text}>Incl.taxes</p>
-      </div>
-      <div className={styles.sizeBox}>
-        <h4 className={styles.titleTextSmall}>Choose your size</h4>
-        <div className={styles.sizes}>
-          <div className={styles.sizeItem}>
-            S
-          </div>
-          <div className={styles.sizeItem}>
-            M
-          </div>
-          <div className={styles.sizeItem}>
-            L
-          </div>
-          <div className={styles.sizeItem}>
-            XL
-          </div>
-        </div>
-      </div>
+      <h3 className={styles.titleText}>{item.name}</h3>
+      <h4 className={styles.album}>{item.album}</h4>
+      <p className={styles.smallText}>{item.year}</p>
+      <h4 className={styles.lyrics}>Lyrics</h4>
+      <p className={styles.lyricsText}>{item.lyrics}</p>
       <div className={styles.addToCartBox}>
         <Button
-          label="ADD TO CART"
-          background="red"
+          label="STREAM HERE"
         />
       </div>
     </div>

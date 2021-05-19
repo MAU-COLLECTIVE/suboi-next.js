@@ -6,6 +6,18 @@
   } 
   
   @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$shop-breakpoint}`"
+    @warn "Unfortunately, no value could be retrieved from `#{$shop-breakpoint}`";
+  }
+} 
+
+@mixin music-breakpoint($music-breakpoint) {
+  @if map-has-key($music-breakpoints, $music-breakpoint) {
+    @media (min-width: #{map-get($music-breakpoints, $music-breakpoint)}) {
+      @content;
+    }
+  } 
+  
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$music-breakpoint}`";
   }
 }
