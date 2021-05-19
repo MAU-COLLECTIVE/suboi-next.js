@@ -1,0 +1,158 @@
+@import "styles/app.scss";
+
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  padding: 130px 20px;
+  display: flex;
+  align-items: flex-end;
+  background: black;
+}
+
+.content {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  color: $color-white;
+  z-index: 10;
+
+  @include home-breakpoint('lg') {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px 0;
+
+  @include home-breakpoint('lg') {
+    border: none;
+  }
+
+  div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+
+    h2 {
+      font-family: $font-secondary;
+      font-weight: 900; // black
+      font-size: 12px;
+      line-height: 12px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin-top: 5px;
+      font-family: $font-primary;
+      font-size: 12px;
+      line-height: 12px;
+      text-align: center;
+    }
+
+    &:last-child {
+      border-style: solid;
+      border-color: white;
+      border-width: 0 0 0 1px;
+    }
+
+    @include home-breakpoint('lg') {
+      width: auto;
+      align-items: flex-start;
+
+      h2 {
+        font-size: 25px;
+        line-height: 25px;
+      }
+
+      p {
+        margin-top: 10px;
+        font-size: 15px;
+      }
+
+      &:last-child {
+        margin-left: 100px;
+        border-style: none;
+      }
+    }
+  }
+}
+
+.newsletter {
+  display: grid;
+  gap: 15px;
+  padding: 15px 0;
+  margin-bottom: 50px;
+  
+  h2 {
+    font-family: $font-secondary;
+    font-weight: 900; // black
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+    grid-area: title;
+  }
+
+  input {
+    font-family: $font-primary;
+    font-weight: 900; // black
+    font-size: 12px;
+    line-height: 12px;
+    padding: 10px 5px;
+    text-align: center;
+    border: none;
+    border-radius: 12px;
+    grid-area: input;
+  }
+
+  button {
+    width: auto;
+    padding: 10px 40px;
+    border-radius: 12px;
+    grid-area: button;
+  }
+
+  grid-template-columns: 1.5fr 4fr 1fr;
+  grid-template-areas:
+    "title title title"
+    "input input input"
+    "button button button";
+
+  @include home-breakpoint('md') {
+    grid-template-areas:
+      "title input button";
+    align-items: center;
+  }
+
+  @include home-breakpoint('lg') {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "title title title"
+      "input input button";
+    margin-bottom: 0;
+
+    h2 {
+      font-size: 25px;
+      line-height: 25px;
+    }
+
+    input {
+      padding: 5px;
+    }
+
+    button {
+      padding: 5px 40px;
+    }
+  }
+}
