@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import LanguageSelection from 'elements/LanguageSelection/LanguageSelection';
+import Newsletter from 'elements/Newsletter/Newsletter';
 import Header from 'modules/Header/Header';
 import Icon from 'elements/Icon/Icon';
 import AppleMusic from 'public/icons/apple-music.svg';
@@ -20,6 +21,7 @@ function Default({ children }) {
       </Head>
       <Header />
       <LanguageSelection />
+      <Newsletter />
       <div className={styles.content}>{children}</div>
       <div className={styles.icons}>
         <Icon url="" icon={<AppleMusic />} />
