@@ -35,7 +35,7 @@ Handle the conflict:
 - node-sass
 - clsx 
 - @svgr/webpack
-- prop-types
+- prop-types 
 
 ## 3. Task, Bonus and Minus system
 After you read this readme.md, you'all agree my term about quality in work process.

@@ -12,6 +12,7 @@
   backdrop-filter: blur(10px); 
   opacity: 0;
   visibility: hidden;
+  z-index: 20;
 }
 
 .openCart {

@@ -12,6 +12,7 @@
     "@svgr/webpack": "^5.5.0",
     "clsx": "^1.1.1",
     "eslint-config-airbnb-base": "^14.2.1",
+    "keen-slider": "^5.4.1",
     "next": "10.2.0",
     "node-sass": "^5.0.0",
     "prop-types": "^15.7.2",

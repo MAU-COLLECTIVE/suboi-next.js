@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from 'elements/Button/Button';
+import SectionThree from 'modules/Home/SectionThree/SectionThree';
 
-function HomePage() {
+function HomePage({ songs }) {
   return <div style={{
     background: '#444',
     minHeight: '100vh',
@@ -46,7 +48,12 @@ function HomePage() {
         />
       </div>
     </div>
+    <SectionThree songs={songs}/>
   </div>;
 }
+
+HomePage.propTypes = {
+  songs: PropTypes.array,
+};
 
 export default HomePage;

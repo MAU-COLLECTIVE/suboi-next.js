@@ -5285,6 +5285,11 @@ jsprim@^1.2.2:
     array-includes "^3.1.2"
     object.assign "^4.1.2"
 
+keen-slider@^5.4.1:
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/keen-slider/-/keen-slider-5.4.1.tgz#a6444b8afd28da1d15d7f769d531c2e00414bde0"
+  integrity sha512-CRBQDs7sQRxDRdQbHECuV2+IETD6UGp1bqnyNlbGM4trW9ObUTY39DWl/dLGh91x8qEepkCiYAO+w0B9gjEtkg==
+
 keypress@0.1.x:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/keypress/-/keypress-0.1.0.tgz#4a3188d4291b66b4f65edb99f806aa9ae293592a"
