@@ -4,6 +4,8 @@
   display: flex;
   padding: 20px;
   width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .company {
@@ -16,34 +18,241 @@
   color: $color-white;
 }
 
+// .links {
+//   display: flex;
+//   flex-direction: row;
+//   list-style-type: none;
+//   flex: 1;
+//   margin-left: 40px;
+//   margin-top: 5px;
+//   font-family: $font-secondary;
+//   font-weight: 800; // extra bold
+
+//   li {
+//     margin: 0 16.5px;
+
+//     &:last-of-type {
+//       margin-left: auto;
+//       margin-right: 0;
+//     }
+
+//     cursor: pointer;
+//     transition: .3s;
+
+//     &:active {
+//       transform: scale(.95);
+//     }
+
+//     & a {
+//       color: $color-white;
+//       text-transform: uppercase;
+//     }
+//   }
+// }
+
 .links {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  flex: 1;
-  margin-left: 40px;
-  margin-top: 2px;
+  // display: none !important;
+  @include home-breakpoint-mm('xs', 'md') {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: white;
+    width: 100%;
+    padding: 18px 28px;
+    font-family: $font-secondary;
+    font-weight: 800; // extra bold
+    font-size: 12px;
+    line-height: 12px;
+    list-style-type: none;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 20px;
+
+    li {
+      border-color: $color-primary;
+      border-width: 1px 0;
+
+      & a {
+        display: block;
+        padding: 5px 0;
+        color: $color-primary;
+        text-transform: uppercase;
+        border-color: $color-primary;
+        border-width: 1px;
+        cursor: pointer;
+        transition: .3s;
+        
+        &:active {
+          transform: scale(.95);
+        }
+      }
+    }
+  }
+
+  @include home-breakpoint-mm('xs', 'sm') {
+    li {        
+      // add horizontal border
+      &:nth-of-type(4),
+      &:nth-of-type(5),
+      &:nth-of-type(6) {
+        border-style: solid;
+        padding: 20px 0;
+      }
+  
+      // add vertical border
+      &:nth-of-type(2),
+      &:nth-of-type(5) {
+        a {
+          border-style: none solid;
+        }
+      }
+  
+      // make last element to end
+      &:last-of-type {
+        grid-column: 3;
+      }
+  
+      // adjust align
+      &:nth-of-type(2),
+      &:nth-of-type(5) {
+        text-align: center;
+      }
+  
+      &:nth-of-type(3),
+      &:nth-of-type(6),
+      &:nth-of-type(8) {
+        text-align: right;
+      }
+    }
+  }
+
+  @include home-breakpoint-mm('sm', 'md') {
+    grid-template-columns: repeat(6, 1fr);
+
+    li {
+      // add horizontal border
+      border-bottom-style: solid;
+      padding-bottom: 20px;
+
+      &:nth-of-type(7),
+      &:nth-of-type(8) {
+        border-bottom-style: none;
+        padding: 0;
+      }
+
+      // adjust align
+      &:nth-of-type(2),
+      &:nth-of-type(3),
+      &:nth-of-type(4),
+      &:nth-of-type(5) {
+        text-align: center;
+        
+        // add vertical border
+        a {
+          border-left-style: solid;
+        }
+      }
+
+      // add vertical border
+      &:nth-of-type(6) {
+        a {
+          border-left-style: solid;
+        }
+      }
+
+      &:nth-of-type(6),
+      &:nth-of-type(8) {
+        text-align: right;
+      }
+
+      // make last element to end
+      &:last-of-type {
+        grid-column: 6;
+      }
+    }
+  }
+
+  @include home-breakpoint('md') {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    flex: 1;
+    margin-left: 40px;
+    margin-top: 5px;
+    font-family: $font-secondary;
+    font-weight: 800; // extra bold
+  
+    li {
+      margin: 0 16.5px;
+  
+      &:last-of-type {
+        margin-left: auto;
+        margin-right: 0;
+      }
+  
+      cursor: pointer;
+      transition: .3s;
+  
+      &:active {
+        transform: scale(.95);
+      }
+  
+      & a {
+        color: $color-white;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.hideLinks {
+  @include home-breakpoint-mm('xs', 'md') {
+    display: none !important;
+  }
+}
+
+.btnMenu {
+  padding: 5px 0;
+  color: $color-white;
   font-family: $font-secondary;
   font-weight: 800; // extra bold
+  font-size: 12px;
+  line-height: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .3s;
+  background-color: transparent;
+  border: none;
+  
+  &:active {
+    transform: scale(.95);
+  }
 
-  li {
-    margin: 0 16.5px;
+  @include home-breakpoint('md') {
+    display: none;
+  }
+}
 
-    &:last-of-type {
-      margin-left: auto;
-      margin-right: 0;
-    }
+.btnBack {
+  padding: 5px 0;
+  color: $color-white;
+  font-family: $font-secondary;
+  font-weight: 800; // extra bold
+  font-size: 12px;
+  line-height: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .3s;
+  background-color: transparent;
+  border: none;
+  
+  &:active {
+    transform: scale(.95);
+  }
 
-    cursor: pointer;
-    transition: .3s;
-
-    &:active {
-      transform: scale(.95);
-    }
-
-    & a {
-      color: $color-white;
-      text-transform: uppercase;
-    }
+  @include home-breakpoint('lg') {
+    font-size: 15px;
+    line-height: 15px;
   }
 }
