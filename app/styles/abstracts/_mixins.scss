@@ -33,3 +33,16 @@
     @warn "Unfortunately, no value could be retrieved from `#{$home-breakpoint}`"
   }
 };
+
+@mixin home-breakpoint-mm($min, $max) {
+  @if map-has-key($home-breakpoints, $min) and map-has-key($home-breakpoints, $max) {
+    @media (min-width: #{map-get($home-breakpoints, $min)}) and
+           (max-width: calc(#{map-get($home-breakpoints, $max)} - 1px)) {
+      @content;
+    }
+  } 
+  
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$home-breakpoint}`"
+  }
+};
