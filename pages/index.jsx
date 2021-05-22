@@ -77,10 +77,45 @@ const songs = [
   },
 ];
 
+const photos = [
+  {
+    id: '1',
+    image: 'https://vcdn-giaitri.vnecdn.net/2020/09/14/suboi-3587-1600075397.jpg',
+  },
+  {
+    id: '2',
+    image: 'https://media-cdn.laodong.vn/Storage/NewsPortal/2020/8/16/828415/Hanh-Phuc-Vien-Man-C.jpg',
+  },
+  {
+    id: '3',
+    image: 'https://avatar-ex-swe.nixcdn.com/song/2019/12/31/2/b/5/a/1577798006327_640.jpg',
+  },
+  {
+    id: '4',
+    image: 'https://kenh14cdn.com/thumb_w/660/203336854389633024/2020/11/17/ov3142-1605598851050490323938.jpg',
+  },
+  {
+    id: '5',
+    image: 'https://avatar-ex-swe.nixcdn.com/song/2019/12/31/2/b/5/a/1577798006327_640.jpg',
+  },
+  {
+    id: '6',
+    image: 'https://vcdn1-giaitri.vnecdn.net/2020/12/04/nguyen-tien-truyenHAIN2388-1-1607100019.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ZstuYOnm4zEM4OYoUwpZUQ',
+  },
+  {
+    id: '7',
+    image: 'https://vcdn-giaitri.vnecdn.net/2021/04/11/suboi-3-8629-1618110156.jpg',
+  },
+  {
+    id: '8',
+    image: 'https://static.tuoitre.vn/tto/i/s626/2016/05/25/suboi-obama-1464164959.jpg',
+  },
+];
+
 function Home() {
   return (
     <Default >
-      <HomePage songs={songs}/>
+      <HomePage songs={songs} photos={photos}/>
     </Default>
   );
 }
