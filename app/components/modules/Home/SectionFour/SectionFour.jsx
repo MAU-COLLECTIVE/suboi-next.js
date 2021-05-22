@@ -36,7 +36,7 @@ function SectionFour() {
             pagination: false,
             arrows: false,
             direction: slidesLength <= 4 ? 'rtl' : 'ltr',
-            gap: '100px',
+            gap: '80px',
           }}>
             {slides}
           </Splide>
