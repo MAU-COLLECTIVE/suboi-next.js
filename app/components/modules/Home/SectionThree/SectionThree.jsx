@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MusicSlider from './MusicSlider/MusicSlider';
 import styles from './SectionThree.module.scss';
+import SongItem from './MusicSlider/SongItem/SongItem';
 
 function SectionThree({ songs }) {
   return (
@@ -9,7 +10,9 @@ function SectionThree({ songs }) {
       <div className={styles.background}>
         <img src="https://media.vov.vn/uploaded/wgyyweux2icrb7fgmumzw/2019_03_28/suboi1_rrvx.jpg"></img>
       </div>
-      <MusicSlider songs={songs}/>
+      <MusicSlider songs={songs}>
+        <SongItem/>
+      </MusicSlider>
     </div>
   );
 }

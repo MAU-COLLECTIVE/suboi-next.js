@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useSwipeable } from 'react-swipeable';
+import Swipe from 'react-easy-swipe';
 import clsx from 'clsx';
 import styles from './MusicSlider.module.scss';
 import SongItem from './SongItem/SongItem';
@@ -8,13 +8,17 @@ import SongItem from './SongItem/SongItem';
 function MusicSlider({ songs }) {
   const [currentSong, setCurrentSong] = useState(1);
   const [transformCss, setTransformCss] = useState('');
-  const [itemHover, setItemHover] = useState(false);
-  const slideRef = useRef();
-  const handlers = useSwipeable({ onTap: () => alert('swiped') });
 
-  const refPassthrough = (el) => {
-    handlers.ref(el);
-    slideRef.current = el;
+  const onSwipeRight = () => {
+    if (currentSong > 1) {
+      setCurrentSong(currentSong - 1);
+    }
+  };
+
+  const onSwipeLeft = () => {
+    if (currentSong < songs.length) {
+      setCurrentSong(currentSong + 1);
+    }
   };
 
   useEffect(() => {
@@ -52,45 +56,33 @@ function MusicSlider({ songs }) {
     }
   }, [currentSong]);
 
-  const handleOnHover = (id) => {
-    if (currentSong - 1 === Number(id)) {
-      setItemHover(!itemHover);
-    }
-  };
-
-  return <div className={styles.musicSlider}>
-    <div
-      className={clsx(styles.virtualImage,
-        itemHover && styles.virtualImageActive)
-      }
-    >
-      <img src={songs[currentSong - 1].image}/>
-    </div>
-    <div
-      style={{
-        transform: transformCss,
-      }}
-      className={styles.musicSliderBox}
-    >
-      {songs.length > 0 && songs.map((item, index) => <div
-        key={item.id}
-        className={clsx(
-          styles.songCard,
-          currentSong === index + 1 && styles.songCardActive,
-          (currentSong === index + 3 || currentSong === index - 1) && styles.songCardSmaller,
-          (currentSong >= index + 4 || currentSong <= index - 2) && styles.songCardSmallest,
-        )}
-        onClick={() => setCurrentSong(index + 1)}
-        {...handlers} ref={refPassthrough}
-      >
-        <SongItem
-          item={item}
-          onMouseEnter={() => handleOnHover(index)}
-          onMouseLeave={() => handleOnHover(index)}
-        />
-      </div>)}
-    </div>
-  </div>;
+  return (
+    <Swipe
+      onSwipeRight={onSwipeRight}
+      onSwipeLeft={onSwipeLeft}>
+      <div className={styles.musicSlider}>
+        <div
+          style={{
+            transform: transformCss,
+          }}
+          className={styles.musicSliderBox}
+        >
+          {songs.length > 0 && songs.map((item, index) => <div
+            key={item.id}
+            className={clsx(
+              styles.songCard,
+              currentSong === index + 1 && styles.songCardActive,
+              (currentSong === index + 3 || currentSong === index - 1) && styles.songCardSmaller,
+              (currentSong >= index + 4 || currentSong <= index - 2) && styles.songCardSmallest,
+            )}
+            onClick={() => setCurrentSong(index + 1)}
+          >
+            <SongItem item={item} />
+          </div>)}
+        </div>
+      </div>;
+    </Swipe>
+  );
 }
 
 MusicSlider.propTypes = {

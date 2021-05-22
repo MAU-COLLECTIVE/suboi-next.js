@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import styles from '../MusicSlider.module.scss';
 
-function SongItem({ item, onMouseEnter, onMouseLeave }) {
+function SongItem({ item }) {
   const router = useRouter();
 
   const handleOnClick = (id) => {
@@ -11,7 +11,7 @@ function SongItem({ item, onMouseEnter, onMouseLeave }) {
   };
 
   return (
-    <div className={styles.songCardBox} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+    <div className={styles.songCardBox}>
       <img src={item.image} />
       <div className={styles.songInfo}>
         <div className={styles.songInfoLeft}>
@@ -25,9 +25,7 @@ function SongItem({ item, onMouseEnter, onMouseLeave }) {
 }
 
 SongItem.propTypes = {
-  item: PropTypes.array,
-  onMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func,
+  item: PropTypes.object,
 };
 
 export default SongItem;

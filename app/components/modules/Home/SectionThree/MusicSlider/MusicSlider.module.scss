@@ -7,11 +7,7 @@
     width: 100%;
     overflow: hidden;   
     transition: .3s;
-  } 
-
-  .virtualImage {  
-    display: none;
-  } 
+  }   
 
   .musicSliderBox {
     display: flex;  
@@ -71,6 +67,7 @@
 
       h4 {
         font-size: .75rem;
+        cursor: pointer;
       }
     } 
   } 
@@ -94,31 +91,6 @@
 }
 
 @include music-breakpoint("sm") { 
-
-  .virtualImage {  
-    display: block;  
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    transition: .3s;
-    filter: blur(10px);
-    padding: 23px;
-
-    img {
-      width: calc(100% - 30px);
-      max-width: 310px;
-      height: calc(100% - 10px);
-    }
-    // opacity: 0;
-    // visibility: hidden;
-  }
-
-  .virtualImageActive {  
-    right: calc(50% - 80px);
-    bottom: 50%;
-    opacity: 1;
-    visibility: visible;
-  }
 
   .musicSlider { 
     min-width: 100vw;

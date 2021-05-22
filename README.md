@@ -36,7 +36,7 @@ Handle the conflict:
 - clsx 
 - @svgr/webpack
 - prop-types 
-- react-swipeable
+- react-easy-swipe
 
 ## 3. Task, Bonus and Minus system
 After you read this readme.md, you'all agree my term about quality in work process.
