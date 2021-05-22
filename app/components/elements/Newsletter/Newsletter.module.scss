@@ -4,17 +4,26 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 110;
   position: fixed;
   display: flex;
   justify-content: center;
+  opacity: 0;
+  z-index: -1;
 
   background-color: rgba(255, 255, 255, 0);
   backdrop-filter: blur(18px) brightness(100% - 14%);
 }
 
+.showNewsletter {
+  @include animation('fadeInTop .3s');
+  opacity: 1;
+  z-index: 200;
+}
+
 .hideNewsletter {
-  display: none;
+  @include animation('fadeOutDown .3s');
+  opacity: 0;
+  z-index: -1;
 }
 
 .btnClose {

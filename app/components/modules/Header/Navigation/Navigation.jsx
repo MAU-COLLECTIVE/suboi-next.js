@@ -43,7 +43,7 @@ function Navigation({ title, hideLinks, hasBack }) {
       <h2 className={styles.company}>{title}</h2>
       {(!hideLinks && !hasBack) ? (
         <React.Fragment>
-          <ul id="nav-links" className={clsx(styles.links, !isShown && styles.hideLinks)}>
+          <ul id="nav-links" className={clsx(styles.links, isShown ? styles.showLinks : styles.hideLinks)}>
             <li>
               <a href="#">Home</a>
             </li>

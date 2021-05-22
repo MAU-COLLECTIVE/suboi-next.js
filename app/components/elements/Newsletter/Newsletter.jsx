@@ -8,7 +8,8 @@ function Newsletter() {
   const [isShown, setIsShown] = useState(true);
 
   return (
-    <div className={clsx(styles.newsletter, !isShown && styles.hideNewsletter)}>
+    <div className={clsx(styles.newsletter,
+      isShown ? styles.showNewsletter : styles.hideNewsletter)}>
       <button
         type="button"
         className={styles.btnClose}
