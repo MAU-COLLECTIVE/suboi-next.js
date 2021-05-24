@@ -8,7 +8,7 @@
   @else {
     @warn "Unfortunately, no value could be retrieved from `#{$shop-breakpoint}`";
   }
-};
+}
 
 @mixin music-breakpoint($music-breakpoint) {
   @if map-has-key($music-breakpoints, $music-breakpoint) {
@@ -20,7 +20,7 @@
   @else {
     @warn "Unfortunately, no value could be retrieved from `#{$music-breakpoint}`";
   }
-};
+}
 
 @mixin home-breakpoint($home-breakpoint) {
   @if map-has-key($home-breakpoints, $home-breakpoint) {
@@ -30,40 +30,44 @@
   } 
   
   @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$home-breakpoint}`"
+    @warn "Unfortunately, no value could be retrieved from `#{$home-breakpoint}`";
   }
-};
+}
 
 @mixin home-breakpoint-mm($min, $max) {
   @if map-has-key($home-breakpoints, $min) and map-has-key($home-breakpoints, $max) {
     @media (min-width: #{map-get($home-breakpoints, $min)}) and
-           (max-width: calc(#{map-get($home-breakpoints, $max)} - 1px)) {
+      (max-width: calc(#{map-get($home-breakpoints, $max)} - 1px)) {
       @content;
     }
   } 
   
   @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$home-breakpoint}`"
+    @warn "Unfortunately, no value could be retrieved from `#{$home-breakpoint}`";
   }
-};
+}
 
 @mixin keyframes($animation-name) {
   @-webkit-keyframes #{$animation-name} {
     @content;
   }
+
   @-moz-keyframes #{$animation-name} {
     @content;
-  }  
+  }
+
   @-ms-keyframes #{$animation-name} {
     @content;
   }
+
   @-o-keyframes #{$animation-name} {
     @content;
-  }  
+  }
+
   @keyframes #{$animation-name} {
     @content;
   }
-};
+}
 
 @mixin animation($str) {
   -webkit-animation: #{$str};
@@ -71,7 +75,7 @@
   -ms-animation: #{$str};
   -o-animation: #{$str};
   animation: #{$str};
-};
+}
 
 /**
  * Font-sizing
@@ -80,9 +84,9 @@
  * And for $space is using Adobe XD Character Spacing unit
  * Example: @include font-sizing(14px, 400, null, 10)
  */
- @mixin font-sizing($size, $weight, $height, $space) {
+@mixin font-sizing($size, $weight, $height, $space) {
   font-size: #{$size};
   font-weight: #{$weight};
   line-height: #{$height};
   letter-spacing: calc(#{($space * $size)} / 1000);
-};
+}
