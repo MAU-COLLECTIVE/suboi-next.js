@@ -8,4 +8,17 @@
   @else {
     @warn "Unfortunately, no value could be retrieved from `#{$shop-breakpoint}`"
   }
-}
+};
+
+/**
+ * Font-sizing
+ *
+ * Pass null to arguments if don't want to set
+ * Example: @include font-sizing(14px, 400, null, null)
+ */
+ @mixin font-sizing($size, $weight, $height, $space) {
+  font-size: #{$size};
+  font-weight: #{$weight};
+  line-height: #{$height};
+  letter-spacing: #{$space};
+};
