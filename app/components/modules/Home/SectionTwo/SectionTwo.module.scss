@@ -16,7 +16,7 @@
   left: 0;
   width: 100%;
   height: 50%;
-  opacity: 0.5;
+  opacity: .5;
   background-image: linear-gradient(transparent, black);
   z-index: 10;
 }
@@ -34,14 +34,12 @@
 
 .title {
   display: none;
-  font-family: $font-secondary;
-  font-weight: 900; // black
-  font-size: 40px;
-  line-height: 40px;
-  letter-spacing: 1px;
   text-align: center;
+  font-family: $font-secondary;
 
-  @include home-breakpoint('lg') {
+  @include font-sizing(2.667rem, 900, 2.667rem, 10);
+
+  @include home-breakpoint("lg") {
     display: block;
   }
 }
@@ -52,14 +50,14 @@
   white-space: pre-wrap;
   text-align: center;
   font-family: $font-primary;
-  font-size: 15px;
-  line-height: 20px;
 
-  @include home-breakpoint('lg') {
+  @include font-sizing(1rem, null, 1.333rem, 10);
+
+  @include home-breakpoint("lg") {
     width: 70%;
   }
 
-  @include home-breakpoint('2xl') {
+  @include home-breakpoint("2xl") {
     width: 50%;
   }
 }

@@ -20,6 +20,7 @@ function SectionTwo() {
           <h2>Newsletter</h2>
           <input type="text" placeholder="Enter Your Email" />
           <Button
+            className={styles.button}
             background="transparent"
             label="SUBSCRIBE"
             onClick={() => alert('You subscribed')}

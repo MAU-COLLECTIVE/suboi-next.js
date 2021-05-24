@@ -19,7 +19,7 @@
   color: $color-white;
   z-index: 10;
 
-  @include home-breakpoint('lg') {
+  @include home-breakpoint("lg") {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
@@ -33,41 +33,43 @@
   border-color: white;
   border-width: 1px 0;
 
-  @include home-breakpoint('lg') {
-    border: none;
+  @include home-breakpoint("lg") {
+    border: unset;
   }
 
   div {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 0;
+    @include home-breakpoint("xs") {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 0;
 
-    h2 {
-      font-family: $font-secondary;
-      font-weight: 900; // black
-      font-size: 12px;
-      line-height: 12px;
-      text-align: center;
-      text-transform: uppercase;
+      h2 {
+        font-family: $font-secondary;
+        font-weight: 900; // black
+        font-size: 12px;
+        line-height: 12px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      p {
+        margin-top: 5px;
+        font-family: $font-primary;
+        font-size: 12px;
+        line-height: 12px;
+        text-align: center;
+      }
+
+      &:last-child {
+        border-style: solid;
+        border-color: white;
+        border-width: 0 0 0 1px;
+      }
     }
 
-    p {
-      margin-top: 5px;
-      font-family: $font-primary;
-      font-size: 12px;
-      line-height: 12px;
-      text-align: center;
-    }
-
-    &:last-child {
-      border-style: solid;
-      border-color: white;
-      border-width: 0 0 0 1px;
-    }
-
-    @include home-breakpoint('lg') {
+    @include home-breakpoint("lg") {
       width: auto;
       align-items: flex-start;
 
@@ -84,63 +86,60 @@
 
       &:last-child {
         margin-left: 100px;
-        border-style: none;
+        border-style: unset;
       }
     }
   }
 }
 
 .newsletter {
-  display: grid;
-  row-gap: 15px;
-  padding: 15px 0;
-  margin-bottom: 50px;
+  @include home-breakpoint("xs") {
+    display: grid;
+    row-gap: 15px;
+    padding: 15px 0;
+    margin-bottom: 50px;
   
-  h2 {
-    font-family: $font-secondary;
-    font-weight: 900; // black
-    font-size: 12px;
-    line-height: 12px;
-    text-transform: uppercase;
-    grid-area: title;
+    grid-template-columns: 1.5fr 4fr 1fr;
+    grid-template-areas: "title title title"
+      "input input input"
+      "button button button";
+    
+    h2 {
+      font-family: $font-secondary;
+      text-transform: uppercase;
+      grid-area: title;
+  
+      @include font-sizing(.8rem, 900, .8rem, 25);
+    }
+  
+    input {
+      font-family: $font-primary;
+      padding: 10px 5px;
+      text-align: center;
+      border: unset;
+      border-radius: 12px;
+      grid-area: input;
+  
+      @include font-sizing(.8rem, null, null, 10);
+    }
+  
+    .button {
+      width: auto;
+      padding: 10px 40px;
+      border-radius: 12px;
+      grid-area: button;
+    }  
   }
 
-  input {
-    font-family: $font-primary;
-    font-weight: 900; // black
-    font-size: 12px;
-    line-height: 12px;
-    padding: 10px 5px;
-    text-align: center;
-    border: none;
-    border-radius: 12px;
-    grid-area: input;
-  }
-
-  button {
-    width: auto;
-    padding: 10px 40px;
-    border-radius: 12px;
-    grid-area: button;
-  }
-
-  grid-template-columns: 1.5fr 4fr 1fr;
-  grid-template-areas:
-    "title title title"
-    "input input input"
-    "button button button";
-
-  @include home-breakpoint('md') {
-    grid-template-areas:
-      "title input button";
+  @include home-breakpoint("md") {
+    grid-template-areas: "title input button";
     align-items: center;
     column-gap: 24px;
   }
 
-  @include home-breakpoint('lg') {
+  @include home-breakpoint("lg") {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas:
-      "title title title"
+    grid-template-areas: "title title title"
       "input input button";
     margin-bottom: 0;
     row-gap: 10px;
@@ -155,7 +154,7 @@
     }
 
     button {
-      padding: 5px 40px;
+      padding: 5px 40px !important;
     }
   }
 }

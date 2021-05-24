@@ -18,11 +18,13 @@ function SectionOne() {
 
         <div className={styles.buttons}>
           <Button
+            className={styles.button}
             background="transparent"
             label="PLAY VIDEO"
             onClick={() => alert('You played')}
           />
           <Button
+            className={styles.button}
             background="red"
             label="BUY ALBUM"
             onClick={() => alert('You played')}

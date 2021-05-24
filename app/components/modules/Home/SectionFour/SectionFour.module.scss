@@ -23,12 +23,10 @@
 
 .title {
   display: block;
-  font-family: $font-secondary;
-  font-weight: 900; // black
-  font-size: 15px;
-  line-height: 15px;
-  letter-spacing: 1px;
   margin: 0 20px;
+  font-family: $font-secondary;
+
+  @include font-sizing(1rem, 900, 1rem, 10);
 }
 
 .cardContainer {

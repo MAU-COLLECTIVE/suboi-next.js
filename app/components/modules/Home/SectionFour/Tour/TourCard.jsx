@@ -10,7 +10,11 @@ function TourCard({ isRtl, date, title, location, link }) {
       <p className={styles.date}>{date}</p>
       <h2 className={styles.title}>{title}</h2>
       <p className={styles.location}>{location}</p>
-      <Button background="transparent" label="GET TICKETS HERE" />
+      <Button
+        className={styles.button}
+        background="transparent"
+        label="GET TICKETS HERE"
+      />
     </div>
   );
 }
