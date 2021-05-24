@@ -19,11 +19,10 @@ function SongDetail({ item }) {
       <div className={styles.lyricsBox}>
         <p>{item.lyrics}</p>
       </div>
-      <div className={styles.addToCartBox}>
-        <Button
-          label="STREAM HERE"
-        />
-      </div>
+      <Button
+        label="STREAM HERE"
+        className={styles.addToCartBox}
+      />
     </div>
   </div>;
 }

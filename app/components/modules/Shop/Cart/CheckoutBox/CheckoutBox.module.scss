@@ -94,6 +94,7 @@
   height: 40px;
   margin-top: 20px;
   font-weight: bold;
+  padding: 4px 0 0 3px;
 
   @include shop-breakpoint("xl") {
     height: 24px;  
