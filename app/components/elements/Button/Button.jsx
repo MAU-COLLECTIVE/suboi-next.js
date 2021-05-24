@@ -7,13 +7,15 @@ function Button({
   label,
   background,
   onClick,
+  className,
 }) {
   return (
     <button
       onClick={onClick}
       className={clsx(styles.button,
         background === 'red' && styles.redBg,
-        background === 'transparent' && styles.transparentBg)
+        background === 'transparent' && styles.transparentBg,
+        className && className)
       }
     >
       <p className={clsx(styles.smallText, styles.label)}>{label}</p>
@@ -25,6 +27,7 @@ Button.propTypes = {
   label: PropTypes.string,
   background: PropTypes.string,
   onClick: PropTypes.func,
+  className: PropTypes.string,
 };
 
 export default Button;

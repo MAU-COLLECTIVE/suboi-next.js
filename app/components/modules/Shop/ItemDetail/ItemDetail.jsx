@@ -23,8 +23,8 @@ function Item({ item }) {
         <h3 className={styles.titleText}>{item.name}</h3>
       </div>
       <div className={styles.descBox}>
-        <p className={styles.text}>Article description</p>
-        <p className={styles.text}>In Store (1-2 delivery days)</p>
+        <p className={styles.smallText}>Article description</p>
+        <p className={styles.smallText}>In Store (1-2 delivery days)</p>
       </div>
       <div className={styles.priceBox}>
         <h3 className={styles.titleText}>$ {item.price}</h3>
@@ -47,12 +47,11 @@ function Item({ item }) {
           </div>
         </div>
       </div>
-      <div className={styles.addToCartBox}>
-        <Button
-          label="ADD TO CART"
-          background="red"
-        />
-      </div>
+      <Button
+        label="ADD TO CART"
+        background="red"
+        className={styles.addToCartBox}
+      />
     </div>
   </div>;
 }
