@@ -8,7 +8,7 @@
   @else {
     @warn "Unfortunately, no value could be retrieved from `#{$shop-breakpoint}`";
   }
-} 
+};
 
 @mixin music-breakpoint($music-breakpoint) {
   @if map-has-key($music-breakpoints, $music-breakpoint) {
@@ -70,8 +70,7 @@
   -moz-animation: #{$str};
   -ms-animation: #{$str};
   -o-animation: #{$str};
-  animation: #{$str};      
-};
+  animation: #{$str};
 };
 
 /**
