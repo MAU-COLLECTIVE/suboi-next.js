@@ -15,7 +15,7 @@ function Item({ item }) {
           key={index}
           className={styles.smallImageItem}
           src={url}
-        />)};
+        />)}
       </div>
     </div>
     <div className={styles.right}>

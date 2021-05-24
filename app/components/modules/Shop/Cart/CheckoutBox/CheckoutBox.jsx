@@ -9,9 +9,7 @@ function CheckoutBox() {
         <h4>TOTAL</h4>
         <p className={styles.smallText}>Incl.taxes</p>
         <p className={styles.totalPrice}>$0</p>
-        <div className={styles.checkoutBtn}>
-          <Button label="CHECKOUT" background="red" />
-        </div>
+        <Button label="CHECKOUT" background="red" className={styles.checkoutBtn}/>
       </div>
     </div>
   );

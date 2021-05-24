@@ -82,6 +82,11 @@
     width: 100%;  
     text-transform: uppercase;
     margin-bottom: 10px;
+    font-size: 1.25rem;
+
+    @include music-breakpoint("xs") {     
+      font-size: 1.25rem;
+    }
 
     @include music-breakpoint("sm") {     
       font-size: 1.563rem;
@@ -92,8 +97,17 @@
     width: 100%; 
     text-transform: uppercase;
     margin-bottom: 10px;
+    font-size: .75rem;
 
     @include music-breakpoint("sm") {     
+      font-size: .938rem;
+    }
+
+    @include music-breakpoint("md") {     
+      font-size: .75rem;
+    }
+
+    @include music-breakpoint("lg") {     
       font-size: .938rem;
     }
   }
@@ -105,19 +119,33 @@
     @include music-breakpoint("sm") {     
       font-size: .938rem;
     }
+
+    @include music-breakpoint("md") {     
+      font-size: .75rem;
+    }
+
+    @include music-breakpoint("lg") {     
+      font-size: .938rem;
+    }
   }
 
   .lyrics { 
     width: 100%;  
     margin-top: 20px;
     margin-bottom: 20px;
+    font-size: .75rem;
+
+    @include music-breakpoint("sm") {     
+      font-size: .938rem;
+    } 
 
     @include music-breakpoint("md") { 
       margin-top: 10px;
       margin-bottom: 10px;
+      font-size: .75rem;
     } 
 
-    @include music-breakpoint("sm") {     
+    @include music-breakpoint("lg") {     
       font-size: .938rem;
     }
   }
@@ -132,9 +160,17 @@
     @include music-breakpoint("sm") {     
       font-size: .938rem;
     }
+    
+    @include music-breakpoint("md") {     
+      font-size: .75rem;
+    }
+
+    @include music-breakpoint("lg") {     
+      font-size: .938rem;
+    }
   } 
 
-  .lyricsText {
+  .lyricsBox {
     font-size: .75rem;
     max-width: 100%; 
     text-overflow: ellipsis;
@@ -143,7 +179,31 @@
     margin-bottom: 10px;
     height: 100px;
     overflow-y: scroll;
+
+    @include music-breakpoint("md") {     
+      padding-right: 20%;
+    }
+
+    p {
+      white-space: pre-wrap;
+      overflow: 0;
+    } 
   }
+
+  .lyricsBox::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .lyricsBox::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, .05);
+    border-radius: 20px;
+  }
+
+  .lyricsBox::-webkit-scrollbar-thumb {
+    background: #FFF;
+    border-radius: 20px;
+    height: 20px;
+  } 
 
   h4 {
     width: 100%;

@@ -16,7 +16,9 @@ function SongDetail({ item }) {
       <h4 className={styles.album}>{item.album}</h4>
       <p className={styles.smallText}>{item.year}</p>
       <h4 className={styles.lyrics}>Lyrics</h4>
-      <p className={styles.lyricsText}>{item.lyrics}</p>
+      <div className={styles.lyricsBox}>
+        <p>{item.lyrics}</p>
+      </div>
       <div className={styles.addToCartBox}>
         <Button
           label="STREAM HERE"

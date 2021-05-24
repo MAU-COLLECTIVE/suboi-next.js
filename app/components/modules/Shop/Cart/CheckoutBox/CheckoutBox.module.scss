@@ -93,8 +93,9 @@
   width: 100%;
   height: 40px;
   margin-top: 20px;
+  font-weight: bold;
 
-  @include shop-breakpoint("lg") {
+  @include shop-breakpoint("xl") {
     height: 24px;  
   }
 

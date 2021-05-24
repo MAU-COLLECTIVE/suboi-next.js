@@ -117,12 +117,11 @@
     order: 6;
     font-weight: bold;
     padding: 4px 0 0 3px;
-    
-    // @include shop-breakpoint("xl") {
-    //   width: 155px;
-    //   height: 24px;
-    // }
   }
+ 
+  .titleText {
+    font-size: 1.25rem;
+  } 
 }
 
 @include shop-breakpoint("sm") { 
@@ -134,10 +133,6 @@
       height: 280px;
     }
   }
- 
-  .titleText {
-    font-size: 1.25rem;
-  } 
 }
 
 @include shop-breakpoint("lg") {  
@@ -237,6 +232,21 @@
     padding: 0;
     display: flex;
     flex-wrap: nowrap;
-    flex-direction: column; 
+    flex-direction: column;  
+
+    h3 {
+      font-size: 1.536rem;
+    }
+
+    .taxText,
+    .titleTextSmall,
+    .smallText {
+      font-size: .938rem;
+    }
+
+    .addToCartBox { 
+      width: 155px;
+      height: 24px; 
+    }
   }
 }
