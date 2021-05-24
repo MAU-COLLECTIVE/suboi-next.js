@@ -8,6 +8,7 @@ import SongItem from './PhotoItem/PhotoItem';
 function PhotoSlider({ photos }) {
   const [currentSong, setCurrentSong] = useState(1);
   const [transformCss, setTransformCss] = useState('');
+  const [sizeChanged, setSizeChanged] = useState(false);
 
   const onSwipeRight = () => {
     if (currentSong > 1) {
@@ -27,6 +28,10 @@ function PhotoSlider({ photos }) {
     const width = 220;
     const smallerWidth = 120;
     const smallestWidth = 65;
+
+    function updateSize() {
+      setSizeChanged(sizeChanged);
+    }
 
     if (window.innerWidth < 694) {
       margin = 20;
@@ -54,7 +59,9 @@ function PhotoSlider({ photos }) {
         setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 7}px - ${width * (currentSong - 3)}px - ${smallerWidth}px - ${smallestWidth}px + ${35 * (currentSong - 4)}px))`);
       }
     }
-  }, [currentSong]);
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
+  }, [currentSong, sizeChanged]);
 
   return (
     <Swipe
