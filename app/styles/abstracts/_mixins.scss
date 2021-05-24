@@ -77,11 +77,12 @@
  * Font-sizing
  *
  * Pass null to arguments if don't want to set
- * Example: @include font-sizing(14px, 400, null, null)
+ * And for $space is using Adobe XD Character Spacing unit
+ * Example: @include font-sizing(14px, 400, null, 10)
  */
  @mixin font-sizing($size, $weight, $height, $space) {
   font-size: #{$size};
   font-weight: #{$weight};
   line-height: #{$height};
-  letter-spacing: #{$space};
+  letter-spacing: calc(#{($space * $size)} / 1000);
 };
