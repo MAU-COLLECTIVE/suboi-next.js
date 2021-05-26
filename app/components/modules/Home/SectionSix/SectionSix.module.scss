@@ -1,44 +1,35 @@
 @import "styles/app.scss";
 
-.container {
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-  padding: 130px 20px;
-  display: flex;
-  align-items: flex-end;
-  background: black;
-}
+@include home-breakpoint("xs") {
 
-.content {
-  width: 100%;
-  height: 50%;
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: flex-start;
-  color: $color-white;
-  z-index: 10;
-
-  @include home-breakpoint("lg") {
-    flex-direction: row;
-    justify-content: space-between;
+  .container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    padding: 0px 20px 100px 20px;
+    display: flex;
     align-items: flex-end;
-  }
-}
-
-.info {
-  display: flex;
-  flex-direction: row;
-  border-style: solid;
-  border-color: white;
-  border-width: 1px 0;
-
-  @include home-breakpoint("lg") {
-    border: unset;
+    background: black;
   }
 
-  div {
-    @include home-breakpoint("xs") {
+  .content {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: $color-white;
+    z-index: 10; 
+  }
+
+  .info {
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px 0;
+
+    div { 
       width: 50%;
       display: flex;
       flex-direction: column;
@@ -48,8 +39,7 @@
       h2 {
         font-family: $font-secondary;
         font-weight: 900; // black
-        font-size: 12px;
-        line-height: 12px;
+        font-size: .75rem;
         text-align: center;
         text-transform: uppercase;
       }
@@ -57,8 +47,7 @@
       p {
         margin-top: 5px;
         font-family: $font-primary;
-        font-size: 12px;
-        line-height: 12px;
+        font-size: .75rem;
         text-align: center;
       }
 
@@ -68,41 +57,12 @@
         border-width: 0 0 0 1px;
       }
     }
-
-    @include home-breakpoint("lg") {
-      width: auto;
-      align-items: flex-start;
-
-      h2 {
-        font-size: 25px;
-        line-height: 25px;
-      }
-
-      p {
-        margin-top: 10px;
-        font-size: 15px;
-        line-height: 15px;
-      }
-
-      &:last-child {
-        margin-left: 100px;
-        border-style: unset;
-      }
-    }
   }
-}
 
-.newsletter {
-  @include home-breakpoint("xs") {
-    display: grid;
-    row-gap: 15px;
+  .newsletter { 
     padding: 15px 0;
-    margin-bottom: 50px;
-  
-    grid-template-columns: 1.5fr 4fr 1fr;
-    grid-template-areas: "title title title"
-      "input input input"
-      "button button button";
+    margin-bottom: 50px; 
+    width: 100%;
     
     h2 {
       font-family: $font-secondary;
@@ -117,44 +77,123 @@
       padding: 10px 5px;
       text-align: center;
       border: unset;
-      border-radius: 12px;
+      border-radius: .75rem;
       grid-area: input;
+      max-height: 40px;
+      width: 100%;
+      margin-top: 15px;
   
       @include font-sizing(.8rem, null, null, 10);
     }
   
     .button {
-      width: auto;
-      padding: 10px 40px;
-      border-radius: 12px;
+      width: 100%;
+      padding: 12px 25px 10px 27px;
+      border-radius: .75rem;
       grid-area: button;
-    }  
+      max-height: 40px;
+      margin-top: 15px; 
+    }
   }
 
-  @include home-breakpoint("md") {
-    grid-template-areas: "title input button";
-    align-items: center;
-    column-gap: 24px;
-  }
+}
 
-  @include home-breakpoint("lg") {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: "title title title"
-      "input input button";
-    margin-bottom: 0;
-    row-gap: 10px;
+@include home-breakpoint("sm") {
 
+  .newsletter { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+  
     h2 {
-      font-size: 25px;
-      line-height: 25px;
+      width: 30%;
     }
 
     input {
-      padding: 5px;
+      width: 50%; 
+      margin: 0;
+      margin: 0 20px;
+    }
+  
+    .button {
+      width: 20%;
+      margin: 0;
+    } 
+  }
+}
+
+@include home-breakpoint("lg") { 
+
+  .content {
+    flex-direction: row-reverse;
+    height: 64px;
+  }
+
+  .newsletter {
+    padding: 0;
+    margin: 0;
+    width: 50%;
+    height: 100%;
+    flex-wrap: wrap;
+    align-items: space-between;
+
+    h2 {
+      font-size: 1.563rem;
+      width: 100%;
     }
 
-    button {
-      padding: 5px 40px !important;
+    input {
+      margin: 0;
+      max-height: 24px;
+      flex: 1;
     }
+
+    .button {
+      max-height: 24px;
+      width: 155px;
+      margin-left: 20px;
+    }
+
+    p {
+      font-size: .75rem;
+    } 
+  }
+
+  .info {
+    width: 50%;
+    border: 0;
+    flex-direction: row-reverse;
+
+    div {
+      justify-content: space-between;
+      align-items: flex-start;
+      border: 0 !important;
+      padding: 0;
+    }
+
+    h2 {
+      font-size: 1.563rem !important;
+    }
+
+    p {
+      font-size: .938rem !important;
+    } 
+  }
+}
+
+@include home-breakpoint("xl") { 
+
+  .content {  
+    justify-content: space-between;
+  }
+
+  .newsletter {
+    padding: 0;
+    margin: 0;
+    width: 30%;
+  }
+
+  .info {
+    width: 40%;
   }
 }

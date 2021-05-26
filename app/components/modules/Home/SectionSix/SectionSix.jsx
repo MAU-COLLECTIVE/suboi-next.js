@@ -6,16 +6,6 @@ function SectionTwo() {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.info}>
-          <div>
-            <h2>Business Inquiries</h2>
-            <p>suboibooking@gmail.com</p>
-          </div>
-          <div>
-            <h2>Management</h2>
-            <p>kiwi@mau.network</p>
-          </div>
-        </div>
         <div className={styles.newsletter}>
           <h2>Newsletter</h2>
           <input type="text" placeholder="Enter Your Email" />
@@ -25,6 +15,16 @@ function SectionTwo() {
             label="SUBSCRIBE"
             onClick={() => alert('You subscribed')}
           />
+        </div>
+        <div className={styles.info}>
+          <div>
+            <h2>Management</h2>
+            <p>kiwi@mau.network</p>
+          </div>
+          <div>
+            <h2>Business Inquiries</h2>
+            <p>suboibooking@gmail.com</p>
+          </div>
         </div>
       </div>
     </div>
