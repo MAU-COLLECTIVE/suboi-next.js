@@ -1,20 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import clsx from 'clsx';
+import Back from 'public/icons/Back.svg';
 import styles from './Navigation.module.scss';
 
-function Navigation({ title, hideLinks, hasBack }) {
+function Navigation({
+  title,
+  hideLinks,
+  hasBack,
+  blackColor,
+}) {
+  const { pathname } = useRouter();
   const [isShown, setIsShown] = useState(false);
+  const [isArrow, setIsArrow] = useState(false);
 
   // Resize listener
   useEffect(() => {
-    const resize = () => {
-      const width = window.innerWidth;
-      if (width > 1024) {
-        setIsShown(false);
+    const checkArrow = (width) => {
+      if (pathname === '/shop' || pathname === '/shop/[id]') {
+        if (width < 1024) {
+          setIsArrow(true);
+        } else {
+          setIsArrow(false);
+        }
       }
     };
-
+    const resize = () => {
+      const width = window.innerWidth;
+      if (width >= 1024) {
+        setIsShown(false);
+      }
+      checkArrow(width);
+    };
+    checkArrow();
     resize();
     window.addEventListener('resize', resize);
     return () => window.removeEventListener('resize', resize);
@@ -40,7 +60,9 @@ function Navigation({ title, hideLinks, hasBack }) {
 
   return (
     <nav className={styles.navigation}>
-      <h2 className={styles.company}>{title}</h2>
+      <Link href="/">
+        <h2 className={clsx(styles.company, blackColor && styles.blackColor)}>{title}</h2>
+      </Link>
       {(!hideLinks && !hasBack) ? (
         <React.Fragment>
           <ul id="nav-links" className={clsx(styles.links, isShown ? styles.showLinks : styles.hideLinks)}>
@@ -76,10 +98,14 @@ function Navigation({ title, hideLinks, hasBack }) {
           </button>
         </React.Fragment>
       ) : (
-        <button
-          className={styles.btnBack}>
-            BACK TO HOMEPAGE
-        </button>
+          <Link href="/">
+            {isArrow
+              ? <div className={styles.icon}><Back /></div>
+              : <button className={clsx(styles.btnBack, blackColor && styles.blackColor)}>
+                  BACK TO HOMEPAGE
+                </button>
+            }
+        </Link>
       )}
     </nav>
   );
@@ -89,12 +115,14 @@ Navigation.propTypes = {
   title: PropTypes.string,
   hideLinks: PropTypes.bool,
   hasBack: PropTypes.bool,
+  blackColor: PropTypes.bool,
 };
 
 Navigation.defaultProps = {
   title: 'SUBOI',
   hideLinks: false,
   hasBack: false,
+  blackColor: false,
 };
 
 export default Navigation;

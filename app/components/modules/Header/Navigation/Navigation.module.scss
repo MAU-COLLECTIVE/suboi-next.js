@@ -16,13 +16,14 @@
   font-size: 40px;
   line-height: 40px;
   color: $color-white;
+  cursor: pointer;
 }
 
 .links {
   opacity: 0;
   z-index: -1;
 
-  @include home-breakpoint-mm('xs', 'md') {
+  @include home-breakpoint-mm("xs", "md") {
     position: absolute;
     left: 0;
     top: 0;
@@ -52,52 +53,50 @@
         border-width: 1px;
         cursor: pointer;
         transition: .3s;
+      }
         
-        &:active {
-          transform: scale(.95);
-        }
+      & a:active {
+        transform: scale(.95);
       }
     }
   }
 
-  @include home-breakpoint-mm('xs', 'sm') {
-    li {        
-      // add horizontal border
-      &:nth-of-type(4),
-      &:nth-of-type(5),
-      &:nth-of-type(6) {
-        border-style: solid;
-        padding: 20px 0;
-      }
-  
-      // add vertical border
-      &:nth-of-type(2),
-      &:nth-of-type(5) {
-        a {
-          border-style: none solid;
-        }
-      }
-  
-      // make last element to end
-      &:last-of-type {
-        grid-column: 3;
-      }
-  
-      // adjust align
-      &:nth-of-type(2),
-      &:nth-of-type(5) {
-        text-align: center;
-      }
-  
-      &:nth-of-type(3),
-      &:nth-of-type(6),
-      &:nth-of-type(8) {
-        text-align: right;
+  @include home-breakpoint-mm("xs", "sm") {
+
+    li:nth-of-type(4),
+    li:nth-of-type(5),
+    li:nth-of-type(6) {
+      border-style: solid;
+      padding: 20px 0;
+    }
+
+    // add vertical border
+    li:nth-of-type(2),
+    li:nth-of-type(5) {
+      a {
+        border-style: none solid;
       }
     }
+
+    // make last element to end
+    li:last-of-type {
+      grid-column: 3;
+    }
+
+    // adjust align
+    li:nth-of-type(2),
+    li:nth-of-type(5) {
+      text-align: center;
+    }
+
+    li:nth-of-type(3),
+    li:nth-of-type(6),
+    li:nth-of-type(8) {
+      text-align: right;
+    } 
   }
 
-  @include home-breakpoint-mm('sm', 'md') {
+  @include home-breakpoint-mm("sm", "md") {
     grid-template-columns: repeat(6, 1fr);
 
     li {
@@ -107,7 +106,7 @@
 
       &:nth-of-type(7),
       &:nth-of-type(8) {
-        border-bottom-style: none;
+        border-bottom-style: 0;
         padding: 0;
       }
 
@@ -126,6 +125,7 @@
 
       // add vertical border
       &:nth-of-type(6) {
+        
         a {
           border-left-style: solid;
         }
@@ -143,7 +143,7 @@
     }
   }
 
-  @include home-breakpoint('md') {
+  @include home-breakpoint("md") {
     display: flex;
     flex-direction: row;
     list-style-type: none;
@@ -178,16 +178,16 @@
 }
 
 .showLinks {
-  @include home-breakpoint-mm('xs', 'md') {
-    @include animation('fadeInDown .3s');
+  @include home-breakpoint-mm("xs", "md") {
+    @include animation("fadeInDown .3s");
     opacity: 1;
     z-index: 110;
   }
 }
 
 .hideLinks {
-  @include home-breakpoint-mm('xs', 'md') {
-    @include animation('fadeOutTop .3s');
+  @include home-breakpoint-mm("xs", "md") {
+    @include animation("fadeOutTop .3s");
     opacity: 0;
     z-index: -1;
   }
@@ -204,15 +204,15 @@
   cursor: pointer;
   transition: .3s;
   background-color: transparent;
-  border: none;
+  border: 0;
   z-index: 100;
+
+  @include home-breakpoint("md") {
+    display: none;
+  }
   
   &:active {
     transform: scale(.95);
-  }
-
-  @include home-breakpoint('md') {
-    display: none;
   }
 }
 
@@ -227,14 +227,37 @@
   cursor: pointer;
   transition: .3s;
   background-color: transparent;
-  border: none;
+  border: 0;
+
+  @include home-breakpoint("lg") {
+    font-size: 15px;
+    line-height: 15px;
+  }
   
   &:active {
     transform: scale(.95);
   }
+}
 
-  @include home-breakpoint('lg') {
-    font-size: 15px;
-    line-height: 15px;
+.blackColor {
+  color: $color-black;
+}
+
+.icon {  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: transparent;
+  width: 25px;
+  height: 25px; 
+  transition: .3s;
+  z-index: 10;
+
+  &:active {
+    transform: scale(.95);
+  }
+
+  & path {
+    fill: $color-black;
   }
 }
