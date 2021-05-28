@@ -24,7 +24,7 @@
     }
 
     .location {
-      margin-top: 3px;
+      margin-top: 8px;
       text-transform: none;
       
       @extend %date;
@@ -33,7 +33,7 @@
     .button {
       width: fit-content;
       padding: 7px 20px;
-      margin-top: 15px;
+      margin-top: 25px;
     }
   }
 
