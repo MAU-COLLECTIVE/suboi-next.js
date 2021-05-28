@@ -12,6 +12,12 @@
     background: black;
   }
 
+  .background {
+    opacity: .5;
+    height: 100vh;
+    position: absolute;
+  }
+
   .content {
     width: 100%;
     height: max-content;

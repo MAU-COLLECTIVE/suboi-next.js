@@ -1,4 +1,5 @@
 import React from 'react';
+import Background from 'elements/Background/Background';
 import { Splide, SplideSlide } from 'splide-nextjs/react-splide';
 import TourCard from './Tour/TourCard';
 import styles from './SectionFour.module.scss';
@@ -9,7 +10,7 @@ function SectionFour() {
   const slides = [];
   const slidesLength = 5;
 
-  for (let i = 0; i < slidesLength; i++) {
+  for (let i = 0; i < slidesLength; i += 1) {
     slides.push(
       <SplideSlide key={`card-${i}`}>
         <TourCard
@@ -25,6 +26,10 @@ function SectionFour() {
 
   return (
     <div className={styles.container}>
+      <Background
+        url="https://viethiphop.vn/wp-content/uploads/2020/10/Untitled-28-1536x767.jpg"
+        className={styles.background}
+      />
       <div className={styles.content}>
         <h1 className={styles.title}>
           TOUR NAME

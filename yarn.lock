@@ -1165,6 +1165,18 @@
   resolved "https://registry.yarnpkg.com/@opentelemetry/context-base/-/context-base-0.14.0.tgz#c67fc20a4d891447ca1a855d7d70fa79a3533001"
   integrity sha512-sDOAZcYwynHFTbLo6n8kIbLiVF3a3BLkrmehJUyEbT9F+Smbi47kLGS2gG2g0fjBLR/Lr1InPD7kXL7FaTqEkw==
 
+"@splidejs/react-splide@^0.4.4":
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/@splidejs/react-splide/-/react-splide-0.4.4.tgz#78a7b97ba7340200fd6dfac3d275b96b9cb29134"
+  integrity sha512-o3WYE7Dt0Kzx9tRM7mnYW2QN+uajJPwIQ2fN0DoYs4hKql+pjwuA18M6u3iy39Rc8nVUk+m1Utn2XgfmX07rNQ==
+  dependencies:
+    "@splidejs/splide" "^2.4.13"
+
+"@splidejs/splide@^2.4.13":
+  version "2.4.21"
+  resolved "https://registry.yarnpkg.com/@splidejs/splide/-/splide-2.4.21.tgz#ad1954d8d8822c9bfea0d3dc6a119358b88581ad"
+  integrity sha512-LdIwSnmNsGybCCnA3QG2dOeRv/rQl46jf7FflXxMGX0ADYWyL6UJHWJbMZvHBi5I67uRJY1ga/W+CvJ39nH26A==
+
 "@stylelint/postcss-css-in-js@^0.37.2":
   version "0.37.2"
   resolved "https://registry.yarnpkg.com/@stylelint/postcss-css-in-js/-/postcss-css-in-js-0.37.2.tgz#7e5a84ad181f4234a2480803422a47b8749af3d2"
@@ -4126,11 +4138,6 @@ fullpage.js@^3.1.0, fullpage.js@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/fullpage.js/-/fullpage.js-3.1.1.tgz#56dd11f6946c06972b7ed30aa841b46c52157a9c"
   integrity sha512-pd8rbaDTHxK/eYtfDu7os0CEXjLA5e/3FNe+Mo8RnpntmOayxtyL1D8Y7JzANOCvKLn8zO5aFrPZGo3NhOCwgQ==
-
-fullpage@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/fullpage/-/fullpage-1.5.1.tgz#b37579339188ca28f3d3733aabdd0ad4b0f22565"
-  integrity sha512-Oqn2fWx8z85EH+fHEJbXDsXYrPFxlEzT/02wPW0AqqUshQZU/e5ht5n/zm5ajdi3I233ovBycnQ9PcEsfPI45w==
 
 function-bind@^1.1.1:
   version "1.1.1"

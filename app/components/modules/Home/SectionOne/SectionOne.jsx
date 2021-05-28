@@ -1,15 +1,19 @@
 import React from 'react';
 import Button from 'elements/Button/Button';
+import Background from 'elements/Background/Background';
 import styles from './SectionOne.module.scss';
 
 function SectionOne() {
   return (
     <div className={styles.container}>
-      <div className={styles.overlay}></div>
+      <Background
+        url="https://i.ytimg.com/vi/h3SZNTXlcR0/maxresdefault.jpg"
+        className={styles.background}
+      />
       <p className={styles.lyrics}>
         I will never know if you love me<br/>
-        Or my company, but I don't mind<br/>
-        'Cause I ain't tryna be the one<br/>
+        Or my company, but I don t mind<br/>
+        Cause I ain t tryna be the one<br/>
         Been through this a thousand times
       </p>
       <div className={styles.banner}>

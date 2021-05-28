@@ -1,10 +1,15 @@
 import React from 'react';
+import Background from 'elements/Background/Background';
 import Button from 'elements/Button/Button';
 import styles from './SectionSix.module.scss';
 
 function SectionTwo() {
   return (
     <div className={styles.container}>
+      <Background
+        url="https://viethiphop.vn/wp-content/uploads/2020/10/Untitled-26-1536x782.jpg"
+        className={styles.background}
+      />
       <div className={styles.content}>
         <div className={styles.newsletter}>
           <h2>Newsletter</h2>

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Cart from 'modules/Shop/Cart/Cart';
 import ItemDetail from 'modules/Shop/ItemDetail/ItemDetail';
 import CartButton from 'modules/Shop/CartButton/CartButton';
+import Background from 'elements/Background/Background';
 import styles from './ShopDetail.module.scss';
 
 function ShopDetail({ item }) {
@@ -43,7 +44,10 @@ function ShopDetail({ item }) {
   };
 
   return <div className={styles.container}>
-    <div className={styles.background}/>
+    <Background
+      url="https://crazyhood.com/wp-content/uploads/2018/12/suboi.png"
+      className={styles.background}
+    />
     <ItemDetail item={item}/>
     <CartButton
       openCart={openCart}
