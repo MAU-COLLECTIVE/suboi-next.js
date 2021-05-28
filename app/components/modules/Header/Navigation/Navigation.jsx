@@ -11,6 +11,7 @@ function Navigation({
   hideLinks,
   hasBack,
   blackColor,
+  handleOnClick,
 }) {
   const { pathname } = useRouter();
   const [isShown, setIsShown] = useState(false);
@@ -66,29 +67,29 @@ function Navigation({
       {(!hideLinks && !hasBack) ? (
         <React.Fragment>
           <ul id="nav-links" className={clsx(styles.links, isShown ? styles.showLinks : styles.hideLinks)}>
-            <li>
-              <a href="#">Home</a>
+            <li onClick={() => { handleOnClick(1); }}>
+              <p>Home</p>
+            </li>
+            <li onClick={() => { handleOnClick(2); }}>
+              <p>About</p>
+            </li>
+            <li onClick={() => { handleOnClick(3); }}>
+              <p>Music</p>
+            </li>
+            <li onClick={() => { handleOnClick(4); }}>
+              <p>Tour</p>
             </li>
             <li>
-              <a href="#">About</a>
+              <p>Shop</p>
+            </li>
+            <li onClick={() => { handleOnClick(5); }}>
+              <p>Photos</p>
             </li>
             <li>
-              <a href="#">Music</a>
+              <p>Videos</p>
             </li>
-            <li>
-              <a href="#">Tour</a>
-            </li>
-            <li>
-              <a href="#">Shop</a>
-            </li>
-            <li>
-              <a href="#">Photos</a>
-            </li>
-            <li>
-              <a href="#">Videos</a>
-            </li>
-            <li>
-              <a href="#">Contact</a>
+            <li onClick={() => { handleOnClick(6); }}>
+              <p>Contact</p>
             </li>
           </ul>
           <button
@@ -116,6 +117,7 @@ Navigation.propTypes = {
   hideLinks: PropTypes.bool,
   hasBack: PropTypes.bool,
   blackColor: PropTypes.bool,
+  handleOnClick: PropTypes.func,
 };
 
 Navigation.defaultProps = {

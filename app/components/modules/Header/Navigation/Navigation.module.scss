@@ -21,7 +21,7 @@
 
 .links {
   opacity: 0;
-  z-index: -1;
+  // z-index: -1;
 
   @include home-breakpoint-mm("xs", "md") {
     position: absolute;
@@ -44,7 +44,7 @@
       border-color: $color-primary;
       border-width: 1px 0;
 
-      & a {
+      & p {
         display: block;
         padding: 5px 0;
         color: $color-primary;
@@ -73,7 +73,7 @@
     // add vertical border
     li:nth-of-type(2),
     li:nth-of-type(5) {
-      a {
+      p {
         border-style: none solid;
       }
     }
@@ -118,7 +118,7 @@
         text-align: center;
         
         // add vertical border
-        a {
+        p {
           border-left-style: solid;
         }
       }
@@ -126,7 +126,7 @@
       // add vertical border
       &:nth-of-type(6) {
         
-        a {
+        p {
           border-left-style: solid;
         }
       }
@@ -156,20 +156,19 @@
   
     li {
       margin: 0 16.5px;
+      cursor: pointer;
+      transition: .3s;
   
       &:last-of-type {
         margin-left: auto;
         margin-right: 0;
       }
   
-      cursor: pointer;
-      transition: .3s;
-  
       &:active {
         transform: scale(.95);
       }
   
-      & a {
+      & p {
         color: $color-white;
         text-transform: uppercase;
       }

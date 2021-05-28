@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import styles from './Header.module.scss';
 import Navigation from './Navigation/Navigation';
 
-function Header() {
+function Header({ onChangeSection }) {
   const { pathname } = useRouter();
   const [hideLinks, setHideLinks] = useState(false);
   const [title, setTitle] = useState('SUBOI');
@@ -19,11 +20,24 @@ function Header() {
     }
   }, []);
 
+  const handleOnClick = (id) => {
+    onChangeSection(id);
+  };
+
   return (
     <header className={styles.header}>
-      <Navigation hideLinks={hideLinks} title={title} blackColor={blackColor}/>
+      <Navigation
+        hideLinks={hideLinks}
+        title={title}
+        blackColor={blackColor}
+        handleOnClick={(id) => handleOnClick(id)}
+      />
     </header>
   );
 }
+
+Header.propTypes = {
+  onChangeSection: PropTypes.func,
+};
 
 export default Header;

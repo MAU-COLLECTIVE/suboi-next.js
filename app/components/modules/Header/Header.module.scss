@@ -1,12 +1,12 @@
 @import "../../../styles/app.scss";
 
 .header {
-  position: fixed;
+  position: fixed !important;
   top: 0;
   left: 0;
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: center;
-  z-index: 100;
+  z-index: 99999999;
 } 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Default from 'layouts/Default/Default';
+import HomeLayout from 'layouts/HomeLayout/HomeLayout';
 import HomePage from 'templates/Home/Home';
 
 const songs = [
@@ -114,9 +114,9 @@ const photos = [
 
 function Home() {
   return (
-    <Default >
+    <HomeLayout >
       <HomePage songs={songs} photos={photos}/>
-    </Default>
+    </HomeLayout>
   );
 }
 
