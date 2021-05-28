@@ -77,20 +77,21 @@
   width: 100%;
 
   .button {
-    padding: 12px 0;
+    padding: 14px 0 10px 0;
     width: 50%;
 
     @include home-breakpoint("md") {
-      padding: 12px 50px;
+      padding: 14px 50px 10px 50px;
       width: fit-content;
     }
 
     @include home-breakpoint("lg") {
-      padding: 6px 50px;
+      padding: 6px 50px 2px 50px;
     }
     
     &:last-of-type {
       margin-left: 16px;
+      font-weight: 700;
     }
   }
 }

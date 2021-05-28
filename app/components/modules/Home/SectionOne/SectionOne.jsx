@@ -31,7 +31,7 @@ function SectionOne() {
             className={styles.button}
             background="red"
             label="BUY ALBUM"
-            onClick={() => alert('You played')}
+            onClick={() => alert('You buy')}
           />
         </div>
       </div>
