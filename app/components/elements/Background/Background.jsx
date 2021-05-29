@@ -13,7 +13,7 @@ function Background({ url, className }) {
 
 Background.propTypes = {
   url: PropTypes.string,
-  className: PropTypes.object,
+  className: PropTypes.string,
 };
 
 export default Background;

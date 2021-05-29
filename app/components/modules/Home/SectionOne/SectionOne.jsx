@@ -10,6 +10,7 @@ function SectionOne() {
         url="https://i.ytimg.com/vi/h3SZNTXlcR0/maxresdefault.jpg"
         className={styles.background}
       />
+       <div className={styles.overlay}></div>
       <p className={styles.lyrics}>
         I will never know if you love me<br/>
         Or my company, but I don t mind<br/>

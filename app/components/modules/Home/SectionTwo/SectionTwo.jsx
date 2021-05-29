@@ -5,6 +5,7 @@ import styles from './SectionTwo.module.scss';
 function SectionTwo() {
   return (
     <div className={styles.container}>
+      <div className={styles.overlay}></div>
       <Background
         url="https://crazyhood.com/wp-content/uploads/2018/12/suboi.png"
         className={styles.background}

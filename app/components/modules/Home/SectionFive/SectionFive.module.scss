@@ -8,24 +8,11 @@
   align-items: center; 
   justify-content: center;  
   position: relative; 
-  
+  background-color: black;
+   
   .background {
-    position: absolute;
-    top: 0; 
-    left: 0;
+    opacity: .15;
     height: 100vh;
-    width: 100%; 
-    overflow: hidden;  
-    background-color: black;
-    z-index: 0;
-
-    img {
-      min-height: 100%;
-      min-width: 100%;
-      opacity: .15;
-      margin: auto;
-      position: absolute;
-      top: 0; left: 0; bottom: 0; right: 0;
-    }
-  } 
+    position: absolute;
+  }
 } 
