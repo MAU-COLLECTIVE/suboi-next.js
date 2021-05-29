@@ -67,28 +67,28 @@ function Navigation({
       {(!hideLinks && !hasBack) ? (
         <React.Fragment>
           <ul id="nav-links" className={clsx(styles.links, isShown ? styles.showLinks : styles.hideLinks)}>
-            <li onClick={() => { handleOnClick(1); }}>
+            <li onClick={() => { handleOnClick(1, 'home'); }}>
               <p>Home</p>
             </li>
-            <li onClick={() => { handleOnClick(2); }}>
+            <li onClick={() => { handleOnClick(2, 'about'); }}>
               <p>About</p>
             </li>
-            <li onClick={() => { handleOnClick(3); }}>
+            <li onClick={() => { handleOnClick(3, 'music'); }}>
               <p>Music</p>
             </li>
-            <li onClick={() => { handleOnClick(4); }}>
+            <li onClick={() => { handleOnClick(4, 'tour'); }}>
               <p>Tour</p>
             </li>
-            <li>
+            <li onClick={() => { handleOnClick(null, 'shop'); }}>
               <p>Shop</p>
             </li>
-            <li onClick={() => { handleOnClick(5); }}>
+            <li onClick={() => { handleOnClick(5, 'photos'); }}>
               <p>Photos</p>
             </li>
             <li>
               <p>Videos</p>
             </li>
-            <li onClick={() => { handleOnClick(6); }}>
+            <li onClick={() => { handleOnClick(6, 'contact'); }}>
               <p>Contact</p>
             </li>
           </ul>

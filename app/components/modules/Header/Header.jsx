@@ -20,8 +20,8 @@ function Header({ onChangeSection }) {
     }
   }, []);
 
-  const handleOnClick = (id) => {
-    onChangeSection(id);
+  const handleOnClick = (id, name) => {
+    onChangeSection(id, name);
   };
 
   return (
@@ -30,7 +30,7 @@ function Header({ onChangeSection }) {
         hideLinks={hideLinks}
         title={title}
         blackColor={blackColor}
-        handleOnClick={(id) => handleOnClick(id)}
+        handleOnClick={(id, name) => handleOnClick(id, name)}
       />
     </header>
   );
