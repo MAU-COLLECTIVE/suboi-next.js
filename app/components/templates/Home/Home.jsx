@@ -11,6 +11,7 @@ import SectionSix from 'modules/Home/SectionSix/SectionSix';
 import Header from 'modules/Header/Header';
 
 function HomePage({ songs, photos }) {
+  const anchors = ['home', 'about', 'music', 'tour', 'photos', 'footer'];
   const router = useRouter();
   const moveSection = (id, name) => {
     if (name === 'shop') {
@@ -18,7 +19,6 @@ function HomePage({ songs, photos }) {
     } else {
       // eslint-disable-next-line no-undef
       fullpage_api.moveTo(id, 0);
-      router.push(`#${name}`);
     }
   };
 
@@ -26,6 +26,7 @@ function HomePage({ songs, photos }) {
     <div className="App">
       <Header onChangeSection={(id, name) => { moveSection(id, name); }}/>
       <ReactFullpage
+        anchors={anchors}
         navigation={false}
         render={() => <ReactFullpage.Wrapper>
             <div className="section">
