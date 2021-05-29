@@ -1,0 +1,102 @@
+@import "styles/app.scss";
+
+.category {
+  position: fixed;
+  top: 70px;
+  left: 20px;
+}
+
+.categoryBtn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px $color-black solid; 
+  border-radius: 12px;
+  transition: .5s;
+  z-index: 30; 
+  width: 137px;
+  height: 24px;  
+  padding: 2px 0 0 3px;
+  user-select: none;
+
+  .smallText {
+    pointer-events: none;
+    user-select: none;
+  }
+  
+  .icon {
+    position: absolute;
+    right: 7px;
+    top: 2px;
+  }
+} 
+
+.cateBox {
+  width: 100%;
+  height: max-content;
+  transition: .3s;
+  height: 0;
+  overflow: hidden;
+
+  .button {
+    width: 100%;
+    margin: 5px 0;
+    height: 24px;
+    padding: 2px 0 0 3px;
+    border-color: $color-black;
+    color: $color-black;
+
+    &:hover {
+      background-color: $color-black;
+      color: $color-white;
+    }
+  }
+}
+
+.cateBoxOpen {
+  height: 90px;
+}
+//   @include shop-breakpoint("md") { 
+//     position: fixed;
+//     width: 155px;
+//     bottom: 20px; 
+//     height: 24px;  
+//     left: 0; 
+//     right: 0; 
+//     margin-left: auto; 
+//     margin-right: auto;  
+//   }
+
+//   &:hover {
+//     background-color: $color-black;
+//     color: $color-white;
+//   }
+
+//   &:active {
+//     transform: scale(.95);
+//   }
+// }
+
+// .alwayAppearCart {
+//   bottom: 20px; 
+// }
+
+// .openCart {
+//   position: fixed; 
+//   bottom: 425px; 
+//   width: 155px; 
+//   height: 24px;  
+//   left: 0; 
+//   right: 0; 
+//   margin-left: auto; 
+//   margin-right: auto;   
+
+//   @include shop-breakpoint("lg") {
+//     bottom: 465px;
+//   } 
+// }
+
+// .appearCart {
+//   bottom: 20px;
+// }

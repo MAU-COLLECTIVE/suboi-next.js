@@ -17,7 +17,7 @@
     & a {
       margin-left: 22.5px;
 
-      @include home-breakpoint('lg') {
+      @include home-breakpoint("lg") {
         margin-left: 12px;
       }
     }
