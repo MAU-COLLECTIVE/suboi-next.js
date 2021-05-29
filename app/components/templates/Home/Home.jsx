@@ -9,6 +9,7 @@ import SectionFour from 'modules/Home/SectionFour/SectionFour';
 import SectionFive from 'modules/Home/SectionFive/SectionFive';
 import SectionSix from 'modules/Home/SectionSix/SectionSix';
 import Header from 'modules/Header/Header';
+import styles from './Home.module.scss';
 
 function HomePage({ songs, photos }) {
   const anchors = ['home', 'about', 'music', 'tour', 'photos', 'footer'];
@@ -23,7 +24,7 @@ function HomePage({ songs, photos }) {
   };
 
   return (
-    <div className="App">
+    <div className={styles.app}>
       <Header onChangeSection={(id, name) => { moveSection(id, name); }}/>
       <ReactFullpage
         anchors={anchors}

@@ -54,6 +54,7 @@
       transition: .3s;
       cursor: pointer;  
       filter: blur(5px);  
+      user-select: none;
     }
 
     .songInfo {
@@ -90,11 +91,6 @@
 
       img {
         filter: blur(0); 
-      }
-
-      &:hover { 
-        border: 3px rgba($color: #fff, $alpha: .2) solid; 
-        box-shadow: 0 0 10px rgba($color: #fff, $alpha: .2);
       }
     }
 
