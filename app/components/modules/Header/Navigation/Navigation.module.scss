@@ -6,17 +6,21 @@
   width: 100%;
   align-items: flex-start;
   justify-content: space-between;
-}
+} 
 
 .company {
   padding: 0;
   margin: 0;
   font-family: $font-secondary;
   font-weight: 900; // black
-  font-size: 40px;
+  font-size: 35px;
   line-height: 40px;
   color: $color-white;
   cursor: pointer;
+
+  @include shop-breakpoint("sm") {
+    font-size: 40px;
+  }
 }
 
 .links {

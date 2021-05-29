@@ -5,11 +5,13 @@ import PropTypes from 'prop-types';
 import ArrowDown from 'public/icons/arrow-down.svg';
 import ArrowUp from 'public/icons/arrow-up.svg';
 import Button from 'elements/Button/Button';
+import Close from 'public/icons/close.svg';
 import styles from './Category.module.scss';
 
 function Category({ onClick, openCate }) {
   const { pathname } = useRouter();
   const [appearArrow, setAppearArrow] = useState(false);
+  const [appearClose, setAppearClose] = useState(false);
 
   useEffect(() => {
     function updateSize() {
@@ -17,6 +19,11 @@ function Category({ onClick, openCate }) {
         setAppearArrow(false);
       } else {
         setAppearArrow(true);
+      }
+      if (window.innerWidth >= 1024) {
+        setAppearClose(false);
+      } else {
+        setAppearClose(true);
       }
     }
     window.addEventListener('resize', updateSize);
@@ -26,12 +33,7 @@ function Category({ onClick, openCate }) {
   return (
     <div className={styles.category}>
       <div
-        className={clsx(
-          styles.categoryBtn,
-          // openCart && styles.openCart,
-          // appearCart && styles.appearCart,
-          // alwayAppearCart && styles.alwayAppearCart,
-        )}
+        className={styles.categoryBtn}
         onClick={onClick}
       >
         <p className={styles.smallText}>CATEGORIES</p>
@@ -41,6 +43,9 @@ function Category({ onClick, openCate }) {
         }
       </div>
       <div className={clsx(styles.cateBox, openCate && styles.cateBoxOpen)}>
+        {appearClose && <div className={styles.closeIcon} onClick={onClick}>
+          <Close/>
+        </div>}
         <Button
           className={styles.button}
           background="transparent"

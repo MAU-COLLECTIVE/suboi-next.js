@@ -1,102 +1,135 @@
 @import "styles/app.scss";
 
-.category {
-  position: fixed;
-  top: 70px;
-  left: 20px;
-}
 
-.categoryBtn {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px $color-black solid; 
-  border-radius: 12px;
-  transition: .5s;
-  z-index: 30; 
-  width: 137px;
-  height: 24px;  
-  padding: 2px 0 0 3px;
-  user-select: none;
+@include shop-breakpoint("xs") {
 
-  .smallText {
-    pointer-events: none;
-    user-select: none;
-  }
-  
-  .icon {
+  .category {
     position: absolute;
-    right: 7px;
-    top: 2px;
+    top: 70px;
+    left: 20px;
   }
-} 
 
-.cateBox {
-  width: 100%;
-  height: max-content;
-  transition: .3s;
-  height: 0;
-  overflow: hidden;
-
-  .button {
-    width: 100%;
-    margin: 5px 0;
-    height: 24px;
+  .categoryBtn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px $color-black solid; 
+    border-radius: 12px;
+    transition: .5s;
+    z-index: 30; 
+    width: 137px;
+    height: 24px;  
     padding: 2px 0 0 3px;
-    border-color: $color-black;
-    color: $color-black;
+    user-select: none;
 
-    &:hover {
-      background-color: $color-black;
-      color: $color-white;
+    .smallText {
+      pointer-events: none;
+      user-select: none;
+    }
+    
+    .icon {
+      position: absolute;
+      right: 7px;
+      top: 2px;
+    }
+  } 
+
+  .cateBox { 
+    background-color: rgba($color: #fff, $alpha: .8);
+    backdrop-filter: blur(10px); 
+    position: fixed;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    transition: .3s;
+    z-index: 99999999;
+    opacity: 0;
+    visibility: hidden;
+
+    .button {
+      width: 100%;
+      margin: 5px 0;
+      height: 24px;
+      padding: 2px 0 0 3px;
+      border-color: transparent;
+      color: $color-black;
+      margin: 18px 0;
+      height: 40px;
+
+      p {
+        font-size: 2.5rem;
+        font-family: $font-secondary !important;
+      }
+
+      &:hover {
+        background-color: transparent;
+      }
     }
   }
+
+  .cateBoxOpen {
+    opacity: 1;
+    visibility: visible;
+
+    .closeIcon {  
+      position: absolute; 
+      cursor: pointer;
+      right: 20px;
+      top: 20px;
+
+      svg {
+        pointer-events: none;
+      }
+    } 
+  }
 }
 
-.cateBoxOpen {
-  height: 90px;
+@include shop-breakpoint("lg") {
+
+  .cateBox {
+    position: relative;
+    width: 100%;
+    height: max-content;
+    transition: .3s;
+    height: 0;
+    overflow: hidden;
+    background-color: transparent;
+
+    .button {
+      width: 100%;
+      margin: 10px 0 0 0;
+      height: 24px;
+      padding: 2px 0 0 3px;
+      border-color: $color-black;
+      color: $color-black;
+
+      p {
+        font-size: .75rem;
+        font-family: $font-primary !important;
+      }
+
+      &:hover {
+        background-color: $color-black;
+        color: $color-white;
+      }
+    }
+  }
+
+  .cateBoxOpen {
+    height: 90px;
+  }
 }
-//   @include shop-breakpoint("md") { 
-//     position: fixed;
-//     width: 155px;
-//     bottom: 20px; 
-//     height: 24px;  
-//     left: 0; 
-//     right: 0; 
-//     margin-left: auto; 
-//     margin-right: auto;  
-//   }
 
-//   &:hover {
-//     background-color: $color-black;
-//     color: $color-white;
-//   }
+@include shop-breakpoint("xl") {
 
-//   &:active {
-//     transform: scale(.95);
-//   }
-// }
-
-// .alwayAppearCart {
-//   bottom: 20px; 
-// }
-
-// .openCart {
-//   position: fixed; 
-//   bottom: 425px; 
-//   width: 155px; 
-//   height: 24px;  
-//   left: 0; 
-//   right: 0; 
-//   margin-left: auto; 
-//   margin-right: auto;   
-
-//   @include shop-breakpoint("lg") {
-//     bottom: 465px;
-//   } 
-// }
-
-// .appearCart {
-//   bottom: 20px;
-// }
+  .category {
+    position: fixed;
+  }
+  
+}

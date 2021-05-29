@@ -46,7 +46,13 @@ function ShopListing({ items }) {
   };
 
   const handleOnClick = () => {
-    setOpenCate(!openCate);
+    if (openCate) {
+      setOpenCate(false);
+      document.body.style.overflow = 'auto';
+    } else {
+      setOpenCate(true);
+      document.body.style.overflow = 'hidden';
+    }
   };
 
   return <div className={styles.container}>
