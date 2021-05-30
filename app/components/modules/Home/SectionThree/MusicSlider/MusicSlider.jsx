@@ -75,7 +75,7 @@ function MusicSlider({ songs }) {
           className={styles.musicSliderBox}
         >
           {songs.length > 0 && songs.map((item, index) => <div
-            key={item.id}
+            key={item.slug.current}
             className={clsx(
               styles.songCard,
               currentSong === index + 1 && styles.songCardActive,

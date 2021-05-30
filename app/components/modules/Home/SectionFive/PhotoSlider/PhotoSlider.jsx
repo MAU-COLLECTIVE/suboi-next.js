@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Swipe from 'react-easy-swipe';
 import clsx from 'clsx';
 import styles from './PhotoSlider.module.scss';
-import SongItem from './PhotoItem/PhotoItem';
+import PhotoItem from './PhotoItem/PhotoItem';
 
 function PhotoSlider({ photos }) {
   const [currentSong, setCurrentSong] = useState(1);
@@ -75,7 +75,7 @@ function PhotoSlider({ photos }) {
           className={styles.musicSliderBox}
         >
           {photos.length > 0 && photos.map((item, index) => <div
-            key={item.id}
+            key={index}
             className={clsx(
               styles.songCard,
               currentSong === index + 1 && styles.songCardActive,
@@ -84,7 +84,7 @@ function PhotoSlider({ photos }) {
             )}
             onClick={() => setCurrentSong(index + 1)}
           >
-            <SongItem item={item} />
+            <PhotoItem item={item} />
           </div>)}
         </div>
       </div>;
