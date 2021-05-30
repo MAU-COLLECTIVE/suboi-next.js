@@ -18,7 +18,7 @@
     "settings": {
         "import/resolver": {
             "node": {
-                "paths": ["app/components"],
+                "paths": ["app", "app/components"],
                 "extensions": [".js", ".jsx"]
             }
         }
