@@ -13,9 +13,9 @@ export const config = {
    *
    * https://nextjs.org/docs/basic-features/environment-variables
    * */
-  dataset: process.env.SANITY_DATASET || 'production',
-  projectId: process.env.SANITY_PROJECT_ID,
-  apiVersion: process.env.SANITY_API_VERSION || '2021-05-30',
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2021-05-30',
   /**
    * Set useCdn to `false` if your application require the freshest possible
    * data always (potentially slightly slower and a bit more expensive).
