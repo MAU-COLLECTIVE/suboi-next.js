@@ -13,6 +13,7 @@
       "util/*": ["app/utils/*"],
       "public/*": ["public/*"],
       "styles/*": ["app/styles/*"],
+      "api/*": ["app/api/*"]
     }
   }
 }
