@@ -8,7 +8,7 @@ import Button from 'elements/Button/Button';
 import Close from 'public/icons/close.svg';
 import styles from './Category.module.scss';
 
-function Category({ onClick, openCate }) {
+function Category({ onClick, openCate, data }) {
   const { pathname } = useRouter();
   const [appearArrow, setAppearArrow] = useState(false);
   const [appearClose, setAppearClose] = useState(false);
@@ -51,16 +51,12 @@ function Category({ onClick, openCate }) {
           background="transparent"
           label="ALL"
         />
-        <Button
+        {data.length > 0 && data.map((item) => <Button
+          key={item.slug.current}
           className={styles.button}
           background="transparent"
-          label="T-SHIRT"
-        />
-        <Button
-          className={styles.button}
-          background="transparent"
-          label="CD"
-        />
+          label={item.name}
+        />)}
       </div>
     </div>
   );
@@ -69,6 +65,7 @@ function Category({ onClick, openCate }) {
 Category.propTypes = {
   onClick: PropTypes.func,
   openCate: PropTypes.bool,
+  data: PropTypes.array,
 };
 
 export default Category;

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'elements/Button/Button';
+import { urlFor } from 'utils/sanity';
 import styles from './ItemDetail.module.scss';
 
 function Item({ item }) {
@@ -8,13 +9,13 @@ function Item({ item }) {
     <div className={styles.left}>
       <img
         className={styles.itemImage}
-        src={item.display_image}
+        src={urlFor(item.productImage[0].asset._ref)}
       />
       <div className={styles.smallImages}>
-        {item.images && item.images.map((url, index) => <img
+        {item.productImage && item.productImage.slice(1).map((url, index = 1) => <img
           key={index}
           className={styles.smallImageItem}
-          src={url}
+          src={urlFor(url.asset._ref)}
         />)}
       </div>
     </div>

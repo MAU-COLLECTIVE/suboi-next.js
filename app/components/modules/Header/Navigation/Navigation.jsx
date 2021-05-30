@@ -99,7 +99,7 @@ function Navigation({
           </button>
         </React.Fragment>
       ) : (
-          <Link href="/">
+          <Link href="/shop">
             {isArrow
               ? <div className={styles.icon}><Back /></div>
               : <button className={clsx(styles.btnBack, blackColor && styles.blackColor)}>

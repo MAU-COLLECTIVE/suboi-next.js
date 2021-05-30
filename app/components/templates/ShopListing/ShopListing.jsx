@@ -7,7 +7,7 @@ import Background from 'elements/Background/Background';
 import Category from 'modules/Shop/Category/Category';
 import styles from './ShopListing.module.scss';
 
-function ShopListing({ items }) {
+function ShopListing({ items, categories }) {
   const [openCart, setOpenCart] = useState(false);
   const [openCate, setOpenCate] = useState(false);
   const [appearCart, setAppearCart] = useState(false);
@@ -63,6 +63,7 @@ function ShopListing({ items }) {
     <div className={styles.items}>
       <Items data={items}/>
       <Category
+        data={categories}
         openCate={openCate}
         onClick={handleOnClick}
       />
@@ -81,6 +82,7 @@ function ShopListing({ items }) {
 
 ShopListing.propTypes = {
   items: PropTypes.array,
+  categories: PropTypes.array,
 };
 
 export default ShopListing;

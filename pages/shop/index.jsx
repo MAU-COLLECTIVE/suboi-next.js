@@ -1,32 +1,47 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Default from 'layouts/Default/Default';
 import ShopListing from 'templates/ShopListing/ShopListing';
+import { groq } from 'next-sanity';
+import { getClient } from 'utils/sanity';
 
-const items = [
+const query = groq`
   {
-    id: '1',
-    name: 'SUBOI TOUR SHIRT',
-    price: 1,
-    image: 'https://i.ibb.co/XCQMY1W/hoodieblack.png',
-  },
-  {
-    id: '2',
-    name: 'SUBOI TOUR SHIRT',
-    price: 1,
-    image: 'https://i.ibb.co/XCQMY1W/hoodieblack.png',
-  },
-  {
-    id: '3',
-    name: 'SUBOI TOUR SHIRT',
-    price: 1,
-    image: 'https://i.ibb.co/XCQMY1W/hoodieblack.png',
-  },
-];
+    "products": * [_type == 'product'] {
+      name,
+      slug,
+      productImage,
+      price,
+      productVariant -> {
+        name,
+        releaseDate
+      }
+    },
+    "categories": * [_type == 'productCategory'] {
+      name,
+      slug,
+      description,
+    },
+  }
+`;
 
-function Shop() {
+export async function getStaticProps({ preview = false }) {
+  const data = await getClient(preview).fetch(query);
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
+function Shop({ data }) {
   return <Default>
-    <ShopListing items={items} />
+    <ShopListing items={data.products} categories={data.categories}/>
   </Default>;
 }
+
+Shop.propTypes = {
+  data: PropTypes.object,
+};
 
 export default Shop;

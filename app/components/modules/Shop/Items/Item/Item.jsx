@@ -28,7 +28,7 @@ function Item({
 
 Item.propTypes = {
   name: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.object,
   price: PropTypes.number,
   id: PropTypes.string,
 };

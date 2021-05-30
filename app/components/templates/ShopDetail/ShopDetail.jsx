@@ -4,10 +4,12 @@ import Cart from 'modules/Shop/Cart/Cart';
 import ItemDetail from 'modules/Shop/ItemDetail/ItemDetail';
 import CartButton from 'modules/Shop/CartButton/CartButton';
 import Background from 'elements/Background/Background';
+import Category from 'modules/Shop/Category/Category';
 import styles from './ShopDetail.module.scss';
 
-function ShopDetail({ item }) {
+function ShopDetail({ item, categories }) {
   const [openCart, setOpenCart] = useState(false);
+  const [openCate, setOpenCate] = useState(false);
   const [appearCart, setAppearCart] = useState(false);
 
   useEffect(() => {
@@ -43,10 +45,25 @@ function ShopDetail({ item }) {
     }
   };
 
+  const handleOnClick = () => {
+    if (openCate) {
+      setOpenCate(false);
+      document.body.style.overflow = 'auto';
+    } else {
+      setOpenCate(true);
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
   return <div className={styles.container}>
     <Background
       url="https://crazyhood.com/wp-content/uploads/2018/12/suboi.png"
       className={styles.background}
+    />
+    <Category
+      data={categories}
+      openCate={openCate}
+      onClick={handleOnClick}
     />
     <ItemDetail item={item}/>
     <CartButton
@@ -63,6 +80,7 @@ function ShopDetail({ item }) {
 
 ShopDetail.propTypes = {
   item: PropTypes.object,
+  categories: PropTypes.array,
 };
 
 export default ShopDetail;

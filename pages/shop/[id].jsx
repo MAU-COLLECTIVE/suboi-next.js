@@ -1,23 +1,64 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Default from 'layouts/Default/Default';
 import ShopDetail from 'templates/ShopDetail/ShopDetail';
+import { groq } from 'next-sanity';
+import { getClient } from 'utils/sanity';
 
-const item = {
-  id: '1',
-  name: 'SUBOI TOUR SHIRT',
-  price: 1,
-  display_image: 'https://i.ibb.co/XCQMY1W/hoodieblack.png',
-  images: [
-    'https://i.ibb.co/XCQMY1W/hoodieblack.png',
-    'https://i.ibb.co/XCQMY1W/hoodieblack.png',
-    'https://i.ibb.co/XCQMY1W/hoodieblack.png',
-  ],
-};
+const query = groq`
+  {
+    "products": * [_type == 'product'] {
+      slug,
+    },
+    "product": * [slug.current == $slug][0] {
+      name,
+      slug,
+      productImage,
+      price,
+      productVariant -> {
+        name,
+        releaseDate
+      }
+    },
+    "categories": * [_type == 'productCategory'] {
+      name,
+      slug,
+      description,
+    },
+  }
+`;
 
-function Shop() {
+export async function getStaticProps({ preview = false, params }) {
+  const data = await getClient(preview).fetch(query, { slug: params.id });
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
+export async function getStaticPaths({ preview = false }) {
+  const data = await getClient(preview).fetch(query, { slug: '' });
+
+  const paths = data.products.map((item) => (
+    {
+      params: { id: String(item.slug.current) },
+    }
+  ));
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+function Shop({ data }) {
   return <Default>
-    <ShopDetail item={item}/>
+    <ShopDetail item={data.product} categories={data.categories}/>
   </Default>;
 }
+
+Shop.propTypes = {
+  data: PropTypes.object,
+};
 
 export default Shop;
