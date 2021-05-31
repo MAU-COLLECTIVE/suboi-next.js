@@ -11,7 +11,7 @@ import SectionSix from 'modules/Home/SectionSix/SectionSix';
 import Header from 'modules/Header/Header';
 import styles from './Home.module.scss';
 
-function HomePage({ songs, photos }) {
+function HomePage({ promote, about, songs, photos, tour, contact }) {
   const anchors = ['home', 'about', 'music', 'tour', 'photos', 'footer'];
   const router = useRouter();
   const moveSection = (id, name) => {
@@ -31,22 +31,22 @@ function HomePage({ songs, photos }) {
         navigation={false}
         render={() => <ReactFullpage.Wrapper>
             <div className="section">
-              <SectionOne/>
+              <SectionOne promote={promote}/>
             </div>
             <div className="section">
-              <SectionTwo/>
+              <SectionTwo about={about}/>
             </div>
             <div className="section">
               <SectionThree songs={songs}/>
             </div>
             <div className="section">
-              <SectionFour/>
+              <SectionFour tour={tour}/>
             </div>
             <div className="section">
               <SectionFive photos={photos}/>
             </div>
             <div className="section">
-              <SectionSix />
+              <SectionSix contact={contact}/>
             </div>
           </ReactFullpage.Wrapper>
         }
@@ -56,8 +56,12 @@ function HomePage({ songs, photos }) {
 }
 
 HomePage.propTypes = {
+  promote: PropTypes.object,
+  about: PropTypes.object,
   songs: PropTypes.array,
   photos: PropTypes.array,
+  tour: PropTypes.object,
+  contact: PropTypes.object,
 };
 
 export default HomePage;

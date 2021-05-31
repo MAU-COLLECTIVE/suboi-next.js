@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Background from 'elements/Background/Background';
 import Button from 'elements/Button/Button';
 import styles from './SectionSix.module.scss';
 
-function SectionTwo() {
+function SectionSix({ contact }) {
   return (
     <div className={styles.container}>
       <Background
@@ -24,11 +25,11 @@ function SectionTwo() {
         <div className={styles.info}>
           <div>
             <h2>Management</h2>
-            <p>kiwi@mau.network</p>
+            <p>{contact?.businessInquiry?.manageEmail}</p>
           </div>
           <div>
             <h2>Business Inquiries</h2>
-            <p>suboibooking@gmail.com</p>
+            <p>{contact?.businessInquiry?.mainEmail}</p>
           </div>
         </div>
       </div>
@@ -36,4 +37,8 @@ function SectionTwo() {
   );
 }
 
-export default SectionTwo;
+SectionSix.propTypes = {
+  contact: PropTypes.object,
+};
+
+export default SectionSix;

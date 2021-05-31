@@ -14,6 +14,7 @@ function TourCard({ isRtl, date, title, location, link }) {
         className={styles.button}
         background="transparent"
         label="GET TICKETS HERE"
+        href={link}
       />
     </div>
   );
@@ -29,6 +30,6 @@ TourCard.propTypes = {
 
 TourCard.defaultProps = {
   isRtl: false,
-}
+};
 
 export default TourCard;

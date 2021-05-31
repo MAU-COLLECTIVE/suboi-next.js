@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from 'elements/Button/Button';
 import Background from 'elements/Background/Background';
 import styles from './SectionOne.module.scss';
 
-function SectionOne() {
+function SectionOne({ promote }) {
   return (
     <div className={styles.container}>
       <Background
@@ -12,32 +13,39 @@ function SectionOne() {
       />
        <div className={styles.overlay}></div>
       <p className={styles.lyrics}>
-        I will never know if you love me<br/>
-        Or my company, but I don t mind<br/>
-        Cause I ain t tryna be the one<br/>
-        Been through this a thousand times
+        {promote?.albumAndSong?.lyric}
       </p>
       <div className={styles.banner}>
-        <h1 className={styles.title}>DOI KHI</h1>
+        <h1 className={styles.title}>
+          {promote?.albumAndSong?.name}
+        </h1>
         <span className={styles.subtitle}>SUBOI</span>
 
         <div className={styles.buttons}>
-          <Button
-            className={styles.button}
-            background="transparent"
-            label="PLAY VIDEO"
-            onClick={() => alert('You played')}
-          />
-          <Button
-            className={styles.button}
-            background="red"
-            label="BUY ALBUM"
-            onClick={() => alert('You buy')}
-          />
+          {(promote?.albumAndSong && promote?.ctaLink?.playVideo) && (
+            <Button
+              className={styles.button}
+              background="transparent"
+              label="PLAY VIDEO"
+              href={promote?.ctaLink?.playVideo}
+            />
+          )}
+          {(promote?.albumAndSong && promote?.ctaLink?.buyAlbum) && (
+            <Button
+              className={styles.button}
+              background="red"
+              label="BUY ALBUM"
+              href={promote?.ctaLink?.buyAlbum}
+            />
+          )}
         </div>
       </div>
     </div>
   );
 }
+
+SectionOne.propTypes = {
+  promote: PropTypes.object,
+};
 
 export default SectionOne;

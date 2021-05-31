@@ -1,8 +1,9 @@
 import Background from 'elements/Background/Background';
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './SectionTwo.module.scss';
 
-function SectionTwo() {
+function SectionTwo({ about }) {
   return (
     <div className={styles.container}>
       <div className={styles.overlay}></div>
@@ -15,14 +16,15 @@ function SectionTwo() {
           SUBOI
         </h1>
         <p className={styles.desc}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          Perferendis, praesentium? Et rerum perferendis totam debitis harum!
-          Possimus labore quia maxime saepe laborum! Quaerat eum, dolorem earum
-          voluptate accusantium vero tempora.
+          {about?.biography?.lang?.en_US}
         </p>
       </div>
     </div>
   );
 }
+
+SectionTwo.propTypes = {
+  about: PropTypes.object,
+};
 
 export default SectionTwo;

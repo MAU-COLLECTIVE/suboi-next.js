@@ -7,6 +7,21 @@ import { getClient } from 'utils/sanity';
 
 const query = groq`
   {
+    "promote": * [_type == 'promote'][0] {
+      albumAndSong-> {
+        name,
+        lyric
+      },
+      ctaLink {
+        buyAlbum,
+        playVideo
+      }
+    },
+    "about": * [_type == 'about'][0] {
+      biography {
+        lang
+      }
+    },
     "songs": * [_type == 'song'] {
       name,
       coverImage,
@@ -20,6 +35,29 @@ const query = groq`
     "photos": * [_type == 'photo'] {
       photoName,
       image,
+    },
+    "tourName": * [_type == 'tourName'][0] {
+      name
+    },
+    "tour": * [_type == 'tour'] {
+      _id,
+      venue,
+      city,
+      tourDate,
+      tourTicket
+    },
+    "contact": * [_type == 'contact'][0] {
+      businessInquiry {
+        mainEmail,
+        manageEmail
+      },
+      social {
+        appleMusic,
+        facebook,
+        instagram,
+        spotify,
+        youtube
+      }
     }
   }
 `;
@@ -35,8 +73,18 @@ export async function getStaticProps({ preview = false }) {
 
 function Home({ data }) {
   return (
-    <HomeLayout >
-      <HomePage songs={data.songs} photos={data.photos}/>
+    <HomeLayout social={data.contact.social}>
+      <HomePage
+        tour={{
+          tourName: data.tourName.name,
+          tour: data.tour,
+        }}
+        about={data.about}
+        promote={data.promote}
+        songs={data.songs}
+        photos={data.photos}
+        contact={data.contact}
+      />
     </HomeLayout>
   );
 }
