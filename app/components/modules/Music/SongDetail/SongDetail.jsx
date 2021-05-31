@@ -18,7 +18,7 @@ function SongDetail({ item }) {
       <p className={styles.smallText}>{new Date(item.album.releaseDate).getFullYear()}</p>
       <h4 className={styles.lyrics}>Lyrics</h4>
       <div className={styles.lyricsBox}>
-        <p>{item.lyrics}</p>
+        <p>{item.lyric}</p>
       </div>
       <Button
         label="STREAM HERE"
