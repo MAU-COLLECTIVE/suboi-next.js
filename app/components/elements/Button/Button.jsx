@@ -8,7 +8,24 @@ function Button({
   background,
   onClick,
   className,
+  href,
 }) {
+  if (href) {
+    return (
+      <a
+        target="_blank"
+        rel="noreferrer"
+        href={href}
+        className={clsx(styles.button,
+          background === 'red' && styles.redBg,
+          background === 'transparent' && styles.transparentBg,
+          className && className)
+        }
+      >
+        <p className={clsx(styles.smallText, styles.label)}>{label}</p>
+      </a>
+    );
+  }
   return (
     <button
       onClick={onClick}
@@ -28,6 +45,7 @@ Button.propTypes = {
   background: PropTypes.string,
   onClick: PropTypes.func,
   className: PropTypes.string,
+  href: PropTypes.string,
 };
 
 export default Button;
