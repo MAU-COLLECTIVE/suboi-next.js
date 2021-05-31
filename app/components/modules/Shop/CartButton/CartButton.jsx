@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { CartContext } from 'contexts/Cart';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import styles from './CartButton.module.scss';
 
 function CartButton({ onClick, appearCart, openCart }) {
+  const { totalCount } = useContext(CartContext);
   const { pathname } = useRouter();
   const [alwayAppearCart, setAlwayAppearCart] = useState(false);
 
@@ -31,7 +33,7 @@ function CartButton({ onClick, appearCart, openCart }) {
       onClick={onClick}
       id="cart"
     >
-      <p className={styles.smallText}>Cart (0)</p>
+      <p className={styles.smallText}>Cart ({totalCount})</p>
     </div>
   );
 }

@@ -15,6 +15,7 @@ const query = groq`
       coverImage,
       background,
       slug,
+      lyric,
       album -> {
         name,
         releaseDate

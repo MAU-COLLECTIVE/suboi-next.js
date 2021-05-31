@@ -8,8 +8,7 @@
   border: 1px $color-black solid; 
   border-radius: 12px;
   transition: .5s;
-  z-index: 30;
-  // bottom: -50px;
+  z-index: 190;
   bottom: 0;
   position: relative;
   width: calc(100% - 40px); 
@@ -49,13 +48,17 @@
 
 .openCart {
   position: fixed; 
-  bottom: 425px; 
+  bottom: calc(80% + 20px); 
   width: 155px; 
   height: 24px;  
   left: 0; 
   right: 0; 
   margin-left: auto; 
   margin-right: auto;   
+
+  @include shop-breakpoint("md") {
+    bottom: 425px;
+  } 
 
   @include shop-breakpoint("lg") {
     bottom: 465px;

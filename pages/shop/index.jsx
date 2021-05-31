@@ -11,11 +11,7 @@ const query = groq`
       name,
       slug,
       productImage,
-      price,
-      productVariant -> {
-        name,
-        releaseDate
-      }
+      price
     },
     "categories": * [_type == 'productCategory'] {
       name,

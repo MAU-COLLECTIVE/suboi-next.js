@@ -87,6 +87,8 @@
     margin: 20px 0;
     order: 5;
     font-size: .75rem;
+    min-height: 45px;
+    position: relative;
 
     .titleTextSmall {
       font-size: .75rem;
@@ -105,12 +107,24 @@
       margin-right: 5px;
       cursor: pointer;
       padding: 5px 10px 4px 12px;
+      text-transform: uppercase;
 
       &:last-child {
         margin: 0;
       }
     }
+
+    .sizeItemActive {
+      background-color: black;
+      color: $color-white;
+    }
   }  
+
+  .error {
+    color: red;
+    position: absolute;
+    bottom: -20px;
+  }
 
   .addToCartBox {
     width: 171px; 
