@@ -14,13 +14,13 @@ function Item({
     router.push(`/shop/${id}`);
   };
 
-  return <div className={styles.item}>
+  return <div className={styles.item} onClick={handleOnClick}>
     <img
       className={styles.itemImg}
       src={image}
     />
     <div className={styles.itemInfo}>
-      <h4 onClick={handleOnClick}>{name}</h4>
+      <h4>{name}</h4>
       <p className={styles.text}>USD {price}</p>
     </div>
   </div>;
