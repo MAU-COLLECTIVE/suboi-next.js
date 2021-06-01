@@ -15,15 +15,17 @@
 }
 
 .showNewsletter {
-  @include animation('fadeInTop .3s');
   opacity: 1;
   z-index: 200;
+
+  @include animation("fadeInTop .3s");
 }
 
 .hideNewsletter {
-  @include animation('fadeOutDown .3s');
   opacity: 0;
   z-index: -1;
+
+  @include animation("fadeOutDown .3s");
 }
 
 .btnClose {
@@ -31,11 +33,17 @@
   right: 20px;
   top: 20px;
   background-color: transparent;
-  border: none;
+  border: unset;
   width: 25px;
   height: 25px; 
   transition: .3s;
   cursor: pointer;
+
+  @include home-breakpoint("md") {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
   &:active {
     transform: scale(.95);
@@ -44,53 +52,74 @@
   & path {
     fill: $color-white;
   }
-
-  @include home-breakpoint('md') {
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
 }
 
 .content {
-  display: grid;
   width: 100%;
-  row-gap: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 65px 20px;
+
+  @include home-breakpoint(md) {
+    padding: 27px;
+  }
+}
+
+.message {
+  width: 100%;
+  white-space: pre-wrap;
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+  font-family: $font-primary;
+
+  @include font-sizing(12px, 400, 12px, 25);
+}
+
+.messageError {
+  color: $color-primary;
+}
+
+.content > div {
+  width: 100%;
+  display: grid;
+  row-gap: 15px;
   grid-template-columns: 1fr;
+
+  @include home-breakpoint("xs") {
+    
+    h2 {
+      color: $color-white;
+      font-family: $font-secondary;
+      text-transform: uppercase;
   
-  h2 {
-    color: $color-white;
-    font-family: $font-secondary;
-    font-weight: 900; // black
-    font-size: 12px;
-    line-height: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+      @include font-sizing(12px, 900, 12px, 25);
+    }
+  
+    input {
+      font-family: $font-primary;
+      font-size: 12px;
+      line-height: 12px;
+      padding: 10px 5px;
+      text-align: center;
+      border: unset;
+      border-radius: 12px;
+    }
+  
+    button {
+      width: auto;
+      padding: 10px 40px;
+      border-radius: 12px;
+    }
   }
 
-  input {
-    font-family: $font-primary;
-    font-size: 12px;
-    line-height: 12px;
-    padding: 10px 5px;
-    text-align: center;
-    border: none;
-    border-radius: 12px;
-  }
-
-  button {
-    width: auto;
-    padding: 10px 40px;
-    border-radius: 12px;
-  }
-
-  @include home-breakpoint('md') {
+  @include home-breakpoint("md") {
     width: 70%;
     align-items: center;
     column-gap: 30px;
     grid-template-columns: 1fr 3fr 1fr;
-    padding: 27px;
 
     h2 {
       font-weight: 800; // extra-bold
@@ -108,7 +137,7 @@
     }
   }
 
-  @include home-breakpoint('lg') {
+  @include home-breakpoint("lg") {
     margin-bottom: 0;
     row-gap: 10px;
 

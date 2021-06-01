@@ -9,6 +9,7 @@ function Button({
   onClick,
   className,
   href,
+  loading,
 }) {
   if (href) {
     return (
@@ -34,8 +35,9 @@ function Button({
         background === 'transparent' && styles.transparentBg,
         className && className)
       }
+      disabled={loading}
     >
-      <p className={clsx(styles.smallText, styles.label)}>{label}</p>
+      <p className={clsx(styles.smallText, styles.label)}>{loading ? 'Loading...' : label}</p>
     </button>
   );
 }
@@ -46,6 +48,11 @@ Button.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
   href: PropTypes.string,
+  loading: PropTypes.bool,
+};
+
+Button.defaultProps = {
+  loading: false,
 };
 
 export default Button;

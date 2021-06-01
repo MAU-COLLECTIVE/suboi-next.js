@@ -1,5 +1,20 @@
 @import "styles/app.scss";
 
+.message {
+  width: 100%;
+  white-space: pre-wrap;
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+  font-family: $font-primary;
+
+  @include font-sizing(12px, 400, 12px, 25);
+}
+
+.messageError {
+  color: $color-primary;
+}
+
 @include home-breakpoint("xs") {
 
   .container {
@@ -65,9 +80,13 @@
     }
   }
 
-  .newsletter { 
+  .newsletter {
     padding: 15px 0;
     margin-bottom: 50px; 
+    width: 100%;
+  }
+
+  .newsletter div { 
     width: 100%;
     
     h2 {
@@ -106,7 +125,7 @@
 
 @include home-breakpoint("sm") {
 
-  .newsletter { 
+  .newsletter div { 
     display: flex;
     justify-content: space-between;
     align-items: center; 
@@ -130,6 +149,11 @@
 
 @include home-breakpoint("lg") { 
 
+  .message {
+    text-align: left;
+    margin-top: 10px;
+  }
+
   .content {
     flex-direction: row-reverse;
     height: 64px;
@@ -139,6 +163,11 @@
     padding: 0;
     margin: 0;
     width: 50%;
+    height: 100%;
+  }
+
+  .newsletter div {
+    width: 100%;
     height: 100%;
     flex-wrap: wrap;
     align-items: space-between;
