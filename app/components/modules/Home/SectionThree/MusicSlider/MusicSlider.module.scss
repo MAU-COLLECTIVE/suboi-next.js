@@ -89,6 +89,11 @@
       visibility: visible;
     }
   }
+
+  .bigText {
+    font-family: $font-secondary !important;
+    font-weight: 300;
+  }
 }
 
 @include music-breakpoint("sm") { 
