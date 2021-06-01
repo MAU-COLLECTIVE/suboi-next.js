@@ -12,6 +12,7 @@ function Navigation({
   hasBack,
   blackColor,
   handleOnClick,
+  logoLink,
 }) {
   const { pathname } = useRouter();
   const [isShown, setIsShown] = useState(false);
@@ -61,7 +62,7 @@ function Navigation({
 
   return (
     <nav className={styles.navigation}>
-      <Link href="/">
+      <Link href={logoLink}>
         <h2 className={clsx(styles.company, blackColor && styles.blackColor)}>{title}</h2>
       </Link>
       {(!hideLinks && !hasBack) ? (
@@ -99,14 +100,16 @@ function Navigation({
           </button>
         </React.Fragment>
       ) : (
-          <Link href="/shop">
+          <Link href ="/">
             {isArrow
-              ? <div className={styles.icon}><Back /></div>
+              ? <div div className={styles.icon}>
+                <Back />
+              </div>
               : <button className={clsx(styles.btnBack, blackColor && styles.blackColor)}>
                   BACK TO HOMEPAGE
                 </button>
             }
-        </Link>
+        </Link >
       )}
     </nav>
   );
@@ -118,6 +121,7 @@ Navigation.propTypes = {
   hasBack: PropTypes.bool,
   blackColor: PropTypes.bool,
   handleOnClick: PropTypes.func,
+  logoLink: PropTypes.string,
 };
 
 Navigation.defaultProps = {
@@ -125,6 +129,7 @@ Navigation.defaultProps = {
   hideLinks: false,
   hasBack: false,
   blackColor: false,
+  logoLink: '/',
 };
 
 export default Navigation;

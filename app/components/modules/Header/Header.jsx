@@ -9,6 +9,7 @@ function Header({ onChangeSection }) {
   const [hideLinks, setHideLinks] = useState(false);
   const [title, setTitle] = useState('SUBOI');
   const [blackColor, setBlackColor] = useState(false);
+  const [logoLink, setLogoLink] = useState('/');
 
   useEffect(() => {
     if (pathname === '/[id]') {
@@ -17,6 +18,7 @@ function Header({ onChangeSection }) {
       setHideLinks(true);
       setBlackColor(true);
       setTitle('SUBOI SHOP');
+      setLogoLink('/shop')
     }
   }, []);
 
@@ -28,6 +30,7 @@ function Header({ onChangeSection }) {
     <header className={styles.header}>
       <Navigation
         hideLinks={hideLinks}
+        logoLink={logoLink}
         title={title}
         blackColor={blackColor}
         handleOnClick={(id, name) => handleOnClick(id, name)}
