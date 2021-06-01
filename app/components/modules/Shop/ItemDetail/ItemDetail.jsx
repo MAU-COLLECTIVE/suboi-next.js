@@ -50,7 +50,7 @@ function Item({ item }) {
         <h3 className={styles.titleText}>{item.name}</h3>
       </div>
       <div className={styles.descBox}>
-        <p className={styles.smallText}>Article description</p>
+        <p className={styles.smallText}>{item.description}</p>
         <p className={styles.smallText}>In Store (1-2 delivery days)</p>
       </div>
       <div className={styles.priceBox}>

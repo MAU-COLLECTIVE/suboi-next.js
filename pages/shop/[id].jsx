@@ -14,6 +14,7 @@ const query = groq`
       name,
       slug,
       productImage,
+      description,
       price,
       productVariant[] {
         name,

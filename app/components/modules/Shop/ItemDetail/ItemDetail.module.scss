@@ -141,6 +141,11 @@
   .titleText {
     font-size: 1.25rem;
   } 
+
+  .smallText {
+    white-space: pre-wrap;
+    overflow: 0;
+  }
 }
 
 @include shop-breakpoint("sm") { 
