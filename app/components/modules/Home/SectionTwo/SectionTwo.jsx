@@ -3,12 +3,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './SectionTwo.module.scss';
 
-function SectionTwo({ about }) {
+function SectionTwo({ background, about }) {
   return (
     <div className={styles.container}>
       <div className={styles.overlay}></div>
       <Background
-        url="https://crazyhood.com/wp-content/uploads/2018/12/suboi.png"
+        url={background}
         className={styles.background}
       />
       <div className={styles.content}>
@@ -24,6 +24,7 @@ function SectionTwo({ about }) {
 }
 
 SectionTwo.propTypes = {
+  background: PropTypes.string,
   about: PropTypes.object,
 };
 

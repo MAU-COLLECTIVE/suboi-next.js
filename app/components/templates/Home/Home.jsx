@@ -9,9 +9,10 @@ import SectionFour from 'modules/Home/SectionFour/SectionFour';
 import SectionFive from 'modules/Home/SectionFive/SectionFive';
 import SectionSix from 'modules/Home/SectionSix/SectionSix';
 import Header from 'modules/Header/Header';
+import { urlFor } from 'utils/sanity';
 import styles from './Home.module.scss';
 
-function HomePage({ promote, about, songs, photos, tour, contact }) {
+function HomePage({ background, promote, about, songs, photos, tour, contact }) {
   const anchors = ['home', 'about', 'music', 'tour', 'photos', 'footer'];
   const router = useRouter();
   const moveSection = (id, name) => {
@@ -31,22 +32,40 @@ function HomePage({ promote, about, songs, photos, tour, contact }) {
         navigation={false}
         render={() => <ReactFullpage.Wrapper>
             <div className="section">
-              <SectionOne promote={promote}/>
+              <SectionOne
+                background={urlFor(background.topBackground).url()}
+                promote={promote}
+              />
             </div>
             <div className="section">
-              <SectionTwo about={about}/>
+              <SectionTwo
+                background={urlFor(background.aboutBackground).url()}
+                about={about}
+              />
             </div>
             <div className="section">
-              <SectionThree songs={songs}/>
+              <SectionThree
+                background={urlFor(background.musicBackground).url()}
+                songs={songs}
+              />
             </div>
             <div className="section">
-              <SectionFour tour={tour}/>
+              <SectionFour
+                background={urlFor(background.tourBackground).url()}
+                tour={tour}
+              />
             </div>
             <div className="section">
-              <SectionFive photos={photos}/>
+              <SectionFive
+                background={urlFor(background.photoBackground).url()}
+                photos={photos}
+              />
             </div>
             <div className="section">
-              <SectionSix contact={contact}/>
+              <SectionSix
+                background={urlFor(background.contactBackground).url()}
+                contact={contact}
+              />
             </div>
           </ReactFullpage.Wrapper>
         }
@@ -56,6 +75,7 @@ function HomePage({ promote, about, songs, photos, tour, contact }) {
 }
 
 HomePage.propTypes = {
+  background: PropTypes.object,
   promote: PropTypes.object,
   about: PropTypes.object,
   songs: PropTypes.array,

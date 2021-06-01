@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'elements/Button/Button';
 import Background from 'elements/Background/Background';
+import { urlFor } from 'utils/sanity';
 import styles from './SectionOne.module.scss';
 
-function SectionOne({ promote }) {
+function SectionOne({ background, promote }) {
   return (
     <div className={styles.container}>
       <Background
-        url="https://i.ytimg.com/vi/h3SZNTXlcR0/maxresdefault.jpg"
+        url={urlFor(promote?.albumAndSong?.background).url() ?? background}
         className={styles.background}
       />
        <div className={styles.overlay}></div>
@@ -45,6 +46,7 @@ function SectionOne({ promote }) {
 }
 
 SectionOne.propTypes = {
+  background: PropTypes.string,
   promote: PropTypes.object,
 };
 

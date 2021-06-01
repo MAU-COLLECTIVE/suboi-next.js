@@ -7,11 +7,13 @@ import styles from './SectionFour.module.scss';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'splide-nextjs/splide/dist/css/themes/splide-default.min.css';
 
-function SectionFour({ tour }) {
+function SectionFour({ background, tour }) {
+  const tours = tour?.tour?.length <= 4 ? tour?.tour : tour?.tour?.reverse();
+
   return (
     <div className={styles.container}>
       <Background
-        url="https://viethiphop.vn/wp-content/uploads/2020/10/Untitled-28-1536x767.jpg"
+        url={background}
         className={styles.background}
       />
       <div className={styles.content}>
@@ -27,7 +29,7 @@ function SectionFour({ tour }) {
             direction: tour?.tour?.length <= 4 ? 'rtl' : 'ltr',
             gap: '100px',
           }}>
-              {tour?.tour?.map((to, index) => (
+              {tours?.map((to, index) => (
                 <SplideSlide key={index}>
                   <TourCard
                     isRtl={tour?.tour?.length <= 4}
@@ -46,6 +48,7 @@ function SectionFour({ tour }) {
 }
 
 SectionFour.propTypes = {
+  background: PropTypes.string,
   tour: PropTypes.object,
 };
 

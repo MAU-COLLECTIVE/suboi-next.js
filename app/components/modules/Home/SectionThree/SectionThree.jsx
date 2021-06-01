@@ -4,11 +4,11 @@ import Background from 'elements/Background/Background';
 import MusicSlider from './MusicSlider/MusicSlider';
 import styles from './SectionThree.module.scss';
 
-function SectionThree({ songs }) {
+function SectionThree({ background, songs }) {
   return (
     <div className={styles.container}>
       <Background
-        url="https://media.vov.vn/uploaded/wgyyweux2icrb7fgmumzw/2019_03_28/suboi1_rrvx.jpg"
+        url={background}
         className={styles.background}
       />
       <MusicSlider songs={songs}/>
@@ -17,6 +17,7 @@ function SectionThree({ songs }) {
 }
 
 SectionThree.propTypes = {
+  background: PropTypes.string,
   songs: PropTypes.array,
 };
 

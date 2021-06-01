@@ -10,7 +10,8 @@ const query = groq`
     "promote": * [_type == 'promote'][0] {
       albumAndSong-> {
         name,
-        lyric
+        lyric,
+        background
       },
       ctaLink {
         buyAlbum,
@@ -58,6 +59,14 @@ const query = groq`
         spotify,
         youtube
       }
+    },
+    "background": * [_type == 'background'][0] {
+      topBackground,
+      aboutBackground,
+      musicBackground,
+      tourBackground,
+      photoBackground,
+      contactBackground
     }
   }
 `;
@@ -75,6 +84,7 @@ function Home({ data }) {
   return (
     <HomeLayout social={data.contact.social}>
       <HomePage
+        background={data.background}
         tour={{
           tourName: data.tourName.name,
           tour: data.tour,

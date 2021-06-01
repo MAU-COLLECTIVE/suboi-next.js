@@ -4,11 +4,11 @@ import Background from 'elements/Background/Background';
 import Button from 'elements/Button/Button';
 import styles from './SectionSix.module.scss';
 
-function SectionSix({ contact }) {
+function SectionSix({ background, contact }) {
   return (
     <div className={styles.container}>
       <Background
-        url="https://viethiphop.vn/wp-content/uploads/2020/10/Untitled-26-1536x782.jpg"
+        url={background}
         className={styles.background}
       />
       <div className={styles.content}>
@@ -38,6 +38,7 @@ function SectionSix({ contact }) {
 }
 
 SectionSix.propTypes = {
+  background: PropTypes.string,
   contact: PropTypes.object,
 };
 
