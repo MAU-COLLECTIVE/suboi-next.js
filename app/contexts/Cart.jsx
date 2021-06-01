@@ -53,12 +53,59 @@ export function CartProvider({ children }) {
     }
   };
 
+  const minusCart = (item) => {
+    const slug = item.slug.current;
+    const { size } = item;
+    if (item.count > 1) {
+      for (let i = 0; i < cartItems.length; i += 1) {
+        if (cartItems[i].slug.current === slug) {
+          if (cartItems[i].size === size) {
+            const newData = [...cartItems];
+            newData.splice(i, 1, { ...item, count: cartItems[i].count - 1 });
+            setCartItems(newData);
+          }
+        }
+      }
+    }
+  };
+
+  const plusCart = (item) => {
+    const slug = item.slug.current;
+    const { size } = item;
+    for (let i = 0; i < cartItems.length; i += 1) {
+      if (cartItems[i].slug.current === slug) {
+        if (cartItems[i].size === size) {
+          const newData = [...cartItems];
+          newData.splice(i, 1, { ...item, count: cartItems[i].count + 1 });
+          setCartItems(newData);
+        }
+      }
+    }
+  };
+
+  const removeCartItem = (item) => {
+    const slug = item.slug.current;
+    const { size } = item;
+    for (let i = 0; i < cartItems.length; i += 1) {
+      if (cartItems[i].slug.current === slug) {
+        if (cartItems[i].size === size) {
+          const newData = [...cartItems];
+          newData.splice(i, 1);
+          setCartItems(newData);
+        }
+      }
+    }
+  };
+
   return (
     <CartContext.Provider
       value={{
         cartItems,
         addToCart,
         totalCount,
+        minusCart,
+        plusCart,
+        removeCartItem,
       }}
     >
       {children}
