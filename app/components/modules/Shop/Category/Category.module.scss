@@ -20,7 +20,7 @@
     z-index: 30; 
     width: 137px;
     height: 24px;  
-    padding: 2px 0 0 3px;
+    padding: 4px 0 0 3px;
     user-select: none;
 
     .smallText {
@@ -30,14 +30,14 @@
     
     .icon {
       position: absolute;
-      right: 7px;
+      right: 9px;
       top: 2px;
     }
   } 
 
   .cateBox { 
     background-color: rgba($color: #fff, $alpha: .8);
-    backdrop-filter: blur(10px); 
+    backdrop-filter: blur(50px); 
     position: fixed;
     flex-direction: column;
     display: flex;
@@ -75,6 +75,8 @@
 
   .cateBoxOpen {
     opacity: 1;
+    background-color: rgba($color: #fff, $alpha: .8);
+    backdrop-filter: blur(50px); 
     visibility: visible;
 
     .closeIcon {  
@@ -89,8 +91,8 @@
     } 
   }
 }
-
-@include shop-breakpoint("lg") {
+ 
+@include shop-breakpoint("xl") {
 
   .cateBox {
     position: relative;
@@ -122,14 +124,16 @@
   }
 
   .cateBoxOpen {
-    height: 90px;
-  }
-}
+    background-color: rgba($color: #fff, $alpha: .0);
+    backdrop-filter: blur(0); 
+    height: 90px; 
 
-@include shop-breakpoint("xl") {
+    .closeIcon {  
+      display: none;
+    } 
+  }
 
   .category {
     position: fixed;
   }
-  
 }

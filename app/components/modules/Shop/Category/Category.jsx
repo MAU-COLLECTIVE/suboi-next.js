@@ -11,7 +11,6 @@ import styles from './Category.module.scss';
 function Category({ onClick, openCate, data }) {
   const { pathname } = useRouter();
   const [appearArrow, setAppearArrow] = useState(false);
-  const [appearClose, setAppearClose] = useState(false);
 
   useEffect(() => {
     function updateSize() {
@@ -19,11 +18,6 @@ function Category({ onClick, openCate, data }) {
         setAppearArrow(false);
       } else {
         setAppearArrow(true);
-      }
-      if (window.innerWidth >= 1024) {
-        setAppearClose(false);
-      } else {
-        setAppearClose(true);
       }
     }
     window.addEventListener('resize', updateSize);
@@ -43,9 +37,9 @@ function Category({ onClick, openCate, data }) {
         }
       </div>
       <div className={clsx(styles.cateBox, openCate && styles.cateBoxOpen)}>
-        {appearClose && <div className={styles.closeIcon} onClick={onClick}>
+        <div className={styles.closeIcon} onClick={onClick}>
           <Close/>
-        </div>}
+        </div>
         <Button
           className={styles.button}
           background="transparent"
