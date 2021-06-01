@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'elements/Button/Button';
 import clsx from 'clsx';
@@ -6,21 +6,27 @@ import { CartContext } from 'contexts/Cart';
 import { urlFor } from 'utils/sanity';
 import styles from './ItemDetail.module.scss';
 
-function Item({ item }) {
+function Item({ item, showPopup, openCart }) {
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedPrice, setSelectedPrice] = useState('');
   const [error, setError] = useState('');
   const { addToCart } = useContext(CartContext);
 
+  useEffect(() => {
+    if (!openCart) setSelectedSize('');
+  }, [openCart]);
+
   const handleOnClick = () => {
     if (item.productVariant.length > 0) {
       if (selectedSize) {
+        showPopup();
         addToCart({ ...item, size: selectedSize });
         setError('');
       } else {
         setError('Select size please!');
       }
     } else {
+      showPopup();
       addToCart(item);
       setError('');
     }
@@ -51,7 +57,6 @@ function Item({ item }) {
       </div>
       <div className={styles.descBox}>
         <p className={styles.smallText}>{item.description}</p>
-        <p className={styles.smallText}>In Store (1-2 delivery days)</p>
       </div>
       <div className={styles.priceBox}>
         <h3 className={styles.titleText}>$ {selectedPrice === '' ? item.price : selectedPrice}</h3>
@@ -90,6 +95,8 @@ function Item({ item }) {
 
 Item.propTypes = {
   item: PropTypes.object,
+  showPopup: PropTypes.func,
+  openCart: PropTypes.bool,
 };
 
 export default Item;

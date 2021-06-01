@@ -55,6 +55,10 @@ function ShopDetail({ item, categories }) {
     }
   };
 
+  const handleOnAddToCart = () => {
+    setOpenCart(true);
+  };
+
   return <div className={styles.container}>
     <Background
       url="https://crazyhood.com/wp-content/uploads/2018/12/suboi.png"
@@ -65,7 +69,7 @@ function ShopDetail({ item, categories }) {
       openCate={openCate}
       onClick={handleOnClick}
     />
-    <ItemDetail item={item}/>
+    <ItemDetail item={item} showPopup={handleOnAddToCart} openCart={openCart}/>
     <CartButton
       openCart={openCart}
       appearCart={appearCart}
