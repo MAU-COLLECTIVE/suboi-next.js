@@ -84,7 +84,7 @@ function MusicSlider({ songs }) {
             )}
             onClick={() => setCurrentSong(index + 1)}
           >
-            <SongItem item={item} />
+            <SongItem item={item} center={currentSong - 1 === index}/>
           </div>)}
         </div>
       </div>;
