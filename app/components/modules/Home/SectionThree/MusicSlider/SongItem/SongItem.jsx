@@ -19,7 +19,7 @@ function SongItem({ item, center }) {
       <div className={styles.songInfo}>
         <div className={styles.songInfoLeft}>
           <h4>{item.name}</h4>
-          <p className={styles.smallText}>{item.name.toLowerCase()}</p>
+          <p className={styles.smallText}>{item.name.toLowerCase()} - Suboi</p>
         </div>
         <h className={styles.bigText}>{new Date(item.album.releaseDate).getFullYear()}</h>
       </div>
