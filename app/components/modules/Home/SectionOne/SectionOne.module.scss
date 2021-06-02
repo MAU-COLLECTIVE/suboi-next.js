@@ -59,7 +59,7 @@
 
   @include font-sizing(2.667rem, 900, 2.667rem, 10);
 
-  @include home-breakpoint("md") {
+  @include home-breakpoint("sm") {
     @include font-sizing(4rem, null, 4rem, 10);
   }
 
@@ -70,14 +70,19 @@
 
 .subtitle {
   text-align: center;
+  margin-top: 5px;
 
   @include font-sizing(1.333rem, 900, 1.333rem, 10);
 
   @include home-breakpoint("sm") {
+    margin-top: 10px;
+    
     @include font-sizing(1.667rem, null, 1.667rem, 10);
   }
 
   @include home-breakpoint("lg") {
+    margin-top: 0;
+    
     @include font-sizing(2.667rem, null, 2.667rem, 10);
   }
 }
