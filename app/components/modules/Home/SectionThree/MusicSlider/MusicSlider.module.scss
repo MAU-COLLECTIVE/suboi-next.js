@@ -69,7 +69,7 @@
         text-transform: uppercase;
         cursor: pointer;
 
-        @include font-sizing(.75rem, null, 20px, 20);
+        @include font-sizing(.75rem, null, 20pt, 20);
       }
     } 
   } 
@@ -176,6 +176,7 @@
     .songCardBox { 
       width: 100%;
       height: 120px; 
+      border: 0;
       
       img { 
         width: 100%;
@@ -191,6 +192,7 @@
     .songCardBox { 
       width: 100%;
       height: 65px; 
+      border: 0;
       
       img { 
         width: 100%;
@@ -224,4 +226,86 @@
       font-size: 2.5rem !important;
     }
   } 
+}
+
+@include music-breakpoint("xl") {  
+
+  .songCard { 
+    min-width: 220px;
+    max-width: 220px;
+    height: 516px;
+    padding: 0px; 
+    margin: 0 40px; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+
+    .songCardBox {
+      padding: 0;
+    }
+
+    .songInfo { 
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; 
+      color: $color-white; 
+      opacity: 0; 
+      visibility: hidden;
+    }
+  } 
+
+  .songCardActive {  
+    min-width: 440px;  
+
+    .songCardBox {
+      width: 423px; 
+      height: 516px; 
+      padding: 25px 20px 40px 20px;
+
+      img {
+        transition: .3s;
+        width: 376px;
+        height: 376px;
+        max-height: 376px; 
+      }
+    }
+
+    .songInfo {  
+      margin-top: 30px;
+      opacity: 1; 
+      visibility: visible;
+    }
+
+  } 
+
+  .songCardSmaller {
+    min-width: 120px;  
+    max-width: 120px;
+
+    .songCardBox { 
+      width: 100%;
+      height: 120px; 
+      
+      img { 
+        width: 100%;
+        height: 100%; 
+      }
+    }
+  }
+
+  .songCardSmallest {
+    min-width: 65px;  
+    max-width: 65px;  
+
+    .songCardBox { 
+      width: 100%;
+      height: 65px; 
+
+      img { 
+        width: 100%;
+        height: 100%; 
+      }
+    }
+  }
 }
