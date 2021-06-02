@@ -14,11 +14,11 @@ function Header({ onChangeSection }) {
   useEffect(() => {
     if (pathname === '/[id]') {
       setHideLinks(true);
-    } else if (pathname === '/shop' || pathname === '/shop/[id]') {
+    } else if (pathname === '/shop' || pathname === '/shop/[id]' || pathname === '/checkout') {
       setHideLinks(true);
       setBlackColor(true);
       setTitle('SUBOI SHOP');
-      setLogoLink('/shop')
+      setLogoLink('/shop');
     }
   }, []);
 
