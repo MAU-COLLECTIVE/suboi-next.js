@@ -9,12 +9,18 @@ import styles from './ItemDetail.module.scss';
 function Item({ item, showPopup, openCart }) {
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedPrice, setSelectedPrice] = useState('');
+  const [images, setImages] = useState([]);
+  const [mainImage, setMainImage] = useState(0);
   const [error, setError] = useState('');
   const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     if (!openCart) setSelectedSize('');
   }, [openCart]);
+
+  useEffect(() => {
+    setImages(item.productImage);
+  }, []);
 
   const handleOnClick = () => {
     if (item.productVariant.length > 0) {
@@ -37,17 +43,26 @@ function Item({ item, showPopup, openCart }) {
     setSelectedPrice(size.price);
   };
 
+  const chooseImage = (image, index) => {
+    const rearrangeImage = [...images];
+    rearrangeImage.splice(index, 1);
+    rearrangeImage.unshift(image);
+    setImages(rearrangeImage);
+  };
+
   return <div className={styles.itemDetail}>
     <div className={styles.left}>
-      <img
-        className={styles.itemImage}
-        src={urlFor(item.productImage[0].asset._ref)}
-      />
+      {images.length > 0 && <img
+          className={styles.itemImage}
+          src={urlFor(images[0].asset._ref)}
+        />
+      }
       <div className={styles.smallImages}>
-        {item.productImage && item.productImage.slice(1).map((url, index = 1) => <img
+        {images.length > 1 && images.slice(1).map((url, index = 1) => <img
           key={index}
           className={styles.smallImageItem}
           src={urlFor(url.asset._ref)}
+          onClick={() => chooseImage(url, index + 1)}
         />)}
       </div>
     </div>
