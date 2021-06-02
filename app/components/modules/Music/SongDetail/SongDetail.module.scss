@@ -44,7 +44,7 @@
     @include music-breakpoint("sm") { 
       margin-top: calc(25vw - 50px);
       width: 50%;
-      height: 50vw;
+      height: 48vw;
       max-width: 100%;
       max-height: 100%;
     }
@@ -61,7 +61,7 @@
   width: 100%;
   height: max-content;
   display: flex;
-  flex-wrap: wrap;  
+  flex-direction: column;
   padding: 20px;
   color: $color-white;
 
@@ -82,23 +82,30 @@
   .titleText {
     width: 100%;  
     text-transform: uppercase;
-    margin-bottom: 10px;
-    font-size: 1.25rem;
+    margin-bottom: 6px;
 
-    @include music-breakpoint("xs") {     
+    @include music-breakpoint("xs") {      
       font-size: 1.25rem;
     }
 
-    @include music-breakpoint("sm") {     
+    @include music-breakpoint("sm") {   
       font-size: 1.563rem;
+    }
+
+    @include music-breakpoint("xl") {   
+      font-size: 1.563rem;
+      height: 30px;
+      line-height: 30px;
     }
   }
 
   .album {
     width: 100%; 
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     font-size: .75rem;
+    height: 19px;
+    line-height: 19px;
 
     @include music-breakpoint("sm") {     
       font-size: .938rem;
@@ -116,6 +123,8 @@
   .year {
     width: 100%; 
     margin-bottom: 30px;
+    height: 19px;
+    line-height: 19px;
 
     @include music-breakpoint("sm") {     
       font-size: .938rem;
@@ -132,17 +141,19 @@
 
   .lyrics { 
     width: 100%;  
-    margin-top: 20px;
-    margin-bottom: 20px;
     font-size: .75rem;
+    margin-top: 34px;
+    margin-bottom: 17px;
 
     @include music-breakpoint("sm") {     
       font-size: .938rem;
+      margin-top: 34px;
+      margin-bottom: 17px;
     } 
 
-    @include music-breakpoint("md") { 
-      margin-top: 10px;
-      margin-bottom: 10px;
+    @include music-breakpoint("md") {  
+      margin-top: 34px;
+      margin-bottom: 17px;
       font-size: .75rem;
     } 
 
@@ -156,7 +167,6 @@
     text-overflow: ellipsis;
     white-space: pre-wrap;
     overflow: auto;
-    margin-bottom: 10px;
 
     @include music-breakpoint("sm") {     
       font-size: .938rem;
@@ -178,7 +188,7 @@
     white-space: pre-wrap;
     overflow: auto;
     margin-bottom: 10px;
-    height: 100px;
+    height: 110px;
     overflow-y: scroll;
 
     @include music-breakpoint("md") {     
@@ -211,19 +221,21 @@
   }
 
   .addToCartBox {
-    margin-top: 30px;
     width: 100%; 
     height: 40px;
     order: 6;
     padding: 4px 0 0 3px;
+    margin-top: 28px;
 
     @include music-breakpoint("sm") {    
       width: 140px;
       height: 40px; 
+      margin-top: 28px;
     }
 
     @include music-breakpoint("md") { 
       margin: 0;  
+      margin-top: 36px;
     } 
 
     @include music-breakpoint("lg") { 

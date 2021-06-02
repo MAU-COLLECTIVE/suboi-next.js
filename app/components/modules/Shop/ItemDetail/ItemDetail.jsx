@@ -10,7 +10,6 @@ function Item({ item, showPopup, openCart }) {
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedPrice, setSelectedPrice] = useState('');
   const [images, setImages] = useState([]);
-  const [mainImage, setMainImage] = useState(0);
   const [error, setError] = useState('');
   const { addToCart } = useContext(CartContext);
 
