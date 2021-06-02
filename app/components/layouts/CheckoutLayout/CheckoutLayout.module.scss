@@ -1,0 +1,25 @@
+@import "../../../styles/app.scss";
+
+.default { 
+
+  .content {
+    display: grid;
+    margin: 0 auto; 
+  }
+
+  .icons { 
+    display: flex; 
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+
+    & a {
+      margin-left: 22.5px;
+
+      @include home-breakpoint("lg") {
+        margin-left: 12px;
+      }
+    }
+  }
+}

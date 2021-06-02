@@ -21,7 +21,7 @@ function Navigation({
   // Resize listener
   useEffect(() => {
     const checkArrow = (width) => {
-      if (pathname === '/shop' || pathname === '/shop/[id]') {
+      if (pathname === '/shop' || pathname === '/shop/[id]' || pathname === '/checkout') {
         if (width < 1024) {
           setIsArrow(true);
         } else {

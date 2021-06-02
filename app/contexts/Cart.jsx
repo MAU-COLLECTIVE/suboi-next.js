@@ -6,14 +6,29 @@ export const CartContext = React.createContext();
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    if (localStorage.getItem('cart')) {
+      setCartItems(JSON.parse(localStorage.getItem('cart')));
+    }
+  }, []);
 
   useEffect(() => {
     let total = 0;
+    let total2 = 0;
     for (let i = 0; i < cartItems.length; i += 1) {
       total += cartItems[i].count;
+      total2 += (cartItems[i].count * cartItems[i].price);
     }
+    setTotalPrice(total2);
     setTotalCount(total);
+    localStorage.setItem('cart', JSON.stringify(cartItems));
   }, [cartItems]);
+
+  const clearCart = () => {
+    setCartItems([]);
+  };
 
   const isSlugExists = (arr, item) => {
     for (let i = 0; i < arr.length; i += 1) {
@@ -106,6 +121,8 @@ export function CartProvider({ children }) {
         minusCart,
         plusCart,
         removeCartItem,
+        totalPrice,
+        clearCart,
       }}
     >
       {children}

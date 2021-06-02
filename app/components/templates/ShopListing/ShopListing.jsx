@@ -36,11 +36,9 @@ function ShopListing({ items, categories }) {
     if (id === 'cart' || id === 'box' || id === 'btn') {
       if (openCart) {
         setOpenCart(false);
-        document.body.style.overflow = 'auto';
       } else {
         setOpenCart(true);
         setAppearCart(false);
-        document.body.style.overflow = 'hidden';
       }
     }
   };
@@ -48,10 +46,8 @@ function ShopListing({ items, categories }) {
   const handleOnClick = () => {
     if (openCate) {
       setOpenCate(false);
-      document.body.style.overflow = 'auto';
     } else {
       setOpenCate(true);
-      document.body.style.overflow = 'hidden';
     }
   };
 
