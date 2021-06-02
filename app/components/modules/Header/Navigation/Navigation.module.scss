@@ -110,7 +110,7 @@
 
       &:nth-of-type(7),
       &:nth-of-type(8) {
-        border-bottom-style: 0;
+        border-bottom-style: unset;
         padding: 0;
       }
 
