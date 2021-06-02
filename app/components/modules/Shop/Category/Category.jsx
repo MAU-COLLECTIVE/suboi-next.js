@@ -11,18 +11,20 @@ import styles from './Category.module.scss';
 function Category({ onClick, openCate, data }) {
   const { pathname } = useRouter();
   const [appearArrow, setAppearArrow] = useState(false);
+  const [sizeChanged, setSizeChanged] = useState(false);
 
   useEffect(() => {
     function updateSize() {
-      if (window.innerWidth <= 1920) {
-        setAppearArrow(false);
-      } else {
-        setAppearArrow(true);
-      }
+      setSizeChanged(!sizeChanged);
+    }
+    if (window.innerWidth < 1919) {
+      setAppearArrow(false);
+    } else {
+      setAppearArrow(true);
     }
     window.addEventListener('resize', updateSize);
     return () => window.removeEventListener('resize', updateSize);
-  }, [pathname]);
+  }, [pathname, sizeChanged]);
 
   return (
     <div className={styles.category}>
