@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import clsx from 'clsx';
-import Back from 'public/icons/Back.svg';
+import Back from 'public/icons/back.svg';
 import styles from './Navigation.module.scss';
 
 function Navigation({
