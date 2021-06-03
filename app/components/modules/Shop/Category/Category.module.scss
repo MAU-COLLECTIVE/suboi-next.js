@@ -73,13 +73,6 @@
         background-color: transparent;
       }
     }
-  }
-
-  .cateBoxOpen {
-    opacity: 1;
-    background-color: rgba($color: #fff, $alpha: .8);
-    backdrop-filter: blur(50px); 
-    visibility: visible;
 
     .closeIcon {  
       position: absolute; 
@@ -91,6 +84,13 @@
         pointer-events: none;
       }
     } 
+  }
+
+  .cateBoxOpen {
+    opacity: 1;
+    background-color: rgba($color: #fff, $alpha: .8);
+    backdrop-filter: blur(50px); 
+    visibility: visible;
   }
 }
  

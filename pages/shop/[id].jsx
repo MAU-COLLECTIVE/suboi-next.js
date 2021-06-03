@@ -54,7 +54,11 @@ export async function getStaticPaths({ preview = false }) {
 
 function Shop({ data }) {
   return <Default>
-    <ShopDetail item={data.product} categories={data.categories}/>
+    <ShopDetail
+      item={data.product}
+      categories={data.categories}
+      items={data.products}
+    />
   </Default>;
 }
 

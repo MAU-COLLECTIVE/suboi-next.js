@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Cart from 'modules/Shop/Cart/Cart';
 import ItemDetail from 'modules/Shop/ItemDetail/ItemDetail';
 import CartButton from 'modules/Shop/CartButton/CartButton';
 import Background from 'elements/Background/Background';
 import Category from 'modules/Shop/Category/Category';
+import { useRouter } from 'next/router';
+import { CategoryContext } from 'contexts/Category';
 import styles from './ShopDetail.module.scss';
 
 function ShopDetail({ item, categories }) {
+  const router = useRouter();
+  const { setCategory } = useContext(CategoryContext);
   const [openCart, setOpenCart] = useState(false);
   const [openCate, setOpenCate] = useState(false);
   const [appearCart, setAppearCart] = useState(false);
@@ -55,16 +59,23 @@ function ShopDetail({ item, categories }) {
     setOpenCart(true);
   };
 
+  const chooseCategory = (cate) => {
+    setCategory(cate);
+    router.push('/shop');
+    setOpenCate(false);
+  };
+
   return <div className={styles.container}>
     <Background
       url="https://crazyhood.com/wp-content/uploads/2018/12/suboi.png"
       className={styles.background}
     />
-    <Category
+    {categories.length > 1 && <Category
       data={categories}
       openCate={openCate}
       onClick={handleOnClick}
-    />
+      chooseCategory={(cate) => chooseCategory(cate)}
+    />}
     <ItemDetail item={item} showPopup={handleOnAddToCart} openCart={openCart}/>
     <CartButton
       openCart={openCart}
