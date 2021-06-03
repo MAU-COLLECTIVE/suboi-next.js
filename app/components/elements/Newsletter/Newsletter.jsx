@@ -16,6 +16,7 @@ function Newsletter() {
   useEffect(() => {
     const subscribed = localStorage.getItem('subscribed');
     if (subscribed) setIsShown(false);
+    else localStorage.setItem('subscribed', true);
   }, []);
 
   const handleSubmit = async (e) => {
