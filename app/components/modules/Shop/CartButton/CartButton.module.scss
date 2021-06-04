@@ -16,7 +16,7 @@
   height: 40px;  
   padding: 3px 0 0 3px;
 
-  @include shop-breakpoint("md") { 
+  @include shop-breakpoint("lg") { 
     position: fixed;
     width: 155px;
     bottom: 20px; 
