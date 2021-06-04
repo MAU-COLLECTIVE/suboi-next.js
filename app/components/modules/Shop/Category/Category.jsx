@@ -38,7 +38,7 @@ function Category({
         onClick={onClick}
       >
         <p className={styles.smallText}>CATEGORIES</p>
-        { appearArrow && <div className={styles.icon}>
+        { !appearArrow && <div className={styles.icon}>
             {openCate ? <ArrowUp /> : <ArrowDown />}
           </div>
         }
