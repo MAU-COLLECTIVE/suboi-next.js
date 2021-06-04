@@ -31,7 +31,8 @@
     position: absolute;
     left: 0;
     top: 0;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(30px) brightness(100% - 35%);
     width: 100%;
     padding: 18px 28px;
     font-family: $font-secondary;
