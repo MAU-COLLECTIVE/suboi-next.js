@@ -59,7 +59,7 @@
 
   @include font-sizing(1rem, null, 1.333rem, 10);
 
-  @include home-breakpoint("lg") {
+  @include home-breakpoint("md") {
     width: 70%;
   }
 
