@@ -27,7 +27,7 @@ function SectionFour({ background, tour }) {
             pagination: false,
             arrows: false,
             direction: tour?.tour?.length <= 4 ? 'rtl' : 'ltr',
-            gap: '100px',
+            gap: '80px',
           }}>
               {tours?.map((to, index) => (
                 <SplideSlide key={index}>
