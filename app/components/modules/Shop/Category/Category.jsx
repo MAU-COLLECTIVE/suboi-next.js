@@ -22,7 +22,7 @@ function Category({
     function updateSize() {
       setSizeChanged(!sizeChanged);
     }
-    if (window.innerWidth < 1919) {
+    if (window.innerWidth < 1024) {
       setAppearArrow(false);
     } else {
       setAppearArrow(true);
@@ -38,7 +38,7 @@ function Category({
         onClick={onClick}
       >
         <p className={styles.smallText}>CATEGORIES</p>
-        { !appearArrow && <div className={styles.icon}>
+        { appearArrow && <div className={styles.icon}>
             {openCate ? <ArrowUp /> : <ArrowDown />}
           </div>
         }

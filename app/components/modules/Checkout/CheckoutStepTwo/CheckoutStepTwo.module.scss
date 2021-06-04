@@ -72,12 +72,13 @@
   }
 }
 
-@include shop-breakpoint("lg") {
+@include shop-breakpoint("md") {
 
   .checkout {
 
-    .checkoutLeft {
-      width: 752px;
+    .checkoutLeft { 
+      max-width: 752px;
+      width: 100%;
     }
 
     .checkoutInput {
@@ -98,7 +99,7 @@
   }
 }
 
-@include shop-breakpoint("xl") {
+@include shop-breakpoint("lg") {
 
   .checkout { 
     display: flex;

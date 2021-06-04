@@ -72,17 +72,18 @@
   }
 }
 
-@include shop-breakpoint("lg") {
+@include shop-breakpoint("md") {
 
   .checkout {
     
     .checkoutLeft {
-      width: 752px;
+      max-width: 752px;
+      width: 100%;
     }
   }
 }
 
-@include shop-breakpoint("xl") {
+@include shop-breakpoint("lg") {
 
   .checkout {
     background-color: #FFF; 
