@@ -31,8 +31,9 @@
   display: block;
   margin: 0 20px;
   font-family: $font-secondary;
+  text-transform: uppercase;
 
-  @include font-sizing(1rem, 900, 1rem, 10);
+  @include font-sizing(1rem, 800, 1rem, 10);
 }
 
 .cardContainer {
