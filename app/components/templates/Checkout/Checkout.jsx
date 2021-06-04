@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { CartContext } from 'contexts/Cart';
-import CheckoutStepOne from 'modules/CheckoutSection/CheckoutStepOne/CheckoutStepOne';
+import CheckoutStepOne from 'modules/Checkout/CheckoutStepOne/CheckoutStepOne';
 import { useRouter } from 'next/router';
-import CheckoutStepTwo from 'modules/CheckoutSection/CheckoutStepTwo/CheckoutStepTwo';
-import CheckoutStepThree from 'modules/CheckoutSection/CheckoutStepThree/CheckoutStepThree';
+import CheckoutStepTwo from 'modules/Checkout/CheckoutStepTwo/CheckoutStepTwo';
+import CheckoutStepThree from 'modules/Checkout/CheckoutStepThree/CheckoutStepThree';
 
 function CheckoutSection() {
   const router = useRouter();
