@@ -104,9 +104,11 @@
       border: unset;
       border-radius: .75rem;
       grid-area: input;
+      height: 40px;
       max-height: 40px;
       width: 100%;
       margin-top: 15px;
+      outline: 0;
   
       @include font-sizing(.8rem, null, null, 10);
     }
@@ -117,6 +119,7 @@
       border-radius: .75rem;
       grid-area: button;
       max-height: 40px;
+      height: 40px;
       margin-top: 15px; 
     }
   }
@@ -180,11 +183,13 @@
     input {
       margin: 0;
       max-height: 24px;
+      height: 24px;
       flex: 1;
     }
 
     .button {
       max-height: 24px;
+      height: 24px;
       width: 155px;
       margin-left: 20px;
     }
