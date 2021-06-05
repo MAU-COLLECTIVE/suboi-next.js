@@ -6,7 +6,7 @@ import styles from '../PhotoSlider.module.scss';
 function SongItem({ item }) {
   return (
     <div className={styles.songCardBox}>
-      <img src={urlFor(item.image.asset._ref)} />
+      <img src={urlFor(item?.image?.asset._ref)} />
     </div>
   );
 }

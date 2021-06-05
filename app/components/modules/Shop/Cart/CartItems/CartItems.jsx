@@ -21,7 +21,7 @@ function CartItems() {
         key={index}
       >
         <div className={styles.left}>
-          <img src={urlFor(item.productImage[0].asset._ref)}></img>
+          <img src={urlFor(item?.productImage[0]?.asset._ref)}></img>
           <div className={styles.counter}>
             <div
               className={styles.countBtn}

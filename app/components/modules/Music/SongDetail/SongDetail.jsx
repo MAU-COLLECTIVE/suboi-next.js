@@ -9,7 +9,7 @@ function SongDetail({ item }) {
     <div className={styles.left}>
       <img
         className={styles.itemImage}
-        src={urlFor(item.coverImage.asset._ref)}
+        src={urlFor(item?.coverImage?.asset._ref)}
       />
     </div>
     <div className={styles.right}>

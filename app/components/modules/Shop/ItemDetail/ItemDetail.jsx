@@ -53,14 +53,14 @@ function Item({ item, showPopup, openCart }) {
     <div className={styles.left}>
       {images.length > 0 && <img
           className={styles.itemImage}
-          src={urlFor(images[0].asset._ref)}
+          src={urlFor(images[0]?.asset._ref)}
         />
       }
       <div className={styles.smallImages}>
         {images.length > 1 && images.slice(1).map((url, index = 1) => <img
           key={index}
           className={styles.smallImageItem}
-          src={urlFor(url.asset._ref)}
+          src={urlFor(url?.asset._ref)}
           onClick={() => chooseImage(url, index + 1)}
         />)}
       </div>

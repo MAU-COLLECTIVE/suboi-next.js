@@ -15,7 +15,7 @@ function SongItem({ item, center }) {
 
   return (
     <div className={styles.songCardBox} onClick={handleOnClick}>
-      <img src={urlFor(item.coverImage.asset._ref)}/>
+      <img src={urlFor(item?.coverImage?.asset._ref)}/>
       <div className={styles.songInfo}>
         <div className={styles.songInfoLeft}>
           <h4>{item.name}</h4>

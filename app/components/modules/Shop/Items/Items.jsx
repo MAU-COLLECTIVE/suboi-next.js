@@ -8,7 +8,7 @@ function Items({ data }) {
     { data && data.map((item) => <Item
         key={item.slug.current}
         id={item.slug.current}
-        image={urlFor(data[0].productImage[0].asset._ref)}
+        image={urlFor(data[0]?.productImage[0]?.asset._ref)}
         name={item.name}
         price={item.price}
       />)}
