@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import styles from './Cart.module.scss';
@@ -7,6 +7,12 @@ import CheckoutBox from './CheckoutBox/CheckoutBox';
 import CartItems from './CartItems/CartItems';
 
 function Cart({ openCart, onClick }) {
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    setHeight(window.innerHeight);
+  }, []);
+
   return (
     <section
       onClick={onClick}
@@ -15,6 +21,7 @@ function Cart({ openCart, onClick }) {
         styles.cart,
         openCart && styles.openCart,
       )}
+      style={{ height: `${height}px` }}
     >
       <div
         className={clsx(

@@ -17,6 +17,11 @@ function Category({
   const { pathname } = useRouter();
   const [appearArrow, setAppearArrow] = useState(false);
   const [sizeChanged, setSizeChanged] = useState(false);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    setHeight(window.innerHeight);
+  }, []);
 
   useEffect(() => {
     function updateSize() {
@@ -43,7 +48,10 @@ function Category({
           </div>
         }
       </div>
-      <div className={clsx(styles.cateBox, openCate && styles.cateBoxOpen)}>
+      <div
+        className={clsx(styles.cateBox, openCate && styles.cateBoxOpen)}
+        style={{ height: `${height}px` }}
+      >
         <div className={styles.closeIcon} onClick={onClick}>
           <Close/>
         </div>
