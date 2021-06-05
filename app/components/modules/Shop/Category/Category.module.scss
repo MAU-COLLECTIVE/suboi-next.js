@@ -49,7 +49,6 @@
     height: 100vh;
     width: 100%;
     transition: .3s;
-    z-index: 99999999;
     opacity: 0;
     visibility: hidden;
 
@@ -116,6 +115,7 @@
       p {
         font-size: .75rem;
         font-family: $font-primary !important;
+        font-weight: normal;
       }
 
       &:hover {

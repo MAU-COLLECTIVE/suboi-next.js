@@ -45,7 +45,7 @@ function Item({ item, showPopup, openCart }) {
         src={urlFor(selectedImage || item.productImage[0]?.asset._ref)}
       />
       <div className={styles.smallImages}>
-        {item.productImage?.map((url, index = 1) => <img
+        {item.productImage.length > 1 && item.productImage.map((url, index = 1) => <img
           key={index}
           className={styles.smallImageItem}
           src={urlFor(url?.asset._ref)}
