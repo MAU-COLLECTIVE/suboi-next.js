@@ -7,6 +7,7 @@ import PhotoItem from './PhotoItem/PhotoItem';
 
 function PhotoSlider({ photos }) {
   const [currentSong, setCurrentSong] = useState(1);
+  const [infinityPhotos, setInfinityPhotos] = useState(photos);
   const [transformCss, setTransformCss] = useState('');
   const [sizeChanged, setSizeChanged] = useState(false);
 
@@ -17,7 +18,7 @@ function PhotoSlider({ photos }) {
   };
 
   const onSwipeLeft = () => {
-    if (currentSong < photos.length) {
+    if (currentSong < infinityPhotos.length) {
       setCurrentSong(currentSong + 1);
     }
   };
@@ -63,6 +64,13 @@ function PhotoSlider({ photos }) {
     return () => window.removeEventListener('resize', updateSize);
   }, [currentSong, sizeChanged]);
 
+  useEffect(() => {
+    if (infinityPhotos.length - currentSong === 3) {
+      const newData = [...infinityPhotos, ...photos];
+      setInfinityPhotos(newData);
+    }
+  }, [photos, currentSong]);
+
   return (
     <Swipe
       onSwipeRight={onSwipeRight}
@@ -74,7 +82,7 @@ function PhotoSlider({ photos }) {
           }}
           className={styles.musicSliderBox}
         >
-          {photos.length > 0 && photos.map((item, index) => <div
+          {infinityPhotos?.map((item, index) => <div
             key={index}
             className={clsx(
               styles.songCard,
