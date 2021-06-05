@@ -97,24 +97,46 @@
   }
 }
 
-@include music-breakpoint("sm") { 
+@include music-breakpoint("sm") {  
 
-  .musicSlider { 
-    min-width: 100vw;
-    max-width: 100vw; 
-  }  
+  .songCard,
+  .songCardActive,
+  .songCardSmaller,
+  .songCardSmallest { 
+    margin: 0 20px;
+    min-width: 320px;
+    max-width: 320px;
+    height: 404px; 
+
+    .songCardBox { 
+      padding: 18px 20px 30px 20px; 
+    }
+
+    img {
+      width: 280px;
+    }
+  }
+}
+
+@include music-breakpoint("md") {  
+
+  .songCardBox {   
+    padding: 25px 20px 40px 20px;
+  }
+
+  .songCard {  
+    margin: 0 90px;   
+  }   
+}
+
+@include music-breakpoint("lg") { 
 
   .songCard { 
-    height: max-content;   
-    position: relative;
     min-width: 220px;
     max-width: 220px;
     height: 516px;
     padding: 0px; 
     margin: 0 40px; 
-    display: flex;
-    justify-content: center;
-    align-items: center; 
 
     .songCardBox { 
       max-width: 420px;
@@ -144,20 +166,32 @@
     }
   } 
 
+  .songInfo { 
+
+    h4,
+    .smallText {
+      font-size: .938rem !important;
+    }
+
+    .bigText {
+      font-size: 2.5rem !important;
+    }
+  } 
+
   .songCardActive {  
     min-width: 420px;  
     padding: 20px;
 
     .songCardBox {
-      width: 376px; 
+      width: 380px; 
       height: 473px; 
       padding: 23px 20px 35px 20px;
 
       img {
         transition: .3s;
-        width: 376px;
-        height: 376px;
-        max-height: 376px; 
+        width: 380px;
+        height: 380px;
+        max-height: 380px; 
       }
     }
 
@@ -202,32 +236,6 @@
   }
 }
 
-@include music-breakpoint("md") {  
-
-  .songCardBox {   
-    padding: 25px 20px 40px 20px;
-  }
-
-  .songCard {  
-    margin: 0 60px;   
-  }   
-}
-
-@include music-breakpoint("lg") {  
-
-  .songInfo { 
-
-    h4,
-    .smallText {
-      font-size: .938rem !important;
-    }
-
-    .bigText {
-      font-size: 2.5rem !important;
-    }
-  } 
-}
-
 @include music-breakpoint("xl") {  
 
   .songCard { 
@@ -259,15 +267,15 @@
     min-width: 440px;  
 
     .songCardBox {
-      width: 423px; 
+      width: 420px; 
       height: 516px; 
       padding: 25px 20px 40px 20px;
 
       img {
         transition: .3s;
-        width: 376px;
-        height: 376px;
-        max-height: 376px; 
+        width: 380px;
+        height: 380px;
+        max-height: 380px; 
       }
     }
 

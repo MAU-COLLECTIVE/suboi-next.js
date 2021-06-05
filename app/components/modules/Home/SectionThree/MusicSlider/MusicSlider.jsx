@@ -24,7 +24,7 @@ function MusicSlider({ songs }) {
 
   useEffect(() => {
     let margin = 20;
-    const haftActiveWidth = 420 / 2;
+    let haftActiveWidth = 420 / 2;
     const width = 220;
     const smallerWidth = 120;
     const smallestWidth = 65;
@@ -36,7 +36,22 @@ function MusicSlider({ songs }) {
     if (window.innerWidth < 694) {
       margin = 20;
       setTransformCss(`translateX(calc(${-60 * (currentSong - 1)}vw - ${40 * (currentSong - 1)}px))`);
-    } else if (window.innerWidth >= 694 && window.innerWidth < 1024) {
+    } else if (window.innerWidth >= 694 && window.innerWidth < 1023) {
+      haftActiveWidth = 280 / 2;
+      if (currentSong === 1) {
+        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin}px - 20px) )`);
+      } else {
+        setTransformCss(`translateX(calc(50% - ${haftActiveWidth * (currentSong + (currentSong - 1))}px - ${margin * (currentSong + (currentSong - 1))}px - ${20 * (currentSong + (currentSong - 1))}px) )`);
+      }
+    } else if (window.innerWidth >= 1023 && window.innerWidth < 1366) {
+      haftActiveWidth = 280 / 2;
+      margin = 90;
+      if (currentSong === 1) {
+        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin}px - 20px) )`);
+      } else {
+        setTransformCss(`translateX(calc(50% - ${haftActiveWidth * (currentSong + (currentSong - 1))}px - ${margin * (currentSong + (currentSong - 1))}px - ${20 * (currentSong + (currentSong - 1))}px) )`);
+      }
+    } else if (window.innerWidth >= 1366 && window.innerWidth < 1919) {
       margin = 40;
       if (currentSong === 1) {
         setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin}px) )`);
@@ -47,16 +62,17 @@ function MusicSlider({ songs }) {
       } else {
         setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 7}px - ${width * (currentSong - 3)}px - ${smallerWidth}px - ${smallestWidth}px + ${75 * (currentSong - 4)}px))`);
       }
-    } else if (window.innerWidth >= 1024) {
-      margin = 60;
+    } else if (window.innerWidth >= 1919) {
+      haftActiveWidth = 440 / 2;
+      margin = 40;
       if (currentSong === 1) {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin}px) )`);
+        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin}px))`);
       } else if (currentSong === 2) {
         setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 3}px - ${width}px))`);
       } else if (currentSong === 3) {
         setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 5}px - ${width}px - ${smallerWidth}px))`);
       } else {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 7}px - ${width * (currentSong - 3)}px - ${smallerWidth}px - ${smallestWidth}px + ${35 * (currentSong - 4)}px))`);
+        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 7}px - ${width * (currentSong - 3)}px - ${smallerWidth}px - ${smallestWidth}px + ${75 * (currentSong - 4)}px))`);
       }
     }
     window.addEventListener('resize', updateSize);
