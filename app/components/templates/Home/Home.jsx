@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
@@ -12,9 +12,19 @@ import Header from 'modules/Header/Header';
 import { urlFor } from 'utils/sanity';
 import styles from './Home.module.scss';
 
-function HomePage({ background, promote, about, songs, photos, tour, contact }) {
+function HomePage({
+  background,
+  promote,
+  about,
+  songs,
+  photos,
+  tour,
+  contact,
+}) {
   const anchors = ['home', 'about', 'music', 'tour', 'photos', 'footer'];
+  const [height, setHeight] = useState(0);
   const router = useRouter();
+
   const moveSection = (id, name) => {
     if (name === 'shop') {
       router.push('/shop');
@@ -23,6 +33,10 @@ function HomePage({ background, promote, about, songs, photos, tour, contact }) 
       fullpage_api.moveTo(id, 0);
     }
   };
+
+  useEffect(() => {
+    setHeight(window.innerHeight);
+  }, []);
 
   return (
     <div className={styles.app}>
@@ -35,36 +49,42 @@ function HomePage({ background, promote, about, songs, photos, tour, contact }) 
               <SectionOne
                 background={urlFor(background.topBackground).url()}
                 promote={promote}
+                height={height}
               />
             </div>
             <div className="section">
               <SectionTwo
                 background={urlFor(background.aboutBackground).url()}
                 about={about}
+                height={height}
               />
             </div>
             <div className="section">
               <SectionThree
                 background={urlFor(background.musicBackground).url()}
                 songs={songs}
+                height={height}
               />
             </div>
             <div className="section">
               <SectionFour
                 background={urlFor(background.tourBackground).url()}
                 tour={tour}
+                height={height}
               />
             </div>
             <div className="section">
               <SectionFive
                 background={urlFor(background.photoBackground).url()}
                 photos={photos}
+                height={height}
               />
             </div>
             <div className="section">
               <SectionSix
                 background={urlFor(background.contactBackground).url()}
                 contact={contact}
+                height={height}
               />
             </div>
           </ReactFullpage.Wrapper>

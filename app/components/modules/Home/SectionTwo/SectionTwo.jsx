@@ -3,9 +3,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './SectionTwo.module.scss';
 
-function SectionTwo({ background, about }) {
+function SectionTwo({ background, about, height }) {
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ height: `${height}px` }}
+    >
       <div className={styles.overlay}></div>
       <Background
         url={background}
@@ -26,6 +29,7 @@ function SectionTwo({ background, about }) {
 SectionTwo.propTypes = {
   background: PropTypes.string,
   about: PropTypes.object,
+  height: PropTypes.number,
 };
 
 export default SectionTwo;

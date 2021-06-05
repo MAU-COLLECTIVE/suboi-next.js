@@ -5,7 +5,7 @@ import Button from 'elements/Button/Button';
 import clsx from 'clsx';
 import styles from './SectionSix.module.scss';
 
-function SectionSix({ background, contact }) {
+function SectionSix({ background, contact, height }) {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [res, setRes] = useState({
@@ -38,7 +38,10 @@ function SectionSix({ background, contact }) {
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ height: `${height}px` }}
+    >
       <Background
         url={background}
         className={styles.background}
@@ -80,6 +83,7 @@ function SectionSix({ background, contact }) {
 SectionSix.propTypes = {
   background: PropTypes.string,
   contact: PropTypes.object,
+  height: PropTypes.number,
 };
 
 export default SectionSix;

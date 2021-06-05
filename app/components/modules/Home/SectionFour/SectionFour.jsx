@@ -7,11 +7,14 @@ import styles from './SectionFour.module.scss';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'splide-nextjs/splide/dist/css/themes/splide-default.min.css';
 
-function SectionFour({ background, tour }) {
+function SectionFour({ background, tour, height }) {
   const tours = tour?.tour?.length <= 4 ? tour?.tour : tour?.tour?.reverse();
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ height: `${height}px` }}
+    >
       <Background
         url={background}
         className={styles.background}
@@ -50,6 +53,7 @@ function SectionFour({ background, tour }) {
 SectionFour.propTypes = {
   background: PropTypes.string,
   tour: PropTypes.object,
+  height: PropTypes.number,
 };
 
 export default SectionFour;

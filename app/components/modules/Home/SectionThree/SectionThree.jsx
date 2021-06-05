@@ -4,9 +4,12 @@ import Background from 'elements/Background/Background';
 import MusicSlider from './MusicSlider/MusicSlider';
 import styles from './SectionThree.module.scss';
 
-function SectionThree({ background, songs }) {
+function SectionThree({ background, songs, height }) {
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ height: `${height}px` }}
+    >
       <Background
         url={background}
         className={styles.background}
@@ -19,6 +22,7 @@ function SectionThree({ background, songs }) {
 SectionThree.propTypes = {
   background: PropTypes.string,
   songs: PropTypes.array,
+  height: PropTypes.number,
 };
 
 export default SectionThree;

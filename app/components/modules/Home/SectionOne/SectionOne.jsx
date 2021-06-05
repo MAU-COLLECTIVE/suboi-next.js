@@ -5,14 +5,17 @@ import Background from 'elements/Background/Background';
 import { urlFor } from 'utils/sanity';
 import styles from './SectionOne.module.scss';
 
-function SectionOne({ background, promote }) {
+function SectionOne({ background, promote, height }) {
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ height: `${height}px` }}
+    >
       <Background
         url={urlFor(promote?.albumAndSong?.background).url() ?? background}
         className={styles.background}
       />
-       <div className={styles.overlay}></div>
+      <div className={styles.overlay}></div>
       <p className={styles.lyrics}>
         {promote?.albumAndSong?.lyric}
       </p>
@@ -48,6 +51,7 @@ function SectionOne({ background, promote }) {
 SectionOne.propTypes = {
   background: PropTypes.string,
   promote: PropTypes.object,
+  height: PropTypes.number,
 };
 
 export default SectionOne;
