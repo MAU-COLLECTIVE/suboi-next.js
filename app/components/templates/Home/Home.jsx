@@ -35,7 +35,14 @@ function HomePage({
   };
 
   useEffect(() => {
+    function onResize() {
+      setHeight(window.innerHeight);
+    }
     setHeight(window.innerHeight);
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
   }, []);
 
   return (

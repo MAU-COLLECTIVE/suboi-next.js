@@ -43,7 +43,6 @@
       display: flex;
       flex-direction: column; 
       padding: 18px 15px 30px 15px;
-      border: 2px rgba($color: #fff, $alpha: 0) solid; 
     }
 
     img {
@@ -127,10 +126,6 @@
 
   .songCardBox {   
     padding: 25px 20px 40px 20px;
-  }
-
-  .songCardBox { 
-    padding: 18px 20px 30px 20px; 
     border: 2px rgba($color: #fff, $alpha: .2) solid; 
     box-shadow: 0 0 10px rgba($color: #fff, $alpha: .2);
   }
@@ -159,7 +154,7 @@
       box-shadow: 0 0 10px rgba($color: #fff, $alpha: 0);
 
       img {
-        width: 220px;
+        min-width: 220px;
         max-height: 220px;
         height: 220px;
         border-radius: 5px;
@@ -230,8 +225,9 @@
       box-shadow: 0 0 10px rgba($color: #fff, $alpha: 0);
       
       img { 
-        width: 100%;
-        height: 100%; 
+        height: 120px; 
+        min-width: 120px;  
+        max-width: 120px;
       }
     }
   }
@@ -248,8 +244,9 @@
       box-shadow: 0 0 10px rgba($color: #fff, $alpha: 0);
       
       img { 
-        width: 100%;
-        height: 100%; 
+        min-width: 65px;  
+        max-width: 65px;  
+        height: 65px; 
       }
     }
   }

@@ -33,10 +33,17 @@ function MusicSlider({ songs }) {
       setSizeChanged(sizeChanged);
     }
 
-    if (window.innerWidth < 694) {
+    if (window.innerWidth <= 500) {
       margin = 20;
       if (currentSong === songs.length) {
-        setTransformCss(`translateX(calc(${-60 * (currentSong - 1)}vw))`);
+        setTransformCss(`translateX(calc(${-60 * (currentSong - 1)}vw - ${40 * (currentSong - 1)}px + 30vw))`);
+      } else {
+        setTransformCss(`translateX(calc(${-60 * (currentSong - 1)}vw - ${40 * (currentSong - 1)}px))`);
+      }
+    } else if (window.innerWidth < 694 && window.innerWidth > 500) {
+      margin = 20;
+      if (currentSong === songs.length) {
+        setTransformCss(`translateX(calc(${-60 * (currentSong - 1)}vw - ${40 * (currentSong - 1)}px + 33vw))`);
       } else {
         setTransformCss(`translateX(calc(${-60 * (currentSong - 1)}vw - ${40 * (currentSong - 1)}px))`);
       }
