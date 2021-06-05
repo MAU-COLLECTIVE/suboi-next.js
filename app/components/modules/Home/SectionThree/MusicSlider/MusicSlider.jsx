@@ -35,7 +35,11 @@ function MusicSlider({ songs }) {
 
     if (window.innerWidth < 694) {
       margin = 20;
-      setTransformCss(`translateX(calc(${-60 * (currentSong - 1)}vw - ${40 * (currentSong - 1)}px))`);
+      if (currentSong === songs.length) {
+        setTransformCss(`translateX(calc(${-60 * (currentSong - 1)}vw))`);
+      } else {
+        setTransformCss(`translateX(calc(${-60 * (currentSong - 1)}vw - ${40 * (currentSong - 1)}px))`);
+      }
     } else if (window.innerWidth >= 694 && window.innerWidth < 1023) {
       haftActiveWidth = 280 / 2;
       if (currentSong === 1) {
