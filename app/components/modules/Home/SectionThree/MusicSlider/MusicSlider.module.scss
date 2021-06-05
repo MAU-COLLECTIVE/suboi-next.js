@@ -82,6 +82,8 @@
 
     .songCardBox {
       border-radius: 30px; 
+      border: 2px rgba($color: #fff, $alpha: .2) solid; 
+      box-shadow: 0 0 10px rgba($color: #fff, $alpha: .2);
 
       &:hover { 
         border: 2px rgba($color: #fff, $alpha: .2) solid; 
@@ -114,6 +116,8 @@
 
     .songCardBox { 
       padding: 18px 20px 30px 20px; 
+      border: 2px rgba($color: #fff, $alpha: 0) solid; 
+      box-shadow: 0 0 10px rgba($color: #fff, $alpha: 0);
     }
 
     img {
