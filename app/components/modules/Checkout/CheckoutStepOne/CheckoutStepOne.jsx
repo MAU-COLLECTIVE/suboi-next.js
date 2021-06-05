@@ -34,21 +34,21 @@ function CheckoutStepOne({ onClick }) {
         <h4 className={styles.title}>TOTAL</h4>
         <div className={styles.subtotal}>
           <div>
-            <p className={styles.test}>Subtotal</p>
-            <p className={styles.test}>${totalPrice}</p>
+            <p className={styles.smallText}>Subtotal</p>
+            <p className={styles.smallText}>${totalPrice}</p>
           </div>
           <div>
-            <p className={styles.test}>Shipping</p>
-            <p className={styles.test}>Inquiry</p>
+            <p className={styles.smallText}>Shipping</p>
+            <p className={styles.smallText}>Inquiry</p>
           </div>
           <div>
-            <p className={styles.test}>VAT</p>
-            <p className={styles.test}>Inquiry</p>
+            <p className={styles.smallText}>VAT</p>
+            <p className={styles.smallText}>Inquiry</p>
           </div>
         </div>
         <div className={styles.total}>
           <div>
-            <p className={styles.test}>Total</p>
+            <p className={styles.smallText}>Total</p>
             <h3>${totalPrice}</h3>
           </div>
         </div>

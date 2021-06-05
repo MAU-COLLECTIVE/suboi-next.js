@@ -73,7 +73,7 @@ function Item({ item, showPopup, openCart }) {
         <p className={styles.smallText}>{item.description}</p>
       </div>
       <div className={styles.priceBox}>
-        <h3 className={styles.titleText}>$ {selectedPrice === '' ? item.price : selectedPrice}</h3>
+        <h3 className={styles.titleText}>${selectedPrice === '' ? item.price : selectedPrice}</h3>
       </div>
       <p className={styles.taxText}>Incl.taxes</p>
       <div className={styles.sizeBox}>

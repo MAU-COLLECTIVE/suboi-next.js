@@ -18,7 +18,7 @@ function CheckoutItem({
       <p className={styles.text}>{size ? `SIZE ${size}` : ''}</p>
     </div>
     <div className={styles.itemPrice}>
-      <p className={styles.text}>$ {price}</p>
+      <p className={styles.text}>${price}</p>
     </div>
   </div>;
 }
