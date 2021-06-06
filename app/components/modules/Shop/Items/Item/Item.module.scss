@@ -47,6 +47,7 @@
   height: 100vw;
   margin-bottom: 40px;
   z-index: 10;
+  pointer-events: none;
 
   @include shop-breakpoint("lg") {
     width: 500px !important;

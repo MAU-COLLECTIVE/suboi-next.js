@@ -40,6 +40,7 @@
     height: 80vw; 
     margin-top: 60px;
     border-radius: 5px;  
+    pointer-events: none;
 
     @include music-breakpoint("sm") { 
       margin-top: calc(25vw - 50px);

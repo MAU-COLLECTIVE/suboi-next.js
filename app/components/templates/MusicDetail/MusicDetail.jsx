@@ -8,7 +8,7 @@ import styles from './MusicDetail.module.scss';
 function MusicDetail({ item }) {
   return <div className={styles.container}>
     <Background
-      url={urlFor(item?.coverImage?.asset._ref)}
+      url={urlFor(item.background ? item.background : item.coverImage.asset._ref)}
       className={styles.background}
     />
     <SongDetail item={item}/>
