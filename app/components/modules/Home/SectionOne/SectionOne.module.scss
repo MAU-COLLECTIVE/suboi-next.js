@@ -99,12 +99,13 @@
     width: 50%;
 
     @include home-breakpoint("md") {
-      padding: 14px 50px 10px 50px;
-      width: fit-content;
+      padding: 14px 0 10px 0;
+      width: 171px;
     }
 
     @include home-breakpoint("lg") {
-      padding: 6px 50px 2px 50px;
+      padding: 6px 0 2px 0;
+      width: 155px;
     }
     
     &:last-of-type {
