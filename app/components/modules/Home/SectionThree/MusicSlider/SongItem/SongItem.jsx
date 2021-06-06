@@ -18,10 +18,10 @@ function SongItem({ item, center }) {
       <img src={urlFor(item?.coverImage?.asset._ref)}/>
       <div className={styles.songInfo}>
         <div className={styles.songInfoLeft}>
-          <h4>{item.name}</h4>
-          <p className={styles.smallText}>{item.name.toLowerCase()} – Suboi</p>
+          <h4>{item?.name}</h4>
+          <p className={styles.smallText}>{item?.name.toLowerCase()} – Suboi</p>
         </div>
-        <h className={styles.bigText}>{new Date(item.album.releaseDate).getFullYear()}</h>
+        <h className={styles.bigText}>{new Date(item?.album?.releaseDate).getFullYear()}</h>
       </div>
     </div>
   );

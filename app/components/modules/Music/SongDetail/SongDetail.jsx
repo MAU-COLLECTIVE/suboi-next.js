@@ -16,7 +16,7 @@ function SongDetail({ item }) {
     <div className={styles.right}>
       <h3 className={styles.titleText}>{item.name}</h3>
       <h4 className={styles.album}>{item.album.name}</h4>
-      <p className={styles.smallText}>{new Date(item.album.releaseDate).getFullYear()}</p>
+      <p className={styles.smallText}>{new Date(item?.album?.releaseDate).getFullYear()}</p>
       <h4 className={styles.lyrics}>{item.lyric ? 'Lyrics' : ''}</h4>
       <div className={clsx(styles.lyricsBox, !item.lyric && styles.lyricsBoxNull)}>
         <p>{item.lyric}</p>

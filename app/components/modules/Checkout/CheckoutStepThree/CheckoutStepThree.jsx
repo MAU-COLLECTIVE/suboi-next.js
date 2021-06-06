@@ -7,7 +7,7 @@ function CheckoutStepThree() {
       <div className={styles.checkoutLeft}>
         <h4 className={styles.title}>Thank you!</h4>
         <div className={styles.checkoutText}>
-          <p className={styles.text}>
+          <p className={styles.smallText}>
             Your order is processing. Our Customer service will
             contact you immediately via email for payment inquiries and shipping information.
           </p>
