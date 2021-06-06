@@ -42,15 +42,22 @@
   }
 
   .titleBox {
-    width: calc(100% - 70px);
+    flex: 1;
     order: 1; 
     margin-bottom: 6px;
   }
 
   .priceBox {
-    width: 70px;
+    min-width: 40px;
+    width: max-content;
     order: 2;  
     margin-bottom: 10px;
+
+    .titleText {
+      min-width: 52px;
+      text-align: left;
+      direction: rtl;
+    }
   }
 
   .smallImages {
@@ -79,6 +86,7 @@
     width: 70px;
     height: 16px;
     font-size: .75rem;
+    text-align: right;
   }
 
   .sizeBox {
@@ -229,6 +237,7 @@
     order: 2;
     height: max-content;
     margin-top: 3px; 
+    text-align: left;
   }
 
   .sizeBox { 
