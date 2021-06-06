@@ -87,7 +87,7 @@
     margin: 46px 0 20px 0;
     order: 5;
     font-size: .75rem;
-    min-height: 65px;
+    min-height: 70px;
     position: relative;
 
     .titleTextSmall {
@@ -157,6 +157,10 @@
       width: 280px;
       height: 280px;
     }
+  }
+
+  .sizeBox {
+    min-height: 80px;
   }
 }
 
