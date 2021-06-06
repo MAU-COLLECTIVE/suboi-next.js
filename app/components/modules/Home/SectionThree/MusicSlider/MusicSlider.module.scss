@@ -67,11 +67,24 @@
       color: $color-white; 
       height: max-content;
 
+      div {
+        width: calc(100% - 100px);
+      }
+
       h4 {
         text-transform: uppercase;
         cursor: pointer;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
 
-        @include font-sizing(.75rem, null, 20pt, 20);
+        @include font-sizing(.75rem, null, 20px, 20);
+      }
+
+      .smallText {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
       }
     } 
   } 
