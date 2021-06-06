@@ -33,7 +33,7 @@ function CartButton({ onClick, appearCart, openCart }) {
       onClick={onClick}
       id="cart"
     >
-      <p className={styles.smallText}>Cart ({totalCount})</p>
+      <p className={styles.smallText}>CART ({totalCount})</p>
     </div>
   );
 }
