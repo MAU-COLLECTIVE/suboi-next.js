@@ -1,6 +1,5 @@
 @import "styles/app.scss";
 
-
 @include shop-breakpoint("xs") {
 
   .category {
@@ -37,8 +36,6 @@
   } 
 
   .cateBox { 
-    background-color: rgba($color: #fff, $alpha: .8);
-    backdrop-filter: blur(50px); 
     position: fixed;
     flex-direction: column;
     display: flex;
@@ -60,6 +57,9 @@
       color: $color-black;
       margin: 18px 0;
       height: 40px;
+      letter-spacing: 1px;
+      background-color: transparent;
+      -webkit-tap-highlight-color: transparent;
 
       p {
         font-size: 2.5rem;
@@ -68,6 +68,10 @@
       }
 
       &:hover {
+        background-color: transparent;
+      }
+
+      &:active {
         background-color: transparent;
       }
     }
@@ -97,7 +101,6 @@
   .cateBox {
     position: relative;
     width: 100%;
-    height: max-content;
     transition: .3s;
     height: 0;
     overflow: hidden;
@@ -109,7 +112,7 @@
       height: 24px;
       padding: 2px 0 0 3px;
       border-color: $color-black;
-      color: $color-black;
+      color: $color-black; 
 
       p {
         font-size: .75rem;
@@ -126,15 +129,14 @@
 
   .cateBoxOpen {
     background-color: rgba($color: #fff, $alpha: .0);
-    backdrop-filter: blur(0); 
-    height: 90px; 
-
-    .closeIcon {  
-      display: none;
-    } 
+    backdrop-filter: blur(0);
   }
 
   .category {
     position: fixed;
   }
+
+  .closeIcon {  
+    display: none;
+  } 
 }

@@ -20,21 +20,27 @@ function Category({
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    setHeight(window.innerHeight);
-  }, []);
-
-  useEffect(() => {
     function updateSize() {
       setSizeChanged(!sizeChanged);
     }
-    if (window.innerWidth < 1024) {
+    if (window.innerWidth < 1023) {
       setAppearArrow(false);
     } else {
       setAppearArrow(true);
     }
+    if (window.innerWidth < 1023) {
+      setHeight(window.innerHeight);
+    } else {
+      // eslint-disable-next-line no-lonely-if
+      if (openCate) {
+        setHeight(50 * data.length);
+      } else {
+        setHeight(0);
+      }
+    }
     window.addEventListener('resize', updateSize);
     return () => window.removeEventListener('resize', updateSize);
-  }, [pathname, sizeChanged]);
+  }, [pathname, sizeChanged, openCate]);
 
   return (
     <div className={styles.category}>
