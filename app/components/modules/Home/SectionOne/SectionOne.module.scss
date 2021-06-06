@@ -55,6 +55,7 @@
 
 .title {
   text-align: center;
+  text-transform: uppercase;
 
   @include font-sizing(2.667rem, 900, 2.667rem, 10);
 
@@ -69,6 +70,7 @@
 
 .subtitle {
   text-align: center;
+  text-transform: uppercase;
   margin-top: 5px;
 
   @include font-sizing(1.333rem, 900, 1.333rem, 10);
