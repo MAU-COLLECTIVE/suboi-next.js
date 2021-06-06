@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'elements/Button/Button';
 import { urlFor } from 'utils/sanity';
+import clsx from 'clsx';
 import styles from './SongDetail.module.scss';
 
 function SongDetail({ item }) {
@@ -16,8 +17,8 @@ function SongDetail({ item }) {
       <h3 className={styles.titleText}>{item.name}</h3>
       <h4 className={styles.album}>{item.album.name}</h4>
       <p className={styles.smallText}>{new Date(item.album.releaseDate).getFullYear()}</p>
-      <h4 className={styles.lyrics}>Lyrics</h4>
-      <div className={styles.lyricsBox}>
+      <h4 className={styles.lyrics}>{item.lyric ? 'Lyrics' : ''}</h4>
+      <div className={clsx(styles.lyricsBox, !item.lyric && styles.lyricsBoxNull)}>
         <p>{item.lyric}</p>
       </div>
       <Button

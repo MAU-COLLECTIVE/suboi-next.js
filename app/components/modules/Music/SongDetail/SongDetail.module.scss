@@ -181,6 +181,7 @@
     }
   } 
 
+  .lyricsBoxNull,
   .lyricsBox {
     font-size: .75rem;
     max-width: 100%; 
@@ -214,6 +215,14 @@
     background: #FFF;
     border-radius: 20px;
     height: 20px;
+  } 
+
+  .lyricsBoxNull::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0);
+  }
+
+  .lyricsBoxNull::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0);
   } 
 
   h4 {
