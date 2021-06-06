@@ -9,7 +9,7 @@ function CheckoutStepTwo({ onClick }) {
       <div className={styles.checkoutLeft}>
         <h4 className={styles.title}>Finish your order</h4>
         <div className={styles.checkoutText}>
-          <p className={styles.text}>Please submit your email to complete your purchase.</p>
+          <p className={styles.smallText}>Please submit your email to complete your purchase.</p>
         </div>
         <div className={styles.checkoutInput}>
           <input
