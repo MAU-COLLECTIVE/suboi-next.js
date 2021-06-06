@@ -26,6 +26,9 @@ const query = groq`
       slug,
       description,
     },
+    "background": * [_type == 'background'][0] {
+      shopBackground,
+    }
   }
 `;
 
@@ -58,6 +61,7 @@ function Shop({ data }) {
       item={data.product}
       categories={data.categories}
       items={data.products}
+      background={data.background}
     />
   </Default>;
 }

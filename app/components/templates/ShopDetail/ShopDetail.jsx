@@ -7,9 +7,10 @@ import Background from 'elements/Background/Background';
 import Category from 'modules/Shop/Category/Category';
 import { useRouter } from 'next/router';
 import { CategoryContext } from 'contexts/Category';
+import { urlFor } from 'utils/sanity';
 import styles from './ShopDetail.module.scss';
 
-function ShopDetail({ item, categories }) {
+function ShopDetail({ item, categories, background }) {
   const router = useRouter();
   const { setCategory } = useContext(CategoryContext);
   const [openCart, setOpenCart] = useState(false);
@@ -67,7 +68,7 @@ function ShopDetail({ item, categories }) {
 
   return <div className={styles.container}>
     <Background
-      url="https://crazyhood.com/wp-content/uploads/2018/12/suboi.png"
+      url={urlFor(background.shopBackground).url()}
       className={styles.background}
     />
     {(categories.length > 1 && !openCart) && <Category
@@ -92,6 +93,7 @@ function ShopDetail({ item, categories }) {
 ShopDetail.propTypes = {
   item: PropTypes.object,
   categories: PropTypes.array,
+  background: PropTypes.object,
 };
 
 export default ShopDetail;

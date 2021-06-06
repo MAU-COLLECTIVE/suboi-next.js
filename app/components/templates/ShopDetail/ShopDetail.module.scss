@@ -9,6 +9,7 @@
   align-items: center; 
   justify-content: center;   
   background-color: #FFF;
+  position: relative;
 
   @include shop-breakpoint("lg") {  
     height: 100vh; 
@@ -17,11 +18,12 @@
   }  
 
   .background {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     opacity: .15;
     width: 100%;
     z-index: 0;
+    height: 100%;
   } 
 } 

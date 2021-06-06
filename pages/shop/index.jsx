@@ -22,6 +22,9 @@ const query = groq`
       slug,
       description,
     },
+    "background": * [_type == 'background'][0] {
+      shopBackground,
+    }
   }
 `;
 
@@ -36,7 +39,7 @@ export async function getStaticProps({ preview = false }) {
 
 function Shop({ data }) {
   return <Default>
-    <ShopListing items={data.products} categories={data.categories}/>
+    <ShopListing items={data.products} categories={data.categories} background={data.background}/>
   </Default>;
 }
 

@@ -6,9 +6,10 @@ import CartButton from 'modules/Shop/CartButton/CartButton';
 import Background from 'elements/Background/Background';
 import Category from 'modules/Shop/Category/Category';
 import { CategoryContext } from 'contexts/Category';
+import { urlFor } from 'utils/sanity';
 import styles from './ShopListing.module.scss';
 
-function ShopListing({ items, categories }) {
+function ShopListing({ items, categories, background }) {
   const { currentCategory } = useContext(CategoryContext);
   const [openCart, setOpenCart] = useState(false);
   const [openCate, setOpenCate] = useState(false);
@@ -75,7 +76,7 @@ function ShopListing({ items, categories }) {
 
   return <div className={styles.container}>
     <Background
-      url="https://crazyhood.com/wp-content/uploads/2018/12/suboi.png"
+      url={urlFor(background.shopBackground).url()}
       className={styles.background}
     />
     <div className={styles.items}>
@@ -102,6 +103,7 @@ function ShopListing({ items, categories }) {
 ShopListing.propTypes = {
   items: PropTypes.array,
   categories: PropTypes.array,
+  background: PropTypes.object,
 };
 
 export default ShopListing;
