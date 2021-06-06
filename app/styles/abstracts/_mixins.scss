@@ -90,3 +90,11 @@
   line-height: #{$height};
   letter-spacing: calc(#{($space * $size)} / 1000);
 }
+
+@mixin on-safari() {
+  @media not all and (min-color-index:0) and (min-resolution:.001dpcm) and (-webkit-min-device-pixel-ratio:0) { 
+    @supports (-webkit-appearance:none) {
+      @content;
+    }
+  }
+}
