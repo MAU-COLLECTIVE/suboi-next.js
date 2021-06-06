@@ -80,7 +80,7 @@ function ShopListing({ items, categories }) {
     />
     <div className={styles.items}>
       <Items data={selectedCategory} />
-      {categories.length > 1 && <Category
+      {(categories.length > 1 && !openCart) && <Category
         data={categories}
         openCate={openCate}
         onClick={handleOnClick}

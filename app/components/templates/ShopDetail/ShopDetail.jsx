@@ -70,7 +70,7 @@ function ShopDetail({ item, categories }) {
       url="https://crazyhood.com/wp-content/uploads/2018/12/suboi.png"
       className={styles.background}
     />
-    {categories.length > 1 && <Category
+    {(categories.length > 1 && !openCart) && <Category
       data={categories}
       openCate={openCate}
       onClick={handleOnClick}
