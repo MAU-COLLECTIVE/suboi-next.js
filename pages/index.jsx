@@ -40,7 +40,7 @@ const query = groq`
     "tourName": * [_type == 'tourName'][0] {
       name
     },
-    "tour": * [_type == 'tour'] {
+    "tour": * [_type == 'tour'] | order(tourDate asc) {
       _id,
       venue,
       city,

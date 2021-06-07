@@ -8,7 +8,7 @@ import styles from './SectionFour.module.scss';
 import 'splide-nextjs/splide/dist/css/themes/splide-default.min.css';
 
 function SectionFour({ background, tour, height }) {
-  const tours = tour?.tour?.length <= 4 ? tour?.tour : tour?.tour?.reverse();
+  const tours = tour?.tour?.length <= 4 ? tour?.tour?.reverse() : tour?.tour;
 
   return (
     <div
