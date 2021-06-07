@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'elements/Button/Button';
 import PropTypes from 'prop-types';
 import styles from './CheckoutStepTwo.module.scss';
 
 function CheckoutStepTwo({ onClick }) {
+  const [email, setEmail] = useState('');
+
+  const handleOnClick = () => {
+    // onClick(2);
+    const formData = new FormData();
+    formData.append('message', 'message');
+    formData.append('email', 'John123@gmail.com');
+
+    fetch('https://script.google.com/macros/s/AKfycbxi1Yv7hDYA5QIj5QogSLWuTeWOzEnPtPsHsAXh7gMtIRkEjsU4/exec', {
+      body: formData,
+      method: 'post',
+    });
+  };
+
   return (
     <div className={styles.checkout}>
       <div className={styles.checkoutLeft}>
@@ -15,12 +29,14 @@ function CheckoutStepTwo({ onClick }) {
           <input
             className={styles.input}
             placeholder="Enter your email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
           />
           <Button
             label="SUBMIT"
             background="red"
             className={styles.button}
-            onClick={() => onClick(2)}
+            onClick={handleOnClick}
           />
         </div>
       </div>
