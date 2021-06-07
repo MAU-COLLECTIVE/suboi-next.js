@@ -113,6 +113,21 @@
         p {
           white-space: pre-wrap;
           overflow: 0;
+        }
+      }
+    }
+  }
+}
+
+@include shop-breakpoint("xl") {
+
+  .checkout {
+
+    .checkoutLeft {
+
+      .checkoutText {
+
+        p {
           font-size: .938rem;
         }
       }

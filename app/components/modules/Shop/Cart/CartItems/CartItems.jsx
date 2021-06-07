@@ -42,7 +42,7 @@ function CartItems() {
         <div className={styles.right}>
           <h4>{item.name}</h4>
           <p className={styles.text}>size {item.size}</p>
-          <div className={styles.price}>${item.price}</div>
+          <div className={styles.price}>${item.priceForSize || item.price}</div>
           <Button
             label="Remove Item"
             className={styles.removeBtn}

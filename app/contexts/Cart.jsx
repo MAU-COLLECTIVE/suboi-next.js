@@ -19,7 +19,11 @@ export function CartProvider({ children }) {
     let total2 = 0;
     for (let i = 0; i < cartItems.length; i += 1) {
       total += cartItems[i].count;
-      total2 += (cartItems[i].count * cartItems[i].price);
+      if (cartItems[i].priceForSize) {
+        total2 += (cartItems[i].count * cartItems[i].priceForSize);
+      } else {
+        total2 += (cartItems[i].count * cartItems[i].price);
+      }
     }
     setTotalPrice(total2);
     setTotalCount(total);

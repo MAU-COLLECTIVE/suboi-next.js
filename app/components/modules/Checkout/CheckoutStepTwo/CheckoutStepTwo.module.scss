@@ -115,7 +115,6 @@
       h4 {
         margin-bottom: 12px;
         text-transform: uppercase;
-        font-size: .938rem;
       }
 
       .checkoutText {
@@ -126,8 +125,21 @@
         p {
           white-space: pre-wrap;
           overflow: 0;
-          font-size: .938rem;
         }
+      }
+    }
+  }
+}
+
+
+@include shop-breakpoint("xl") {
+
+  .checkout {
+
+    .checkoutLeft {
+
+      h4 {
+        font-size: .938rem;
       }
     }
   }

@@ -21,7 +21,7 @@ function Item({ item, showPopup, openCart }) {
     if (item.productVariant.length > 0) {
       if (selectedSize) {
         showPopup();
-        addToCart({ ...item, size: selectedSize });
+        addToCart({ ...item, size: selectedSize, priceForSize: selectedPrice });
         setError('');
       } else {
         setError('Select size please!');

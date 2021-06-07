@@ -24,7 +24,7 @@ function CheckoutStepOne({ onClick }) {
         <h4 className={styles.title}>Order summary</h4>
         {cartItems.map((item) => <CheckoutItem
           name={item.name}
-          price={item.price}
+          price={item.priceForSize || item.price}
           image={urlFor(item?.productImage[0]?.asset._ref)}
           size={item.size}
           key={item.slug.current}

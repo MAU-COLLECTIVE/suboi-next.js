@@ -22,7 +22,9 @@ function CheckoutSection() {
 
   const handleOnClick = (step) => {
     setCheckoutStep(step);
-    clearCart();
+    if (step === 2) {
+      clearCart();
+    }
   };
 
   return (

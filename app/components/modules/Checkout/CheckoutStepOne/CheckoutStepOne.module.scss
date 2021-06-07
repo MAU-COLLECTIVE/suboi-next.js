@@ -172,7 +172,6 @@
 
       h4 {
         margin-bottom: 12px;
-        font-size: .938rem;
       }
     }
 
@@ -184,7 +183,6 @@
 
       h4 {
         margin-bottom: 12px;
-        font-size: .938rem;
       }
 
       .subtotal {
@@ -200,10 +198,6 @@
           display: flex;
           justify-content: space-between;
         }
-
-        p {
-          font-size: .938rem;
-        }
       }
 
       .total {
@@ -217,11 +211,6 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
-          font-size: .938rem;
-        }
-
-        p {
-          font-size: .938rem;
         }
       }
 
@@ -230,6 +219,44 @@
         width: 100%;
         padding: 3px 0 0 0;
         font-weight: bold;
+      }
+    }
+  }
+}
+
+@include shop-breakpoint("xl") {  
+
+  .checkout {
+
+    .checkoutLeft {
+
+      h4 {
+        font-size: .938rem;
+      }
+    }
+
+    .checkoutRight {
+
+      h4 {
+        font-size: .938rem;
+      }
+
+      .subtotal {
+
+        p {
+          font-size: .938rem;
+        }
+      }
+
+      .total {
+
+        div {
+          font-size: .938rem;
+        }
+
+        p {
+          font-size: .938rem;
+        }
       }
     }
   }
