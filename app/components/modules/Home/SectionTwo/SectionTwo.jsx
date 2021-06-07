@@ -1,6 +1,7 @@
 import Background from 'elements/Background/Background';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { PortableText } from 'utils/sanity';
 import styles from './SectionTwo.module.scss';
 
 function SectionTwo({ background, about, height }) {
@@ -18,9 +19,9 @@ function SectionTwo({ background, about, height }) {
         <h1 className={styles.title}>
           SUBOI
         </h1>
-        <p className={styles.desc}>
-          {about?.biography?.lang?.en_US}
-        </p>
+        <div className={styles.desc}>
+          <PortableText blocks={about?.biography?.lang?.en_US} />
+        </div>
       </div>
     </div>
   );

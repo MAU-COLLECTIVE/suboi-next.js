@@ -39,7 +39,7 @@
 
 .title {
   display: none;
-  text-align: center;
+  // text-align: center;
   font-family: $font-secondary;
 
   @include font-sizing(2.667rem, 900, 2.667rem, 10);
@@ -52,17 +52,35 @@
 .desc {
   margin-top: 20px;
   width: 100%;
-  white-space: pre-wrap;
   text-align: center;
   font-family: $font-primary;
 
-  @include font-sizing(1rem, null, 1.333rem, 10);
+  @include font-sizing(.8rem, null, 1.067rem, 10);
 
   @include home-breakpoint("md") {
     width: 70%;
   }
 
+  @include home-breakpoint("lg") {
+    @include font-sizing(1rem, null, 1.333rem, 10);
+  }
+
   @include home-breakpoint("2xl") {
     width: 50%;
+  }
+
+  p {
+    text-align: center;
+    word-break: break-word;
+    white-space: pre-line;
+    overflow-wrap: break-word;
+    -ms-word-break: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    word-break: break-all;
+    white-space: normal;
   }
 }
