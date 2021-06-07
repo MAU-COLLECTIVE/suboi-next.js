@@ -8,6 +8,7 @@ function CheckoutStepTwo({ onClick }) {
 
   const handleOnClick = () => {
     // onClick(2);
+    console.log('ver 1');
     const formData = new FormData();
     formData.append('message', 'message');
     formData.append('email', 'John123@gmail.com');
