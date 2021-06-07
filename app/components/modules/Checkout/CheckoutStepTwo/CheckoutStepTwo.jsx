@@ -8,14 +8,14 @@ function CheckoutStepTwo({ onClick }) {
 
   const handleOnClick = () => {
     // onClick(2);
-    console.log('ver 1');
+    console.log('ver 1.1');
     const formData = new FormData();
     formData.append('message', 'message');
     formData.append('email', 'John123@gmail.com');
 
     fetch('https://script.google.com/macros/s/AKfycbxi1Yv7hDYA5QIj5QogSLWuTeWOzEnPtPsHsAXh7gMtIRkEjsU4/exec', {
       body: formData,
-      method: 'post',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
