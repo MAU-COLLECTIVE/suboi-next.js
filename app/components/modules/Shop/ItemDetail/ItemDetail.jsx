@@ -66,7 +66,7 @@ function Item({ item, showPopup, openCart }) {
       <p className={styles.taxText}>Incl.taxes</p>
       <div className={styles.sizeBox}>
         <h4 className={styles.titleTextSmall}>
-          {item.productVariant.length > 0 && 'Choose your size'}
+          {item.productVariant.length > 0 && 'CHOOSE YOUR SIZE'}
         </h4>
         <div className={styles.sizes}>
           {item.productVariant.map((variant) => <div
