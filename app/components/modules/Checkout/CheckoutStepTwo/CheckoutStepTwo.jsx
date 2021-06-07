@@ -15,6 +15,10 @@ function CheckoutStepTwo({ onClick }) {
     fetch('https://script.google.com/macros/s/AKfycbxi1Yv7hDYA5QIj5QogSLWuTeWOzEnPtPsHsAXh7gMtIRkEjsU4/exec', {
       body: formData,
       method: 'post',
+      headers: {
+        // "Content-Type": "application/json; charset=utf-8",
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
     });
   };
 
