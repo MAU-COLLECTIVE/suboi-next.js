@@ -12,7 +12,7 @@ function SectionOne({ background, promote, height }) {
       style={{ height: `${height}px` }}
     >
       <Background
-        url={urlFor(promote?.albumAndSong?.background).url() ?? background}
+        url={urlFor(promote?.albumAndSong?.albumImage).url() ?? background}
         className={styles.background}
       />
       <div className={styles.overlay}></div>
