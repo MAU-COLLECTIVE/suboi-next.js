@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import Default from 'layouts/Default/Default';
 import MusicDetail from 'templates/MusicDetail/MusicDetail';
 import { groq } from 'next-sanity';
-import { getClient } from 'utils/sanity';
+import { getClient, urlFor } from 'utils/sanity';
+import Head from 'next/head';
 
 const query = groq`
   {
@@ -48,7 +49,13 @@ export async function getStaticPaths({ preview = false }) {
 }
 
 function Music({ data }) {
+  const title = `Checkout ${data.name} at Suboi official website`;
   return <Default>
+    <Head>
+      <meta property="og:title" content={title}/>
+      <meta property="og:description" content=""/>
+      <meta property="og:image" content={urlFor(data.background.asset._ref) || urlFor(data.coverImage.asset._ref)} />
+    </Head>
     <MusicDetail item={data}/>
   </Default>;
 }

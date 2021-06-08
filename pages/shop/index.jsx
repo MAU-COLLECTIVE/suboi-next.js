@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import Default from 'layouts/Default/Default';
 import ShopListing from 'templates/ShopListing/ShopListing';
 import { groq } from 'next-sanity';
-import { getClient } from 'utils/sanity';
+import { getClient, urlFor } from 'utils/sanity';
+import Head from 'next/head';
 
 const query = groq`
   {
@@ -39,6 +40,11 @@ export async function getStaticProps({ preview = false }) {
 
 function Shop({ data }) {
   return <Default>
+    <Head>
+      <meta property="og:title" content="Checkout the latest merchandise from Suboi shop"/>
+      <meta property="og:description" content=""/>
+      <meta property="og:image" content={urlFor(data.background?.asset._ref)}/>
+    </Head>
     <ShopListing items={data.products} categories={data.categories} background={data.background}/>
   </Default>;
 }

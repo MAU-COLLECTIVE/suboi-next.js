@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import Default from 'layouts/Default/Default';
 import ShopDetail from 'templates/ShopDetail/ShopDetail';
 import { groq } from 'next-sanity';
-import { getClient } from 'utils/sanity';
+import { getClient, urlFor } from 'utils/sanity';
+import Head from 'next/head';
 
 const query = groq`
   {
@@ -56,7 +57,13 @@ export async function getStaticPaths({ preview = false }) {
 }
 
 function Shop({ data }) {
+  const title = `Checkout ${data.product?.name} merchandise at Suboi Shop`;
   return <Default>
+    <Head>
+      <meta property="og:title" content={title}/>
+      <meta property="og:description" content=""/>
+      <meta property="og:image" content={urlFor(data.product?.productImage[0]?.asset._ref)}/>
+    </Head>
     <ShopDetail
       item={data.product}
       categories={data.categories}
