@@ -16,6 +16,11 @@ function CheckoutStepTwo({ onClick }) {
       setLoading(true);
       for (let i = 0; i < cartItems.length; i += 1) {
         const formData = new FormData();
+        if (i === 0) {
+          formData.append('numOrder', 'first');
+        } else {
+          formData.append('numOrder', '');
+        }
         formData.append('Product Name', cartItems[i].name);
         formData.append('Product Price', cartItems[i].priceForSize || cartItems[i].price);
         formData.append('Product Variant', cartItems[i].size || 'Default');
