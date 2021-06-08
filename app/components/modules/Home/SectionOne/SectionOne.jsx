@@ -23,7 +23,9 @@ function SectionOne({ background, promote, height }) {
         <h1 className={styles.title}>
           {promote?.albumAndSong?.name}
         </h1>
-        <span className={styles.subtitle}>SUBOI</span>
+        {promote?.albumAndSong && (
+          <span className={styles.subtitle}>SUBOI</span>
+        )}
 
         <div className={styles.buttons}>
           {(promote?.albumAndSong && promote?.ctaLink?.playVideo) && (
