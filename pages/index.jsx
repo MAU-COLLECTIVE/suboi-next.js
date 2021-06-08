@@ -31,8 +31,9 @@ const query = groq`
       album -> {
         name,
         releaseDate
-      }
-    },
+      },
+      "albumReleaseDate": album -> releaseDate
+    } | order(albumReleaseDate desc),
     "photos": * [_type == 'photo'] {
       photoName,
       image,
