@@ -49,11 +49,10 @@ export async function getStaticPaths({ preview = false }) {
 }
 
 function Music({ data }) {
-  const title = `Checkout ${data.name} at Suboi official website`;
+  const title = `Checkout ${data.name.toUpperCase()} at Suboi official website`;
   return <Default>
     <Head>
       <meta property="og:title" content={title}/>
-      <meta property="og:description" content=""/>
       <meta property="og:image" content={urlFor(data.background?.asset?._ref) || urlFor(data.coverImage?.asset?._ref)} />
     </Head>
     <MusicDetail item={data}/>

@@ -42,7 +42,6 @@ function Shop({ data }) {
   return <Default>
     <Head>
       <meta property="og:title" content="Checkout the latest merchandise from Suboi shop"/>
-      <meta property="og:description" content=""/>
       <meta property="og:image" content={urlFor(data.background?.shopBackground?.asset?._ref)}/>
     </Head>
     <ShopListing items={data.products} categories={data.categories} background={data.background}/>

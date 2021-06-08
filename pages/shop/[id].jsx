@@ -57,12 +57,11 @@ export async function getStaticPaths({ preview = false }) {
 }
 
 function Shop({ data }) {
-  const title = `Checkout ${data.product?.name} merchandise at Suboi Shop`;
+  const title = `Checkout ${data.product?.name.toUpperCase()} merchandise at Suboi Shop`;
   return <Default>
     <Head>
       <meta property="og:title" content={title}/>
-      <meta property="og:description" content=""/>
-      <meta property="og:image" content={urlFor(data.background?.shopBackground?.asset?._ref)}/>
+      <meta property="og:image" content={urlFor(data.product?.productImage[0]?.asset?._ref)}/>
     </Head>
     <ShopDetail
       item={data.product}
