@@ -21,10 +21,12 @@ function SongDetail({ item }) {
       <div className={clsx(styles.lyricsBox, !item.lyric && styles.lyricsBoxNull)}>
         <p>{item.lyric}</p>
       </div>
-      <Button
-        label="STREAM HERE"
-        className={styles.addToCartBox}
-      />
+      <a target="_blank" rel="noreferrer" href={item.streamLink}>
+        <Button
+          label="STREAM HERE"
+          className={styles.addToCartBox}
+        />
+      </a>
     </div>
   </div>;
 }

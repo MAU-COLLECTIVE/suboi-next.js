@@ -14,6 +14,7 @@ const query = groq`
       name,
       coverImage,
       background,
+      streamLink,
       slug,
       lyric,
       album -> {
