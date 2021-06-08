@@ -11,6 +11,7 @@ const query = groq`
       albumAndSong-> {
         name,
         lyric,
+        background,
         albumImage
       },
       ctaLink {
