@@ -54,7 +54,7 @@ function Music({ data }) {
     <Head>
       <meta property="og:title" content={title}/>
       <meta property="og:description" content=""/>
-      <meta property="og:image" content={urlFor(data.background.asset._ref) || urlFor(data.coverImage.asset._ref)} />
+      <meta property="og:image" content={urlFor(data.background?.asset?._ref) || urlFor(data.coverImage?.asset?._ref)} />
     </Head>
     <MusicDetail item={data}/>
   </Default>;

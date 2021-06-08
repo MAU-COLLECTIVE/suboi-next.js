@@ -62,7 +62,7 @@ function Shop({ data }) {
     <Head>
       <meta property="og:title" content={title}/>
       <meta property="og:description" content=""/>
-      <meta property="og:image" content={urlFor(data.product?.productImage[0]?.asset._ref)}/>
+      <meta property="og:image" content={urlFor(data.background?.shopBackground?.asset?._ref)}/>
     </Head>
     <ShopDetail
       item={data.product}
