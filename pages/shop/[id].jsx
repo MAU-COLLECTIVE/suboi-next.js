@@ -29,7 +29,20 @@ const query = groq`
     },
     "background": * [_type == 'background'][0] {
       shopBackground,
-    }
+    },
+    "contact": * [_type == 'contact'][0] {
+      businessInquiry {
+        mainEmail,
+        manageEmail
+      },
+      social {
+        appleMusic,
+        facebook,
+        instagram,
+        spotify,
+        youtube
+      }
+    },
   }
 `;
 
@@ -58,7 +71,7 @@ export async function getStaticPaths({ preview = false }) {
 
 function Shop({ data }) {
   const title = `Checkout ${data.product?.name.toUpperCase()} merchandise at Suboi Shop`;
-  return <Default>
+  return <Default social={data.contact.social}>
     <Head>
       <meta property="og:title" content={title}/>
       <meta property="og:image" content={urlFor(data.product?.productImage[0]?.asset?._ref)}/>

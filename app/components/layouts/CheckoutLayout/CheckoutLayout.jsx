@@ -11,7 +11,7 @@ import Spotify from 'public/icons/spotify.svg';
 import LanguageSelection from 'elements/LanguageSelection/LanguageSelection';
 import styles from './CheckoutLayout.module.scss';
 
-function CheckoutLayout({ children }) {
+function CheckoutLayout({ children, social }) {
   return (
     <div className={styles.default}>
       <Head>
@@ -25,11 +25,11 @@ function CheckoutLayout({ children }) {
       </div>
       <LanguageSelection />
       <div className={styles.icons}>
-        <Icon url="" icon={<AppleMusic />} />
-        <Icon url="" icon={<Spotify />} />
-        <Icon url="" icon={<Youtube />} />
-        <Icon url="" icon={<Instagram />} />
-        <Icon url="" icon={<Facebook />} />
+        <Icon url={social?.appleMusic} icon={<AppleMusic />} />
+        <Icon url={social?.spotify} icon={<Spotify />} />
+        <Icon url={social?.youtube} icon={<Youtube />} />
+        <Icon url={social?.instagram} icon={<Instagram />} />
+        <Icon url={social?.facebook} icon={<Facebook />} />
       </div>
     </div>
   );
@@ -37,6 +37,7 @@ function CheckoutLayout({ children }) {
 
 CheckoutLayout.propTypes = {
   children: PropTypes.any,
+  social: PropTypes.object,
 };
 
 export default CheckoutLayout;

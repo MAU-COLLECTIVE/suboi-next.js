@@ -23,6 +23,19 @@ const query = groq`
         releaseDate
       }
     },
+    "contact": * [_type == 'contact'][0] {
+      businessInquiry {
+        mainEmail,
+        manageEmail
+      },
+      social {
+        appleMusic,
+        facebook,
+        instagram,
+        spotify,
+        youtube
+      }
+    },
   }
 `;
 
@@ -30,7 +43,7 @@ export async function getStaticProps({ preview = false, params }) {
   const data = await getClient(preview).fetch(query, { slug: params.id });
   return {
     props: {
-      data: data.song,
+      data,
     },
   };
 }
@@ -50,13 +63,13 @@ export async function getStaticPaths({ preview = false }) {
 }
 
 function Music({ data }) {
-  const title = `Checkout ${data.name.toUpperCase()} at Suboi official website`;
-  return <Default>
+  const title = `Checkout ${data.song?.name?.toUpperCase()} at Suboi official website`;
+  return <Default social={data.contact.social}>
     <Head>
       <meta property="og:title" content={title}/>
-      <meta property="og:image" content={urlFor(data.background?.asset?._ref) || urlFor(data.coverImage?.asset?._ref)} />
+      <meta property="og:image" content={urlFor(data.song.background?.asset?._ref) || urlFor(data.song.coverImage?.asset?._ref)} />
     </Head>
-    <MusicDetail item={data}/>
+    <MusicDetail item={data.song}/>
   </Default>;
 }
 

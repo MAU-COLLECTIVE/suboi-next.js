@@ -25,7 +25,20 @@ const query = groq`
     },
     "background": * [_type == 'background'][0] {
       shopBackground,
-    }
+    },
+    "contact": * [_type == 'contact'][0] {
+      businessInquiry {
+        mainEmail,
+        manageEmail
+      },
+      social {
+        appleMusic,
+        facebook,
+        instagram,
+        spotify,
+        youtube
+      }
+    },
   }
 `;
 
@@ -39,7 +52,7 @@ export async function getStaticProps({ preview = false }) {
 }
 
 function Shop({ data }) {
-  return <Default>
+  return <Default social={data.contact.social}>
     <Head>
       <meta property="og:title" content="Checkout the latest merchandise from Suboi shop"/>
       <meta property="og:image" content={urlFor(data.background?.shopBackground?.asset?._ref)}/>
