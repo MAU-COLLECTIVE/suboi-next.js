@@ -95,7 +95,6 @@
 
     @include music-breakpoint("xl") {   
       font-size: 1.563rem;
-      height: 30px;
       line-height: 30px;
     }
   }
@@ -167,6 +166,7 @@
     text-overflow: ellipsis;
     white-space: pre-wrap;
     overflow: auto;
+    min-height: 20px;
 
     @include music-breakpoint("sm") {     
       font-size: .938rem;
