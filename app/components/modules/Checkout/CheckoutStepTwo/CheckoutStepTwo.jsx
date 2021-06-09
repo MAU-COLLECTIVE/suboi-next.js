@@ -11,31 +11,20 @@ function CheckoutStepTwo({ onClick }) {
 
   const handleOnSubmit = async (event) => {
     event.preventDefault();
-    let totalOk = 0;
     if (email) {
       setLoading(true);
+      const formData = new FormData();
+      let string = '';
       for (let i = 0; i < cartItems.length; i += 1) {
-        const formData = new FormData();
-        if (i === 0) {
-          formData.append('numOrder', 'first');
-        } else {
-          formData.append('numOrder', '');
-        }
-        formData.append('Product Name', cartItems[i].name);
-        formData.append('Product Price', cartItems[i].priceForSize || cartItems[i].price);
-        formData.append('Product Variant', cartItems[i].size || 'Default');
-        formData.append('Product Amount', cartItems[i].count);
-        formData.append('Email', email);
-        // eslint-disable-next-line no-await-in-loop
-        const res = await fetch('https://script.google.com/macros/s/AKfycbzPvgLWSCETYGceL-rf0fa7xT-PosKmr7EowacCElnfRPxq8Puj/exec', {
-          method: 'POST',
-          body: formData,
-        });
-        if (res.ok) {
-          totalOk += 1;
-        }
+        string += `${cartItems[i].name}|${cartItems[i].priceForSize || cartItems[i].price}|${cartItems[i].size || 'Default'}|${cartItems[i].count},`;
       }
-      if (totalOk === cartItems.length) {
+      formData.append('Product Name', string);
+      formData.append('Email', email);
+      const res = await fetch(process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL, {
+        method: 'POST',
+        body: formData,
+      });
+      if (res.ok) {
         setLoading(false);
         onClick(2);
       }
