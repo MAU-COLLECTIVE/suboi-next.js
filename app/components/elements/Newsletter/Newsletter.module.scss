@@ -7,6 +7,7 @@
   position: fixed;
   display: flex;
   justify-content: center;
+  align-items: center;
   opacity: 0;
   z-index: -1;
 
@@ -84,12 +85,18 @@
 
 .content > div {
   width: 100%;
-  display: grid;
-  row-gap: 15px;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   @include home-breakpoint("xs") {
+    align-items: flex-start;
     
+    input,
+    button {
+      margin-top: 15px;
+    }
+
     h2 {
       color: $color-white;
       font-family: $font-secondary;
@@ -106,40 +113,48 @@
       text-align: center;
       border: unset;
       border-radius: 12px;
+      outline: unset;
+      width: 100%;
     }
   
     button {
-      width: auto;
       padding: 10px 40px;
       border-radius: 12px;
+      width: 100%;
     }
   }
 
   @include home-breakpoint("md") {
     width: 70%;
+    flex-direction: row;
     align-items: center;
-    column-gap: 30px;
-    grid-template-columns: 1fr 3fr 1fr;
 
     h2 {
       font-weight: 800; // extra-bold
       font-size: 15px;
       line-height: 15px;
       text-align: right;
+      width: 25%;
+      margin-top: 0;
     }
 
     input {
       padding: 7px 5px;
+      width: 50%;
+      margin-top: 0;
+      margin: 0 10px;
     }
   
     button {
       padding: 7px 40px;
+      width: 25%;
+      margin-top: 0;
+      margin: 0;
     }
   }
 
   @include home-breakpoint("lg") {
     margin-bottom: 0;
-    row-gap: 10px;
 
     h2 {
       font-size: 25px;
