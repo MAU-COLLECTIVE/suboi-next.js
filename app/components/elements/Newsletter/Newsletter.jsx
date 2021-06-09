@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'elements/Button/Button';
-import Close from 'public/icons/close.svg';
+import Close from 'public/icons/close-alternative.svg';
 import clsx from 'clsx';
 import styles from './Newsletter.module.scss';
 
@@ -67,7 +67,9 @@ function Newsletter() {
             loading={isLoading}
           />
         </div>
-        <p className={clsx(styles.message, !res.success && styles.messageError)}>{res.message}</p>
+        {res.message && (
+          <p className={clsx(styles.message, !res.success && styles.messageError)}>{res.message}</p>
+        )}
       </div>
     </form>
   );
