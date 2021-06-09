@@ -68,6 +68,8 @@
 }
 
 .message {
+  position: absolute;
+  bottom: 5px;
   width: 100%;
   white-space: pre-wrap;
   text-align: center;
@@ -87,6 +89,7 @@
   display: grid;
   row-gap: 15px;
   grid-template-columns: 1fr;
+  max-height: 112px;
 
   @include home-breakpoint("xs") {
     

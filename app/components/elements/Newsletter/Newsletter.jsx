@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'elements/Button/Button';
-import Close from 'public/icons/close.svg';
+import Close from 'public/icons/close-light.svg';
 import clsx from 'clsx';
 import styles from './Newsletter.module.scss';
 
@@ -50,10 +50,10 @@ function Newsletter() {
         type="button"
         className={styles.btnClose}
         onClick={() => setIsShown(false)}>
-          <Close />
+        <Close style={{ fill: 'green' }}/>
       </button>
       <div className={styles.content}>
-        <div>
+        <div className={styles.form}>
           <h2>Newsletter</h2>
           <input
             value={email}
