@@ -1,1 +1,20 @@
 @import "styles/app.scss";
+
+@include shop-breakpoint("xs") {
+
+  .items {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@include shop-breakpoint("sm") {
+
+  .items {
+    display: block;
+    width: auto;
+  }
+}

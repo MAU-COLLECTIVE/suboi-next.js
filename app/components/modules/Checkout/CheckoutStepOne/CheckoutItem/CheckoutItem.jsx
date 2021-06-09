@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Image from 'next/image';
 import styles from './CheckoutItem.module.scss';
 
 function CheckoutItem({
@@ -9,10 +10,7 @@ function CheckoutItem({
   size,
 }) {
   return <div className={styles.item}>
-    <img
-      className={styles.itemImg}
-      src={image}
-    />
+    <Image src={image} width='140px' height='140px' className={styles.itemImg}></Image>
     <div className={styles.itemInfo}>
       <h4>{name}</h4>
       <p className={styles.text}>{size ? `SIZE ${size}` : ''}</p>

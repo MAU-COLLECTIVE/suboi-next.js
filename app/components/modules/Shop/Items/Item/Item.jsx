@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import styles from './Item.module.scss';
 
 function Item({
@@ -15,10 +16,9 @@ function Item({
   };
 
   return <div className={styles.item} onClick={handleOnClick}>
-    <img
-      className={styles.itemImg}
-      src={image}
-    />
+    <div className={styles.itemImg}>
+      <Image src={image} layout="fill"/>
+    </div>
     <div className={styles.itemInfo}>
       <h4>{name}</h4>
       <p className={styles.text}>USD {price}</p>

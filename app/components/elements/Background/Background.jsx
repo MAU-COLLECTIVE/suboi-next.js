@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import Image from 'next/image';
 import styles from './Background.module.scss';
 
 function Background({ url, className }) {
   return (
     <div className={clsx(styles.background, className)}>
-      <img src={url}></img>
+      <Image src={url} layout='fill'></Image>
     </div>
   );
 }

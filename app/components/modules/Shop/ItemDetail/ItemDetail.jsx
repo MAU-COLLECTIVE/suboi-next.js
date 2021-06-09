@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import Button from 'elements/Button/Button';
+import Image from 'next/image';
 import clsx from 'clsx';
+import Button from 'elements/Button/Button';
 import { CartContext } from 'contexts/Cart';
 import { urlFor } from 'utils/sanity';
 import styles from './ItemDetail.module.scss';
@@ -40,17 +41,23 @@ function Item({ item, showPopup, openCart }) {
 
   return <div className={styles.itemDetail}>
     <div className={styles.left}>
-      <img
-        className={styles.itemImage}
-        src={urlFor(selectedImage || item.productImage[0]?.asset._ref)}
-      />
+      <div className={styles.itemImage}>
+        <Image
+          src={urlFor(selectedImage).url() || urlFor(item.productImage[0]).url()}
+          layout="fill"
+        />
+      </div>
       <div className={styles.smallImages}>
-        {item.productImage.length > 1 && item.productImage.map((url, index = 1) => <img
+        {item.productImage.length > 1 && item.productImage.map((url, index = 1) => <div
           key={index}
           className={styles.smallImageItem}
-          src={urlFor(url?.asset._ref)}
-          onClick={() => setSelectedImage(url)}
-        />)}
+        >
+          <Image
+            src={urlFor(url).url()}
+            onClick={() => setSelectedImage(url)}
+            layout="fill"
+          />
+        </div>)}
       </div>
     </div>
     <div className={styles.right}>

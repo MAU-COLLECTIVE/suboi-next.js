@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { CartContext } from 'contexts/Cart';
 import PlusIcon from 'public/icons/plus.svg';
 import MinusIcon from 'public/icons/minus.svg';
+import Image from 'next/image';
 import { urlFor } from 'utils/sanity';
 import styles from './CartItems.module.scss';
 
@@ -21,7 +22,9 @@ function CartItems() {
         key={index}
       >
         <div className={styles.left}>
-          <img src={urlFor(item?.productImage[0]?.asset._ref)}></img>
+          <div className={styles.img}>
+            <Image src={urlFor(item?.productImage[0]).url()} layout="fill"></Image>
+          </div>
           <div className={styles.counter}>
             <div
               className={styles.countBtn}

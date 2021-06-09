@@ -25,7 +25,7 @@ function CheckoutStepOne({ onClick }) {
         {cartItems.map((item) => <CheckoutItem
           name={item.name}
           price={item.priceForSize || item.price}
-          image={urlFor(item?.productImage[0]?.asset._ref)}
+          image={urlFor(item?.productImage[0]).url()}
           size={item.size}
           key={item.slug.current}
         />)}

@@ -6,6 +6,7 @@
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 95px;
+  width: 100%;
 
   h4 {
     cursor: pointer;
@@ -42,6 +43,7 @@
 }
 
 .itemImg {
+  position: relative;
   cursor: pointer;
   width: 100%;
   height: 100vw;

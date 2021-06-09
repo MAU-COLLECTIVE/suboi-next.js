@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Image from 'next/image';
 import Button from 'elements/Button/Button';
 import { urlFor } from 'utils/sanity';
 import clsx from 'clsx';
@@ -8,10 +9,9 @@ import styles from './SongDetail.module.scss';
 function SongDetail({ item }) {
   return <div className={styles.itemDetail}>
     <div className={styles.left}>
-      <img
-        className={styles.itemImage}
-        src={urlFor(item?.coverImage?.asset._ref)}
-      />
+      <div className={styles.itemImage}>
+        <Image src={urlFor(item?.coverImage).url()} layout="fill"/>
+      </div>
     </div>
     <div className={styles.right}>
       <h3 className={styles.titleText}>{item.name}</h3>
