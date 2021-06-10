@@ -48,7 +48,6 @@
     .img {
       min-width: 100%;
       max-width: 100%;
-      border-radius: 5px;
       transition: .3s;
       cursor: pointer; 
       user-select: none;
@@ -58,6 +57,10 @@
       -ms-user-select: none;
       position: relative;
       padding-top: 100%;
+
+      .nextImg {
+        border-radius: 5px;
+      }
     }
 
     .songInfo {
