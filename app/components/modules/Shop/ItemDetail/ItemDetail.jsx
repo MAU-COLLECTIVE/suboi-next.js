@@ -45,6 +45,7 @@ function Item({ item, showPopup, openCart }) {
         <Image
           src={urlFor(selectedImage).url() || urlFor(item.productImage[0]).url()}
           layout="fill"
+          priority={true}
         />
       </div>
       <div className={styles.smallImages}>
@@ -56,6 +57,7 @@ function Item({ item, showPopup, openCart }) {
             src={urlFor(url).url()}
             onClick={() => setSelectedImage(url)}
             layout="fill"
+            priority={true}
           />
         </div>)}
       </div>

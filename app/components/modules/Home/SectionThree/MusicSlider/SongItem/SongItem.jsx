@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { urlFor } from 'utils/sanity';
+import Image from 'next/image';
 import styles from '../MusicSlider.module.scss';
 
 function SongItem({ item, center }) {
@@ -15,7 +16,9 @@ function SongItem({ item, center }) {
 
   return (
     <div className={styles.songCardBox} onClick={handleOnClick}>
-      <img src={urlFor(item?.coverImage?.asset._ref)}/>
+      <div className={styles.img}>
+        <Image src={urlFor(item?.coverImage).url()} priority={true} layout="fill" />
+      </div>
       <div className={styles.songInfo}>
         <div className={styles.songInfoLeft}>
           <h4>{item?.name}</h4>

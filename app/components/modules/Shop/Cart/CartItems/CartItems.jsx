@@ -23,7 +23,7 @@ function CartItems() {
       >
         <div className={styles.left}>
           <div className={styles.img}>
-            <Image src={urlFor(item?.productImage[0]).url()} layout="fill"></Image>
+            <Image src={urlFor(item?.productImage[0]).url()} layout="fill" priority={true}/>
           </div>
           <div className={styles.counter}>
             <div

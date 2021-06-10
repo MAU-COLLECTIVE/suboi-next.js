@@ -45,7 +45,7 @@
       padding: 18px 15px 30px 15px;
     }
 
-    img {
+    .img {
       min-width: 100%;
       max-width: 100%;
       border-radius: 5px;
@@ -56,6 +56,8 @@
       -webkit-user-drag: none;
       -webkit-user-select: none;
       -ms-user-select: none;
+      position: relative;
+      padding-top: 100%;
     }
 
     .songInfo {
@@ -129,7 +131,7 @@
       padding: 18px 20px 30px 20px; 
     }
 
-    img {
+    .img {
       width: 280px;
     }
   }
@@ -166,7 +168,7 @@
       border: 2px rgba($color: #fff, $alpha: 0) solid; 
       box-shadow: 0 0 10px rgba($color: #fff, $alpha: 0);
 
-      img {
+      .img {
         min-width: 220px;
         max-height: 220px;
         height: 220px;
@@ -210,7 +212,7 @@
       border: 2px rgba($color: #fff, $alpha: 0) solid; 
       box-shadow: 0 0 10px rgba($color: #fff, $alpha: 0);
 
-      img {
+      .img {
         transition: .3s;
         width: 380px;
         height: 380px;
@@ -237,7 +239,7 @@
       border: 2px rgba($color: #fff, $alpha: 0) solid; 
       box-shadow: 0 0 10px rgba($color: #fff, $alpha: 0);
       
-      img { 
+      .img { 
         height: 120px; 
         min-width: 120px;  
         max-width: 120px;
@@ -256,7 +258,7 @@
       border: 2px rgba($color: #fff, $alpha: 0) solid; 
       box-shadow: 0 0 10px rgba($color: #fff, $alpha: 0);
       
-      img { 
+      .img { 
         min-width: 65px;  
         max-width: 65px;  
         height: 65px; 
@@ -300,7 +302,7 @@
       height: 516px; 
       padding: 25px 20px 40px 20px;
 
-      img {
+      .img {
         transition: .3s;
         width: 380px;
         height: 380px;
@@ -324,7 +326,7 @@
       width: 100%;
       height: 120px; 
       
-      img { 
+      .img { 
         width: 100%;
         height: 100%; 
       }
@@ -339,7 +341,7 @@
       width: 100%;
       height: 65px; 
 
-      img { 
+      .img { 
         width: 100%;
         height: 100%; 
       }

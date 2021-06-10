@@ -17,7 +17,7 @@ function Item({
 
   return <div className={styles.item} onClick={handleOnClick}>
     <div className={styles.itemImg}>
-      <Image src={image} layout="fill"/>
+      <Image src={image} layout="fill" priority={true}/>
     </div>
     <div className={styles.itemInfo}>
       <h4>{name}</h4>

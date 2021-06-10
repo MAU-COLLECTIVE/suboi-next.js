@@ -47,18 +47,24 @@
       border: 3px rgba($color: #fff, $alpha: 0) solid; 
     }
 
-    img {
+    .img {
       min-width: 100%;
       max-width: 100%;
-      border-radius: 5px;
+      height: auto;
       transition: .3s;
       cursor: pointer;  
       filter: blur(5px);  
+      position: relative;
       user-select: none;
       -moz-user-select: none;
       -webkit-user-drag: none;
       -webkit-user-select: none;
       -ms-user-select: none;
+      padding-top: 150%;
+
+      .nextImg {
+        border-radius: 5px;
+      }
     }
 
     .songInfo {
@@ -82,8 +88,12 @@
   .songCardSmaller,
   .songCardSmallest {
 
-    img { 
+    .img { 
       filter: blur(15px);  
+
+      .nextImg {
+        border-radius: 5px;
+      }
     }
   }
 
@@ -93,8 +103,12 @@
       height: max-content;
       border-radius: 14px; 
 
-      img {
+      .img {
         filter: blur(0); 
+
+        .nextImg {
+          border-radius: 5px;
+        }
       }
     }
 
@@ -131,7 +145,7 @@
       display: flex;
       flex-direction: column; 
 
-      img {
+      .img {
         width: 220px; 
         border-radius: 5px;
         transition: .3s;
@@ -159,7 +173,7 @@
       width: 376px;  
       height: max-content; 
 
-      img {
+      .img {
         transition: .3s;
         width: 376px;
       }
@@ -181,7 +195,7 @@
       width: 100%;
       height: max-content; 
       
-      img { 
+      .img { 
         width: 100%;
         height: 100%; 
       }
@@ -196,7 +210,7 @@
       width: 100%;
       height: max-content; 
       
-      img { 
+      .img { 
         width: 100%;
         height: 100%; 
       }

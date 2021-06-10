@@ -10,7 +10,7 @@ function CheckoutItem({
   size,
 }) {
   return <div className={styles.item}>
-    <Image src={image} width='140px' height='140px' className={styles.itemImg}></Image>
+    <Image src={image} width='140px' height='140px' className={styles.itemImg} priority={true}/>
     <div className={styles.itemInfo}>
       <h4>{name}</h4>
       <p className={styles.text}>{size ? `SIZE ${size}` : ''}</p>

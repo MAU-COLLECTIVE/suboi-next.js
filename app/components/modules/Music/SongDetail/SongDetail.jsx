@@ -10,7 +10,7 @@ function SongDetail({ item }) {
   return <div className={styles.itemDetail}>
     <div className={styles.left}>
       <div className={styles.itemImage}>
-        <Image src={urlFor(item?.coverImage).url()} layout="fill"/>
+        <Image src={urlFor(item?.coverImage).url()} layout="fill" />
       </div>
     </div>
     <div className={styles.right}>
