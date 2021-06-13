@@ -30,7 +30,7 @@ function SectionOne({ background, promote, height }) {
         )}
 
         <div className={styles.buttons}>
-          {(promote?.albumAndSong && promote?.ctaLink?.playVideo) && (
+          {(promote?.ctaLink?.playVideo) && (
             <Button
               className={styles.button}
               background="transparent"
@@ -38,7 +38,7 @@ function SectionOne({ background, promote, height }) {
               href={promote?.ctaLink?.playVideo}
             />
           )}
-          {(promote?.albumAndSong && promote?.ctaLink?.buyAlbum) && (
+          {(promote?.ctaLink?.buyAlbum) && (
             <Button
               className={styles.button}
               background="red"
