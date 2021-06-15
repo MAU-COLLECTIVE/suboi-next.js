@@ -26,7 +26,10 @@ function SectionOne({ background, promote, height }) {
           {promote?.albumAndSong?.name}
         </h1>
 
-          <span className={styles.subtitle}>NEW ALBUM</span>
+          {promote?.albumAndSong
+            ? <span className={styles.subtitle}>SUBOI</span>
+            : <span className={styles.title}>&quot;NEW ALBUM&quot;</span>
+          }
 
         <div className={styles.buttons}>
           {(promote?.ctaLink?.playVideo) && (
