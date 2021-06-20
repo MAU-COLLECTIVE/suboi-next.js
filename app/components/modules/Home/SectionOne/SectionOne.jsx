@@ -27,7 +27,7 @@ function SectionOne({ background, promote, height }) {
         </h1>
 
         {promote?.albumAndSong && (
-          <span className={styles.subtitle}>SUBOI</span>
+          <span className={styles.subtitle}></span>
         )}
 
         <div className={styles.buttons}>
