@@ -1,0 +1,83 @@
+@import "styles/app.scss";
+
+.video {
+  position: relative;
+  width: calc(100% / 2 - 20px);
+  padding-top: 25%;
+
+  @include home-breakpoint("xl") {
+    width: calc(100% / 3 - 43px);
+    padding-top: 18%;
+  }
+  
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+.videoOverlay {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba($color: #000000, $alpha: .5);
+  opacity: 0;
+  transition: .3s;
+  font-family: $font-secondary;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.videoTitle {
+  margin: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+
+  @include font-sizing(.6rem, 600, null, 25);
+
+  @include home-breakpoint("sm") {
+    @include font-sizing(1.5rem, 600, null, 25);
+  }
+}
+
+.btnPlayVideo {
+  position: absolute;
+  bottom: 10px;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 1rem;
+  color: white;
+  padding: 2px 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .3s;
+
+  @include font-sizing(.6rem, 400, null, 100);
+
+  @include home-breakpoint("sm") {
+    bottom: 20px;
+    padding: 5px 14px;
+
+    @include font-sizing(.8rem, 400, null, 100);
+  }
+
+  &:active {
+    transform: scale(.95);
+  }
+}
