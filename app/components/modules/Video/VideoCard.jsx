@@ -8,7 +8,7 @@ const VideoCard = ({ title, thumbnail, link, handleCurrent }) => (
   <div className={styles.video}>
       <Image
         className={styles.thumbnail}
-        src={thumbnail && urlFor(thumbnail).width('500').url()}
+        src={thumbnail && urlFor(thumbnail).url()}
         alt={title}
         layout="fill"
       />
