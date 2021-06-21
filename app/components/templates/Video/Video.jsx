@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import getYouTubeId from 'get-youtube-id';
-import YouTube from 'react-youtube';
+import ReactPlayer from 'react-player';
 import VideoCard from 'modules/Video/VideoCard';
 import styles from './Video.module.scss';
 
 function Video({ video }) {
-  const [currentId, setCurrentId] = useState(null);
+  const [currentLink, setCUrrentLink] = useState(null);
 
   useEffect(() => {
-    const id = getYouTubeId(video[0]?.youtubeEmbedLink);
-    setCurrentId(id);
+    const link = video[0]?.youtubeEmbedLink;
+    setCUrrentLink(link);
   }, []);
 
-  const handleCurrent = (id) => {
-    setCurrentId(getYouTubeId(id));
+  const handleCurrent = (link) => {
+    setCUrrentLink(link);
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
@@ -24,11 +23,13 @@ function Video({ video }) {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <YouTube
-          videoId={currentId}
-          opts={{ width: '100%', height: '100%' }}
-          containerClassName={styles.currentVideo}
-        />
+        <div className={styles.currentVideo}>
+          <ReactPlayer
+            url={currentLink}
+            width="100%"
+            height="100%"
+          />
+        </div>
         <div className={styles.videoList}>
           {video.map((vid) => (
             <VideoCard
