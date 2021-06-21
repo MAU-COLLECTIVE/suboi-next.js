@@ -21,7 +21,7 @@ function SectionFour({ background, tour, height }) {
       />
       <div className={styles.content}>
         <h1 className={styles.title}>
-          {tour?.tourName ?? 'NO TOUR ANNOUNCEMENTS YET'}
+          {(tour?.tourName || tours?.length < 1) && 'NO TOUR ANNOUNCEMENTS YET'}
         </h1>
         <div className={styles.cardContainer}>
           <Splide options={{
