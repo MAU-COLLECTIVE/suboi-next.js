@@ -12,7 +12,7 @@ function Header({ onChangeSection }) {
   const [logoLink, setLogoLink] = useState('/');
 
   useEffect(() => {
-    if (pathname === '/[id]') {
+    if (pathname === '/[id]' || pathname === '/video') {
       setHideLinks(true);
     } else if (pathname === '/shop' || pathname === '/shop/[id]' || pathname === '/checkout') {
       setHideLinks(true);
