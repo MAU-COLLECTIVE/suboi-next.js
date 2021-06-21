@@ -7,6 +7,7 @@ import styles from './VideoCard.module.scss';
 const VideoCard = ({ title, thumbnail, link, handleCurrent }) => (
   <div className={styles.video}>
       <Image
+        className={styles.thumbnail}
         src={thumbnail && urlFor(thumbnail).width('500').url()}
         alt={title}
         layout="fill"
