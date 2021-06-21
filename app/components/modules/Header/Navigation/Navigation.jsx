@@ -80,16 +80,16 @@ function Navigation({
             <li onClick={() => { handleOnClick(4, 'tour'); }}>
               <p>Tour</p>
             </li>
+            <li onClick={() => { handleOnClick(5, 'videos'); }}>
+              <p>Videos</p>
+            </li>
+            <li onClick={() => { handleOnClick(6, 'photos'); }}>
+              <p>Photos</p>
+            </li>
             <li onClick={() => { handleOnClick(null, 'shop'); }}>
               <p>Shop</p>
             </li>
-            <li onClick={() => { handleOnClick(5, 'photos'); }}>
-              <p>Photos</p>
-            </li>
-            <li>
-              <p>Videos</p>
-            </li>
-            <li onClick={() => { handleOnClick(6, 'contact'); }}>
+            <li onClick={() => { handleOnClick(7, 'contact'); }}>
               <p>Contact</p>
             </li>
           </ul>
