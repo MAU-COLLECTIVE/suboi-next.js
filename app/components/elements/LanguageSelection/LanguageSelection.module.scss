@@ -1,34 +1,45 @@
 @import "styles/app.scss";
 
-.language {
-  width: max-content;
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  color: $color-black;
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  z-index: 100;
-  padding: 4px 0;
+@include home-breakpoint("xs") {
 
-  & p {
+  .language {
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    color: $color-black;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 100;
+    padding: 4px 0;
 
-    &:nth-child(2) { 
-      margin: 0 3px; 
+    & p {
+
+      &:nth-child(2) { 
+        margin: 0 3px; 
+      }
+    }
+
+    .languageText {
+      cursor: pointer;
+      transition: .3s;
+      font-size: .75rem;
+
+      &:active {
+        transform: scale(.95);
+      }
     }
   }
 
-  .languageText {
-    cursor: pointer;
-    transition: .3s;
-
-    &:active {
-      transform: scale(.95);
-    }
+  .languageWhite { 
+    color: $color-white;  
   }
 }
 
-.languageWhite { 
-  color: $color-white;  
+@include home-breakpoint("lg") {
+
+  .languageText {
+    font-size: .938rem !important;
+  }
 }
