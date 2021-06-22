@@ -39,7 +39,10 @@
 
 @include home-breakpoint("lg") {
 
-  .languageText {
-    font-size: .938rem !important;
+  .language {
+    
+    .languageText {
+      font-size: .938rem;
+    }
   }
 }
