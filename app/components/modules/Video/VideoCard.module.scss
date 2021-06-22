@@ -5,7 +5,7 @@
   width: calc(100% / 2 - 20px);
   padding-top: 25%;
 
-  @include home-breakpoint("xl") {
+  @include home-breakpoint("md") {
     width: calc(100% / 3 - 43px);
     padding-top: 18%;
   }
