@@ -18,6 +18,7 @@ function Default({ children, social }) {
       <Head>
         <title>SUBOI</title>
         <meta charSet="utf-8" />
+        <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width, height=device-height" />
       </Head>
       <Header/>
