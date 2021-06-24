@@ -74,6 +74,7 @@ function PhotoSlider({ photos }) {
 
   return (
     <Swipe
+      allowMouseEvents
       onSwipeRight={onSwipeRight}
       onSwipeLeft={onSwipeLeft}>
       <div className={styles.musicSlider}>
