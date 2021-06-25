@@ -27,8 +27,8 @@ function PhotoSlider({ photos }) {
     let margin = 20;
     const haftActiveWidth = 420 / 2;
     const width = 220;
-    const smallerWidth = 120;
-    const smallestWidth = 65;
+    let smallerWidth = 120;
+    let smallestWidth = 65;
 
     function updateSize() {
       setSizeChanged(sizeChanged);
@@ -50,14 +50,15 @@ function PhotoSlider({ photos }) {
       }
     } else if (window.innerWidth >= 1024) {
       margin = 60;
+      smallerWidth = 220;
+      smallestWidth = 120;
+      const marginStep = currentSong + (currentSong - 1);
       if (currentSong === 1) {
         setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin}px) )`);
       } else if (currentSong === 2) {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 3}px - ${width}px))`);
-      } else if (currentSong === 3) {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 5}px - ${width}px - ${smallerWidth}px))`);
+        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * marginStep}px - ${width}px))`);
       } else {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 7}px - ${width * (currentSong - 3)}px - ${smallerWidth}px - ${smallestWidth}px + ${35 * (currentSong - 4)}px))`);
+        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * marginStep}px - ${width * (currentSong - 2)}px - ${smallerWidth}px))`);
       }
     }
     window.addEventListener('resize', updateSize);
@@ -78,7 +79,7 @@ function PhotoSlider({ photos }) {
       <div className={styles.musicSlider}>
         <div
           style={{
-            transform: transformCss,
+            transform: `${transformCss} translateZ(0)`,
           }}
           className={styles.musicSliderBox}
         >
