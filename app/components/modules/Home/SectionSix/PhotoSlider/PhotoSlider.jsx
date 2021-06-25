@@ -24,42 +24,36 @@ function PhotoSlider({ photos }) {
   };
 
   useEffect(() => {
-    let margin = 20;
+    let margin = 40;
     const haftActiveWidth = 420 / 2;
     const width = 220;
-    let smallerWidth = 120;
-    let smallestWidth = 65;
+    const marginStep = currentSong + (currentSong - 1);
 
     function updateSize() {
       setSizeChanged(sizeChanged);
     }
 
-    if (window.innerWidth < 694) {
-      margin = 20;
-      setTransformCss(`translateX(calc(${-60 * (currentSong - 1)}vw - ${40 * (currentSong - 1)}px))`);
-    } else if (window.innerWidth >= 694 && window.innerWidth < 1024) {
-      margin = 40;
-      if (currentSong === 1) {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin}px) )`);
-      } else if (currentSong === 2) {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 3}px - ${width}px))`);
-      } else if (currentSong === 3) {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 5}px - ${width}px - ${smallerWidth}px))`);
-      } else {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 7}px - ${width * (currentSong - 3)}px - ${smallerWidth}px - ${smallestWidth}px + ${75 * (currentSong - 4)}px))`);
-      }
-    } else if (window.innerWidth >= 1024) {
-      margin = 60;
-      smallerWidth = 220;
-      smallestWidth = 120;
-      const marginStep = currentSong + (currentSong - 1);
-      if (currentSong === 1) {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin}px) )`);
-      } else if (currentSong === 2) {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * marginStep}px - ${width}px))`);
-      } else {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * marginStep}px - ${width * (currentSong - 2)}px - ${smallerWidth}px))`);
-      }
+    switch (true) {
+      case window.innerWidth < 694:
+        setTransformCss(`translateX(calc(${-60 * (currentSong - 1)}vw - ${margin * (currentSong - 1)}px))`);
+        break;
+      case window.innerWidth >= 694 && window.innerWidth < 1024:
+        if (currentSong === 1) {
+          setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin}px) )`);
+        } else if (currentSong >= 2) {
+          setTransformCss(`translateX(calc(50% - ${haftActiveWidth * (currentSong - 1)}px - ${margin * marginStep}px - ${width}px - ${10 * (currentSong - 2)}px))`);
+        }
+        break;
+      case window.innerWidth >= 1024:
+        margin = 60;
+        if (currentSong === 1) {
+          setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin}px) )`);
+        } else if (currentSong >= 2) {
+          setTransformCss(`translateX(calc(50% - ${haftActiveWidth * currentSong}px - ${margin * marginStep}px - ${10 * (currentSong - 1)}px))`);
+        }
+        break;
+      default:
+        break;
     }
     window.addEventListener('resize', updateSize);
     return () => window.removeEventListener('resize', updateSize);
@@ -74,8 +68,10 @@ function PhotoSlider({ photos }) {
 
   return (
     <Swipe
+      allowMouseEvents
       onSwipeRight={onSwipeRight}
-      onSwipeLeft={onSwipeLeft}>
+      onSwipeLeft={onSwipeLeft}
+    >
       <div className={styles.musicSlider}>
         <div
           style={{

@@ -33,58 +33,42 @@ function MusicSlider({ songs }) {
       setSizeChanged(sizeChanged);
     }
 
-    if (window.innerWidth <= 500) {
-      margin = 20;
-      if (currentSong === songs.length) {
-        setTransformCss(`translateX(calc(${-60 * (currentSong - 1)}vw - ${40 * (currentSong - 1)}px + 30vw))`);
-      } else {
-        setTransformCss(`translateX(calc(${-60 * (currentSong - 1)}vw - ${40 * (currentSong - 1)}px))`);
-      }
-    } else if (window.innerWidth < 694 && window.innerWidth > 500) {
-      margin = 20;
-      if (currentSong === songs.length) {
-        setTransformCss(`translateX(calc(${-60 * (currentSong - 1)}vw - ${40 * (currentSong - 1)}px + 33vw))`);
-      } else {
-        setTransformCss(`translateX(calc(${-60 * (currentSong - 1)}vw - ${40 * (currentSong - 1)}px))`);
-      }
-    } else if (window.innerWidth >= 694 && window.innerWidth < 1023) {
-      haftActiveWidth = 280 / 2;
-      if (currentSong === 1) {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin}px - 20px) )`);
-      } else {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth * (currentSong + (currentSong - 1))}px - ${margin * (currentSong + (currentSong - 1))}px - ${20 * (currentSong + (currentSong - 1))}px) )`);
-      }
-    } else if (window.innerWidth >= 1023 && window.innerWidth < 1366) {
-      haftActiveWidth = 280 / 2;
-      margin = 90;
-      if (currentSong === 1) {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin}px - 20px) )`);
-      } else {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth * (currentSong + (currentSong - 1))}px - ${margin * (currentSong + (currentSong - 1))}px - ${20 * (currentSong + (currentSong - 1))}px) )`);
-      }
-    } else if (window.innerWidth >= 1366 && window.innerWidth < 1919) {
-      margin = 40;
-      if (currentSong === 1) {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin}px) )`);
-      } else if (currentSong === 2) {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 3}px - ${width}px))`);
-      } else if (currentSong === 3) {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 5}px - ${width}px - ${smallerWidth}px))`);
-      } else {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 7}px - ${width * (currentSong - 3)}px - ${smallerWidth}px - ${smallestWidth}px + ${75 * (currentSong - 4)}px))`);
-      }
-    } else if (window.innerWidth >= 1919) {
-      haftActiveWidth = 440 / 2;
-      margin = 40;
-      if (currentSong === 1) {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin}px))`);
-      } else if (currentSong === 2) {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 3}px - ${width}px))`);
-      } else if (currentSong === 3) {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 5}px - ${width}px - ${smallerWidth}px))`);
-      } else {
-        setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 7}px - ${width * (currentSong - 3)}px - ${smallerWidth}px - ${smallestWidth}px + ${75 * (currentSong - 4)}px))`);
-      }
+    switch (true) {
+      case window.innerWidth < 694:
+        if (currentSong === songs.length) {
+          setTransformCss(`translateX(calc(${-60 * (currentSong - 1)}vw - ${40 * (currentSong - 1)}px + 33vw))`);
+        } else {
+          setTransformCss(`translateX(calc(${-60 * (currentSong - 1)}vw - ${40 * (currentSong - 1)}px))`);
+        }
+        break;
+      case window.innerWidth >= 694 && window.innerWidth < 1366:
+        if (window.innerWidth >= 1023) {
+          margin = 90;
+        }
+        haftActiveWidth = 280 / 2;
+        if (currentSong === 1) {
+          setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin}px - 20px) )`);
+        } else {
+          setTransformCss(`translateX(calc(50% - ${haftActiveWidth * (currentSong + (currentSong - 1))}px - ${margin * (currentSong + (currentSong - 1))}px - ${20 * (currentSong + (currentSong - 1))}px) )`);
+        }
+        break;
+      case window.innerWidth >= 1366:
+        if (window.innerWidth >= 1919) {
+          haftActiveWidth = 440 / 2;
+        }
+        margin = 40;
+        if (currentSong === 1) {
+          setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin}px) )`);
+        } else if (currentSong === 2) {
+          setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 3}px - ${width}px))`);
+        } else if (currentSong === 3) {
+          setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 5}px - ${width}px - ${smallerWidth}px))`);
+        } else {
+          setTransformCss(`translateX(calc(50% - ${haftActiveWidth}px - ${margin * 7}px - ${width * (currentSong - 3)}px - ${smallerWidth}px - ${smallestWidth}px + ${75 * (currentSong - 4)}px))`);
+        }
+        break;
+      default:
+        break;
     }
     window.addEventListener('resize', updateSize);
     return () => window.removeEventListener('resize', updateSize);
@@ -92,7 +76,7 @@ function MusicSlider({ songs }) {
 
   return (
     <Swipe
-      allowMouseEvents={true}
+      allowMouseEvents
       onSwipeRight={onSwipeRight}
       onSwipeLeft={onSwipeLeft}>
       <div className={styles.musicSlider}>
