@@ -35,4 +35,4 @@ SongItem.propTypes = {
   center: PropTypes.bool,
 };
 
-export default SongItem;
+export default React.memo(SongItem);
