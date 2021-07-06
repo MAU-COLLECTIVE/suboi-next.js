@@ -6,10 +6,21 @@ import styles from './PhotoSlider.module.scss';
 import PhotoItem from './PhotoItem/PhotoItem';
 
 function PhotoSlider({ photos }) {
-  const [currentSong, setCurrentSong] = useState(1);
-  const [infinityPhotos, setInfinityPhotos] = useState(photos);
+  const [currentSong, setCurrentSong] = useState(5);
+  const [infinityPhotos, setInfinityPhotos] = useState([
+    photos[photos.length - 4],
+    photos[photos.length - 3],
+    photos[photos.length - 2],
+    photos[photos.length - 1],
+    ...photos,
+    photos[0],
+    photos[1],
+    photos[2],
+    photos[3],
+  ]);
   const [transformCss, setTransformCss] = useState('');
   const [sizeChanged, setSizeChanged] = useState(false);
+  const [transition, setTransition] = useState('.3s');
 
   const onSwipeRight = () => {
     if (currentSong > 1) {
@@ -60,9 +71,27 @@ function PhotoSlider({ photos }) {
   }, [currentSong, sizeChanged]);
 
   useEffect(() => {
-    if (infinityPhotos.length - currentSong === 3) {
-      const newData = [...infinityPhotos, ...photos];
-      setInfinityPhotos(newData);
+    if (currentSong === infinityPhotos.length - 3) {
+      setTimeout(() => {
+        setTransition('none');
+      }, 200);
+      setTimeout(() => {
+        setCurrentSong(5);
+      }, 350);
+      setTimeout(() => {
+        setTransition('.3s');
+      }, 400);
+    }
+    if (currentSong === 3) {
+      setTimeout(() => {
+        setTransition('none');
+      }, 200);
+      setTimeout(() => {
+        setCurrentSong(infinityPhotos.length - 5);
+      }, 350);
+      setTimeout(() => {
+        setTransition('.3s');
+      }, 400);
     }
   }, [photos, currentSong]);
 
@@ -76,6 +105,7 @@ function PhotoSlider({ photos }) {
         <div
           style={{
             transform: `${transformCss} translateZ(0)`,
+            transition: `${transition}`,
           }}
           className={styles.musicSliderBox}
         >
@@ -87,12 +117,17 @@ function PhotoSlider({ photos }) {
               (currentSong === index + 3 || currentSong === index - 1) && styles.songCardSmaller,
               (currentSong >= index + 4 || currentSong <= index - 2) && styles.songCardSmallest,
             )}
-            onClick={() => setCurrentSong(index + 1)}
+            onClick={() => {
+              if (currentSong !== infinityPhotos.length - 2) {
+                setCurrentSong(index + 1)
+              }
+            }}
+            style={{ transition: `${transition}` }}
           >
-            <PhotoItem item={item} />
+            <PhotoItem item={item} transition={transition}/>
           </div>)}
         </div>
-      </div>;
+      </div>
     </Swipe>
   );
 }

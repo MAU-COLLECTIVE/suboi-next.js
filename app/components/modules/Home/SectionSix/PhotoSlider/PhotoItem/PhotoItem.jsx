@@ -4,9 +4,10 @@ import { urlFor } from 'utils/sanity';
 import Image from 'next/image';
 import styles from '../PhotoSlider.module.scss';
 
-function SongItem({ item }) {
+function SongItem({ item, transition }) {
   return (
-    <div className={styles.songCardBox}>
+    <div className={styles.songCardBox}
+      style={{ transition: `${transition}` }}>
       <div className={styles.img}>
         <Image
           src={urlFor(item?.image).url()}
@@ -20,6 +21,7 @@ function SongItem({ item }) {
 }
 
 SongItem.propTypes = {
+  transition: PropTypes.string,
   item: PropTypes.object,
 };
 
